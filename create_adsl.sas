@@ -1,4 +1,4 @@
-libname adam "C:\Users\carol\DSC541\DSC541\.git";
+libname adam "C:\Users\carol\DSC541\DSC541\adam";
 
 data adam.adsl;
     length
