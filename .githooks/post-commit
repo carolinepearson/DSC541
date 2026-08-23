@@ -1,0 +1,10 @@
+#!/bin/sh
+
+branch=$(git symbolic-ref --quiet --short HEAD) || exit 0
+remote=$(git config "branch.${branch}.remote")
+
+if [ -z "$remote" ]; then
+    remote=origin
+fi
+
+git push "$remote" "$branch"
