@@ -1,4 +1,4 @@
-libname adam "";
+libname adam "/home/your-user/DSC541";
 
 data adam.adsl;
     length
