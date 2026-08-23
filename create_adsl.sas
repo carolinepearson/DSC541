@@ -1,6 +1,8 @@
 libname adam "~/DSC541/adam";
 
 data adam.adsl;
+    call streaminit(20260823);
+
     length
         STUDYID USUBJID $20
         SUBJID SITEID $10
@@ -58,10 +60,11 @@ data adam.adsl;
         RFICDT = "15DEC2025"d + mod(SubjectNumber - 1, 10);
         RANDDT = "01JAN2026"d + SubjectNumber - 1;
         TRTSDT = RANDDT;
-        TRTEDT = TRTSDT + 27;
+        TreatmentDays = rand("integer", 10, 100);
+        TRTEDT = TRTSDT + TreatmentDays;
 
         if SubjectNumber > 90 then do;
-            DTHDT = TRTSDT + 10;
+            DTHDT = TRTSDT + TreatmentDays;
             TRTEDT = DTHDT;
             EOSSTT = "DISCONTINUED";
             EOSDT = DTHDT;
@@ -89,7 +92,7 @@ data adam.adsl;
         output;
     end;
 
-    drop SubjectNumber;
+    drop SubjectNumber TreatmentDays;
 run;
 
 proc contents data=adam.adsl;
