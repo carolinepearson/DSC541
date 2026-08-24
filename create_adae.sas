@@ -13,7 +13,7 @@ data adam.adae;
 
     length
         AESEQ AESTDY ASTDY AEENDY AENDY AETOXGRN ARELN
-        AEHLGTN AEHLTN AELLTN AESOCCD AEBDSYCD AEOUTN 8;
+        AEOUTN 8;
 
     format AESTDT AEENDT date9.;
 
@@ -251,6 +251,10 @@ data adam.adae;
         AESLIFE = "N";
         AESMIE = "N";
         AOCCFL = "Y";
+        if index(upcase(DCSREAS), "WITHDRAW") > 0 then
+            AEACNOTH = "4";
+        else
+            AEACNOTH = "";
         SRCDOM = "ADSL";
         SRCVAR = "TRTSDT";
         SRCSEQ = AESEQ;
