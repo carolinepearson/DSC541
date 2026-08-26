@@ -7,10 +7,24 @@ data adam.adsl;
         STUDYID USUBJID $20
         SUBJID SITEID $10
         RANDFL SAFFL ITTFL $1
+        SCRNFL COMTFL COMSFL $1
         AGEU SEX RACE ETHNIC $40
+        AGEGR1 $20
         ARM TRT01P TRT01A $20
         EOSSTT EOTSTT $20
         DCSREAS DCTREAS DTHCAUS $100;
+
+    length AGEGR1N BLWT BLHT BLBMI 8;
+
+    label
+        SCRNFL = "Screened Population Flag"
+        COMTFL = "Completed Study Treatment Flag"
+        COMSFL = "Completed Study Flag"
+        AGEGR1 = "Age Group 1"
+        AGEGR1N = "Age Group 1 Numeric"
+        BLWT = "Baseline Weight"
+        BLHT = "Baseline Height"
+        BLBMI = "Baseline Body Mass Index";
 
     format TRTSDT TRTEDT EOSDT RFICDT RANDDT
            LSTALVDT DTHDT date9.;
@@ -64,6 +78,8 @@ data adam.adsl;
         TRTEDT = TRTSDT + TreatmentDays;
 
         if SubjectNumber > 90 then do;
+            TreatmentDiscontinue = 1;
+            StudyDiscontinue = 1;
             DTHDT = TRTSDT + TreatmentDays;
             TRTEDT = DTHDT;
             EOSSTT = "DISCONTINUED";
@@ -79,20 +95,65 @@ data adam.adsl;
             end;
         end;
         else do;
-            EOSSTT = "COMPLETED";
-            EOSDT = TRTEDT;
-            DCSREAS = "";
-            EOTSTT = "COMPLETED";
-            DCTREAS = "";
+            StudyDiscontinue = (rand("uniform") < 0.15);
+            TreatmentDiscontinue = (rand("uniform") < 0.20);
+
+            if StudyDiscontinue then
+                TreatmentDiscontinue = 1;
+
+            if TreatmentDiscontinue then do;
+                EOTSTT = "DISCONTINUED";
+                DCTREAS = "LACK OF EFFICACY";
+            end;
+            else do;
+                EOTSTT = "COMPLETED";
+                DCTREAS = "";
+            end;
+
+            if StudyDiscontinue then do;
+                EOSSTT = "DISCONTINUED";
+                EOSDT = TRTEDT + rand("integer", 1, 14);
+                DCSREAS = "WITHDRAWAL BY SUBJECT";
+            end;
+            else do;
+                EOSSTT = "COMPLETED";
+                EOSDT = TRTEDT;
+                DCSREAS = "";
+            end;
+
             LSTALVDT = EOSDT;
             DTHDT = .;
             DTHCAUS = "";
         end;
 
+        SCRNFL = "Y";
+        if EOTSTT = "COMPLETED" then
+            COMTFL = "Y";
+        else
+            COMTFL = "N";
+
+        if EOSSTT = "COMPLETED" then
+            COMSFL = "Y";
+        else
+            COMSFL = "N";
+
+        if AGE < 65 then do;
+            AGEGR1 = "< 65";
+            AGEGR1N = 1;
+        end;
+        else do;
+            AGEGR1 = ">= 65";
+            AGEGR1N = 2;
+        end;
+
+        BLWT = round(55 + mod(SubjectNumber * 7, 35) + rand("uniform"), 0.1);
+        BLHT = round(150 + mod(SubjectNumber * 5, 35) + rand("uniform"), 0.1);
+        BLBMI = round(BLWT / ((BLHT / 100) ** 2), 0.1);
+
         output;
     end;
 
-    drop SubjectNumber TreatmentDays;
+    drop SubjectNumber TreatmentDays TreatmentDiscontinue StudyDiscontinue;
 run;
 
 proc contents data=adam.adsl;
