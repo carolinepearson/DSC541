@@ -100,7 +100,7 @@ data adam.adpc;
         end;
 
         if PCELTMN = 0 then
-            PCSTRESN = round(rand("uniform") * 2, 0.01);
+            PCSTRESN = round(5.01 + rand("uniform") * 2, 0.01);
         else
             PCSTRESN = round(120 * exp(-0.08 * PCELTMN) *
                              (0.75 + rand("uniform") * 0.5), 0.01);

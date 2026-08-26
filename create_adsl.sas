@@ -132,6 +132,30 @@ data adam.adsl;
         else
             COMTFL = "N";
 
+        if COMTFL = "N" then do;
+            TreatmentMonths = rand("integer", 10, 100);
+            TRTEDT = intnx("month", TRTSDT, TreatmentMonths, "same");
+            if not missing(DTHDT) then do;
+                DTHDT = TRTEDT;
+                EOSDT = DTHDT;
+                LSTALVDT = DTHDT;
+            end;
+            else if StudyDiscontinue then do;
+                EOSDT = TRTEDT + rand("integer", 1, 14);
+                LSTALVDT = EOSDT;
+            end;
+            else do;
+                EOSDT = TRTEDT;
+                LSTALVDT = EOSDT;
+            end;
+        end;
+        else do;
+            TreatmentMonths = rand("integer", 118, 124);
+            TRTEDT = intnx("month", TRTSDT, TreatmentMonths, "same");
+            EOSDT = TRTEDT;
+            LSTALVDT = EOSDT;
+        end;
+
         if EOSSTT = "COMPLETED" then
             COMSFL = "Y";
         else
@@ -153,7 +177,8 @@ data adam.adsl;
         output;
     end;
 
-    drop SubjectNumber TreatmentDays TreatmentDiscontinue StudyDiscontinue;
+        drop SubjectNumber TreatmentDays TreatmentMonths
+            TreatmentDiscontinue StudyDiscontinue;
 run;
 
 proc contents data=adam.adsl;
