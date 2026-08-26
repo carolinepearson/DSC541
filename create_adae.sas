@@ -224,9 +224,9 @@ data adam.adae;
         AESTDT = TRTSDT + mod(SubjectNumber + AESEQ + EventCode, 8) + 1;
         AEENDT = AESTDT + mod(SubjectNumber + EventCode, 5) + 1;
 
-        if EventCode = 8 then do;
+        if EventCode = 12 then do;
             AESTDT = DTHDT;
-            AEENDT = .;
+            AEENDT = TRTEDT;
         end;
 
         if not missing(DTHDT) and AEENDT > DTHDT then
@@ -249,7 +249,7 @@ data adam.adae;
         AEPATT = "CONTINUOUS";
         AESCONG = "N";
         AESDISAB = "N";
-        if EventCode = 8 then
+        if EventCode = 12 then
             AESDTH = "Y";
         else
             AESDTH = "N";

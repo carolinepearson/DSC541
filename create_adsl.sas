@@ -86,7 +86,7 @@ data adam.adsl;
             EOSDT = DTHDT;
             DCSREAS = "DEATH";
             EOTSTT = "DISCONTINUED";
-            DCTREAS = "DEATH";
+            DCTREAS = "ADVERSE EVENT";
             LSTALVDT = DTHDT;
             select (mod(SubjectNumber, 3));
                 when (0) DTHCAUS = "Cardiac event";
