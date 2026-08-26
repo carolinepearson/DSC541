@@ -21,7 +21,7 @@ data adam.adtte;
 
     PARAMCD = "OS";
     PARAM = "Overall Survival";
-    AVALU = "DAYS";
+    AVALU = "MONTHS";
     STARTDT = RANDDT;
     SRCDOM = "ADSL";
 
@@ -39,7 +39,7 @@ data adam.adtte;
     end;
 
     if not missing(STARTDT) and not missing(ADT) then do;
-        AVAL = ADT - STARTDT + 1;
+        AVAL = intck("month", STARTDT, ADT, "continuous");
         ADY = ADT - STARTDT + 1;
     end;
     else do;
