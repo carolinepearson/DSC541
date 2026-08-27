@@ -7,7 +7,7 @@ data adam.adsl;
         STUDYID USUBJID $20
         SUBJID SITEID $10
         RANDFL SAFFL ITTFL $1
-        SCRNFL COMTFL COMSFL $1
+        SCRNFL COMTFL COMSFL PKFL $1
         AGEU SEX RACE ETHNIC $40
         AGEGR1 $20
         ARM TRT01P TRT01A $20
@@ -20,6 +20,7 @@ data adam.adsl;
         SCRNFL = "Screened Population Flag"
         COMTFL = "Completed Study Treatment Flag"
         COMSFL = "Completed Study Flag"
+        PKFL = "Pharmacokinetic Population Flag"
         AGEGR1 = "Age Group 1"
         AGEGR1N = "Age Group 1 Numeric"
         BLWT = "Baseline Weight"
@@ -127,6 +128,7 @@ data adam.adsl;
         end;
 
         SCRNFL = "Y";
+        PKFL = "Y";
         if EOTSTT = "COMPLETED" then
             COMTFL = "Y";
         else

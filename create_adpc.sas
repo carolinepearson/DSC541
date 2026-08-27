@@ -3,12 +3,6 @@ libname adam "~/DSC541/adam";
 data adam.adpc;
     set adam.adsl;
 
-    retain STUDYID USUBJID SUBJID SITEID RANDFL SAFFL ITTFL SCRNFL
-           COMTFL COMSFL AGE AGEU AGEGR1 AGEGR1N SEX RACE ETHNIC
-           BLWT BLHT BLBMI ARM TRT01P TRT01PN TRT01A TRT01AN TRTSDT
-           TRTEDT EOSSTT EOSDT DCSREAS EOTSTT DCTREAS RFICDT RANDDT
-           LSTALVDT DTHDT DTHCAUS;
-
     if _N_ = 1 then call streaminit(20260823);
 
     length
@@ -22,7 +16,7 @@ data adam.adpc;
         PCTESTCD $8
         PCTEST $60
         PCORRES PCORRESU $20
-        PCSTRESC PCSTRESU $20
+        PCSTRESC PCSTRESU AVALC ASTRESC $20
         PCDTC $25
         ANL01FL $1;
 
@@ -114,6 +108,8 @@ data adam.adpc;
             PCSTRESC = PCORRES;
         end;
         AVAL = PCSTRESN;
+        AVALC = PCSTRESC;
+        ASTRESC = PCSTRESC;
         ATTM = PCELTMN;
         ADTM = dhms(TRTSDT, PCELTMN, 0, 0);
         ADT = datepart(ADTM);
@@ -139,5 +135,6 @@ run;
 proc print data=adam.adpc(obs=12);
     var STUDYID USUBJID PARAMCD PARAM ATPT ATPTN AVISIT AVISITN
         ATPTREF ATTM ATMU PCORRES PCORRESU PCSTRESN PCSTRESU
-        AVAL AVALU ADT ADTM PCDTC PCELTM PCELTMN ANL01FL;
+        PCSTRESC AVAL AVALC ASTRESC AVALU ADT ADTM PCDTC
+        PCELTM PCELTMN ANL01FL;
 run;
