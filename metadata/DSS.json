@@ -1,0 +1,5078 @@
+{
+    "about": {
+        "generatedUsing": "TFL Designer Gilead",
+        "version": "1.7.25",
+        "note": "The metadata provided herein has been generated using the TFL Designer Gilead version 1.7.25. The representation of metadata fields available in this worksheet adheres to the CDISC Analysis Results Standard example available on the ARS GitHub repository."
+    },
+    "studyInfo": {
+        "studyId": "GS-US-000-0000 (DSS)",
+        "studyTitle": "From Metadata-Driven TFL Shells to AI-Assisted SAS Code Development",
+        "phase": [],
+        "compoundUnderStudy": "GS-XXXX",
+        "description": "",
+        "diseaseArea": "Global",
+        "therapeuticArea": "Global"
+    },
+    "name": "Publication",
+    "id": "PUB",
+    "mainListOfContents": {
+        "name": "List of Planned Analyses",
+        "label": "LOPA",
+        "contentsList": {
+            "listItems": [
+                {
+                    "name": "Participant Disposition",
+                    "level": 1,
+                    "order": 1,
+                    "outputId": "Out_01",
+                    "sublist": {
+                        "listItems": [
+                            {
+                                "name": "Count of Subjects by Treatment",
+                                "level": 2,
+                                "order": 1,
+                                "analysisId": "An_01"
+                            },
+                            {
+                                "name": "Screened",
+                                "level": 2,
+                                "order": 2,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Screened",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_02"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ITT Analysis Set",
+                                "level": 2,
+                                "order": 3,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for ITT Analysis Set",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_03"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Safety Analysis Set",
+                                "level": 2,
+                                "order": 4,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Safety Analysis Set",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_04"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "PK Analysis Set",
+                                "level": 2,
+                                "order": 5,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for PK Analysis Set",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_05"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Completed Study Drug",
+                                "level": 2,
+                                "order": 6,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Completed Study Drug Flag",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_06"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Discontinued Study Drug",
+                                "level": 2,
+                                "order": 7,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Completed Study Drug Flag",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_07"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Adverse Event",
+                                "level": 2,
+                                "order": 8,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Reason for Discontinuation of Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_08"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Lack of Efficacy",
+                                "level": 2,
+                                "order": 9,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Reason for Discontinuation of Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_09"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Completed Study",
+                                "level": 2,
+                                "order": 10,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Study Completion Flag",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_10"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Prematurely Discontinued Study",
+                                "level": 2,
+                                "order": 11,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Study Completion Flag",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_11"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Death",
+                                "level": 2,
+                                "order": 12,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Reason for Discontinuation from Study",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_12"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Withdrawal by Subject",
+                                "level": 2,
+                                "order": 13,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Reason for Discontinuation from Study",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_13"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Demographics and Baseline Characteristics",
+                    "level": 1,
+                    "order": 2,
+                    "outputId": "Out_02",
+                    "sublist": {
+                        "listItems": [
+                            {
+                                "name": "Count of Subjects by Treatment",
+                                "level": 2,
+                                "order": 1,
+                                "analysisId": "An_14"
+                            },
+                            {
+                                "name": "Age (years)",
+                                "level": 2,
+                                "order": 2,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Age by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_15"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "< 65 years",
+                                "level": 2,
+                                "order": 3,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Pooled Age Group 1 (N)",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_16"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": ">= 65 years",
+                                "level": 2,
+                                "order": 4,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Pooled Age Group 1 (N)",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_17"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Sex at Birth",
+                                "level": 2,
+                                "order": 5,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Sex",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_18"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Race",
+                                "level": 2,
+                                "order": 6,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Race",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_19"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Ethnicity",
+                                "level": 2,
+                                "order": 7,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Ethnicity",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_20"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Weight (kg)",
+                                "level": 2,
+                                "order": 8,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Baseline Weight (kg) by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_21"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Height (cm)",
+                                "level": 2,
+                                "order": 9,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Baseline Height (cm) by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_22"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Body Mass Index (kg/m^2)",
+                                "level": 2,
+                                "order": 10,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Baseline BMI (kg/m2) by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_23"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Overall Survival (OS)",
+                    "level": 1,
+                    "order": 3,
+                    "outputId": "Out_03",
+                    "sublist": {
+                        "listItems": [
+                            {
+                                "name": "Count of Subjects by Treatment",
+                                "level": 2,
+                                "order": 1,
+                                "analysisId": "An_24"
+                            },
+                            {
+                                "name": "Number (%) of Participants with Events (Death)",
+                                "level": 2,
+                                "order": 2,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Number (%) of Participants with Events (Death)",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_25"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Number (%) of Participants Censored",
+                                "level": 2,
+                                "order": 3,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Number (%) of Participants Censored",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_26"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Kaplan-Meier Estimate of OS (Months) (95% CI) [a]",
+                                "level": 2,
+                                "order": 4,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Analysis Value by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_27"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Kaplan-Meier Estimate of OS Rate (%) (95% CI)",
+                                "level": 2,
+                                "order": 5,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment and Analysis Value",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_28"
+                                        },
+                                        {
+                                            "name": "Analysis Value",
+                                            "level": 3,
+                                            "order": 2,
+                                            "sublist": {
+                                                "listItems": [
+                                                    {
+                                                        "name": "Summary of Analysis Value by Treatment and Analysis Value",
+                                                        "level": 4,
+                                                        "order": 1,
+                                                        "analysisId": "An_29"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Hazard Ratio of A vs B (95% CI) [b]",
+                                "level": 2,
+                                "order": 6,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Hazard Ratio of A vs B (95% CI) [b]",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_30"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Duration of OS Follow-up (Months) [d]",
+                                "level": 2,
+                                "order": 7,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Analysis Value by Treatment",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_31"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Treatment-Emergent Adverse Events: Overall Summary",
+                    "level": 1,
+                    "order": 4,
+                    "outputId": "Out_04",
+                    "sublist": {
+                        "listItems": [
+                            {
+                                "name": "Count of Subjects by Treatment",
+                                "level": 2,
+                                "order": 1,
+                                "analysisId": "An_32"
+                            },
+                            {
+                                "name": "Any TEAE",
+                                "level": 2,
+                                "order": 2,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for Any TEAE",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_33"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE with Grade 3 or Higher",
+                                "level": 2,
+                                "order": 3,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE with Grade 3 or Higher",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_34"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE with Grade 2 or Higher",
+                                "level": 2,
+                                "order": 4,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE with Grade 2 or Higher",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_35"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Related to Study Drug",
+                                "level": 2,
+                                "order": 5,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_36"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Related to Study Drug with Grade 3 or Higher",
+                                "level": 2,
+                                "order": 6,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug with Grade 3 or Higher",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_37"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Related to Study Drug with Grade 2 or Higher",
+                                "level": 2,
+                                "order": 7,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug with Grade 2 or Higher",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_38"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TE Serious AE",
+                                "level": 2,
+                                "order": 8,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TE Serious AE",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_39"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TE Serious AE Related to Study Drug",
+                                "level": 2,
+                                "order": 9,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TE Serious AE Related to Study Drug",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_40"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Leading to Discontinuation of Study Drug",
+                                "level": 2,
+                                "order": 10,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Leading to Discontinuation of Study Drug",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_41"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Leading to Dose Interruption of Study Drug",
+                                "level": 2,
+                                "order": 11,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Leading to Dose Interruption of Study Drug",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_42"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Leading to Dose Reduction of Study Drug",
+                                "level": 2,
+                                "order": 12,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Leading to Dose Reduction of Study Drug",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_43"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "TEAE Leading to Death",
+                                "level": 2,
+                                "order": 13,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for TEAE Leading to Death",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_44"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times",
+                    "level": 1,
+                    "order": 5,
+                    "outputId": "Out_05",
+                    "sublist": {
+                        "listItems": [
+                            {
+                                "name": "Count of Subjects by Treatment",
+                                "level": 2,
+                                "order": 1,
+                                "analysisId": "An_45"
+                            },
+                            {
+                                "name": "001",
+                                "level": 2,
+                                "order": 2,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for 001",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_46"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "002",
+                                "level": 2,
+                                "order": 3,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for 002",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_47"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": ". . .",
+                                "level": 2,
+                                "order": 4,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for . . .",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_48"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "90% CI (Lower)",
+                                "level": 2,
+                                "order": 5,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for 90% CI (Lower)",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_49"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "90% CI (Upper)",
+                                "level": 2,
+                                "order": 6,
+                                "sublist": {
+                                    "listItems": [
+                                        {
+                                            "name": "Summary of Subjects by Treatment for 90% CI (Upper)",
+                                            "level": 3,
+                                            "order": 1,
+                                            "analysisId": "An_50"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "otherListsOfContents": [
+        {
+            "name": "List of Planned Outputs",
+            "label": "LOPO",
+            "contentsList": {
+                "listItems": [
+                    {
+                        "name": "Participant Disposition",
+                        "level": 1,
+                        "order": 1,
+                        "outputId": "Out_01"
+                    },
+                    {
+                        "name": "Demographics and Baseline Characteristics",
+                        "level": 1,
+                        "order": 2,
+                        "outputId": "Out_02"
+                    },
+                    {
+                        "name": "Overall Survival (OS)",
+                        "level": 1,
+                        "order": 3,
+                        "outputId": "Out_03"
+                    },
+                    {
+                        "name": "Treatment-Emergent Adverse Events: Overall Summary",
+                        "level": 1,
+                        "order": 4,
+                        "outputId": "Out_04"
+                    },
+                    {
+                        "name": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times",
+                        "level": 1,
+                        "order": 5,
+                        "outputId": "Out_05"
+                    }
+                ]
+            }
+        }
+    ],
+    "referenceDocuments": [],
+    "terminologyExtensions": [],
+    "analysisOutputCategorizations": [
+        {
+            "id": "ANSET",
+            "categories": [
+                {
+                    "id": "ANSET_01",
+                    "subCategorizations": [
+                        {
+                            "id": "ANSET_01_ANINT",
+                            "label": "Analysis Of Interest",
+                            "categories": [
+                                {
+                                    "id": "ANSET_01_ANINT_01",
+                                    "label": "Pharmacokinetic"
+                                },
+                                {
+                                    "id": "ANSET_01_ANINT_02",
+                                    "label": "Adverse Events"
+                                },
+                                {
+                                    "id": "ANSET_01_ANINT_03",
+                                    "label": "Disposition"
+                                },
+                                {
+                                    "id": "ANSET_01_ANINT_04",
+                                    "label": "Demographics"
+                                }
+                            ]
+                        }
+                    ],
+                    "label": "Safety"
+                },
+                {
+                    "id": "ANSET_02",
+                    "subCategorizations": [
+                        {
+                            "id": "ANSET_02_ANINT",
+                            "label": "Analysis Of Interest",
+                            "categories": [
+                                {
+                                    "id": "ANSET_02_ANINT_01",
+                                    "label": "Efficacy Analysis"
+                                }
+                            ]
+                        }
+                    ],
+                    "label": "Efficacy"
+                }
+            ],
+            "label": "Analysis Sets"
+        }
+    ],
+    "analysisSets": [
+        {
+            "level": 1,
+            "order": 1,
+            "id": "AnalysisSet_01",
+            "name": "All Screened Participants",
+            "description": "",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "SCRNFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            }
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "AnalysisSet_02",
+            "name": "Safety Analysis Set",
+            "description": "",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "SAFFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            }
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "AnalysisSet_03",
+            "name": "PK Analysis Set",
+            "description": "",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "PKFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            }
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "AnalysisSet_04",
+            "name": "ITT Analysis Set",
+            "description": "",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "ITTFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            }
+        }
+    ],
+    "analysisGroupings": [
+        {
+            "name": "Treatment",
+            "id": "AnlsGrouping_01_Trt01Pn",
+            "dataDriven": false,
+            "groupingDataset": "ADSL",
+            "groupingVariable": "TRT01PN",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_01_Trt01Pn_01",
+                    "name": "Drug A",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_01_Trt01Pn_02",
+                    "name": "Drug B",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "2"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Treatment",
+            "id": "AnlsGrouping_02_Trt01Pn",
+            "dataDriven": false,
+            "groupingDataset": "ADSL",
+            "groupingVariable": "TRT01PN",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_02_Trt01Pn_01",
+                    "name": "Drug A",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_02_Trt01Pn_02",
+                    "name": "Drug B",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "2"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_03_Sex",
+            "dataDriven": false,
+            "name": "Sex",
+            "label": "Sex at Birth",
+            "groupingDataset": "ADSL",
+            "groupingVariable": "SEX",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_03_Sex_01",
+                    "name": "Male",
+                    "label": "Male",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "SEX",
+                        "comparator": "EQ",
+                        "value": [
+                            "M"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_03_Sex_02",
+                    "name": "Female",
+                    "label": "Female",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "SEX",
+                        "comparator": "EQ",
+                        "value": [
+                            "F"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_04_Race",
+            "dataDriven": false,
+            "name": "Race",
+            "label": "Race",
+            "groupingDataset": "ADSL",
+            "groupingVariable": "RACE",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_04_Race_01",
+                    "name": "American Indian or Alaska Native",
+                    "label": "American Indian or Alaska Native",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "AMERICAN INDIAN OR ALASKA NATIVE"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_04_Race_02",
+                    "name": "Asian",
+                    "label": "Asian",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "ASIAN"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 3,
+                    "id": "AnlsGrouping_04_Race_03",
+                    "name": "Black",
+                    "label": "Black",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "BLACK OR AFRICAN AMERICAN"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 4,
+                    "id": "AnlsGrouping_04_Race_04",
+                    "name": "Native Hawaiian or Pacific Islander",
+                    "label": "Native Hawaiian or Pacific Islander",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 5,
+                    "id": "AnlsGrouping_04_Race_05",
+                    "name": "White",
+                    "label": "White",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "WHITE"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 6,
+                    "id": "AnlsGrouping_04_Race_06",
+                    "name": "Other",
+                    "label": "Other",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "RACE",
+                        "comparator": "EQ",
+                        "value": [
+                            "OTHER"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_05_Ethnic",
+            "dataDriven": false,
+            "name": "Ethnicity",
+            "label": "Ethnicity",
+            "groupingDataset": "ADSL",
+            "groupingVariable": "ETHNIC",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_05_Ethnic_01",
+                    "name": "Not Hispanic or Latino",
+                    "label": "Not Hispanic or Latino",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "ETHNIC",
+                        "comparator": "EQ",
+                        "value": [
+                            "NOT HISPANIC OR LATINO"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_05_Ethnic_02",
+                    "name": "Hispanic or Latino",
+                    "label": "Hispanic or Latino",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "ETHNIC",
+                        "comparator": "EQ",
+                        "value": [
+                            "HISPANIC OR LATINO"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Treatment",
+            "id": "AnlsGrouping_06_Trt01Pn",
+            "dataDriven": false,
+            "groupingDataset": "ADSL",
+            "groupingVariable": "TRT01PN",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_06_Trt01Pn_01",
+                    "name": "Drug A",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_06_Trt01Pn_02",
+                    "name": "Drug B",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01PN",
+                        "comparator": "EQ",
+                        "value": [
+                            "2"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_07_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "Kaplan-Meier Estimate of OS Rate (%) (95% CI)",
+            "groupingDataset": "ADTTE",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_07_Aval_01",
+                    "name": "At 6 Months",
+                    "label": "At 6 Months"
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_07_Aval_02",
+                    "name": "At 12 Months",
+                    "label": "At 12 Months"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_08_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADTTE",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_08_Aval_01",
+                    "name": "P value [c]",
+                    "label": "P value [c]"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_09_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADTTE",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_09_Aval_01",
+                    "name": ">= 6 Months",
+                    "label": ">= 6 Months",
+                    "condition": {
+                        "dataset": "ADTTE",
+                        "variable": "AVAL",
+                        "comparator": "GE",
+                        "value": [
+                            "6"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_09_Aval_02",
+                    "name": ">= 12 Months",
+                    "label": ">= 12 Months",
+                    "condition": {
+                        "dataset": "ADTTE",
+                        "variable": "AVAL",
+                        "comparator": "GE",
+                        "value": [
+                            "12"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 3,
+                    "id": "AnlsGrouping_09_Aval_03",
+                    "name": ">= 18 Months",
+                    "label": ">= 18 Months",
+                    "condition": {
+                        "dataset": "ADTTE",
+                        "variable": "AVAL",
+                        "comparator": "GE",
+                        "value": [
+                            "18"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Treatment",
+            "id": "AnlsGrouping_10_Trt01An",
+            "dataDriven": false,
+            "groupingDataset": "ADSL",
+            "groupingVariable": "TRT01AN",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_10_Trt01An_01",
+                    "name": "Drug A",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01AN",
+                        "comparator": "EQ",
+                        "value": [
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_10_Trt01An_02",
+                    "name": "Drug B",
+                    "condition": {
+                        "dataset": "ADSL",
+                        "variable": "TRT01AN",
+                        "comparator": "EQ",
+                        "value": [
+                            "2"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Treatment",
+            "id": "AnlsGrouping_11_",
+            "dataDriven": false,
+            "groupingDataset": "",
+            "groupingVariable": "",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_11__01",
+                    "name": "Sampling Time (h) Postdose"
+                },
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_11__02",
+                    "name": "Predose",
+                    "condition": {
+                        "dataset": "ADPC",
+                        "variable": "ATPT",
+                        "comparator": "EQ",
+                        "value": [
+                            "Pre-dose"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_12_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_12_Aval_01",
+                    "name": "Median",
+                    "label": "Median"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_13_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_13_Aval_01",
+                    "name": "Min",
+                    "label": "Min"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_14_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_14_Aval_01",
+                    "name": "Max",
+                    "label": "Max"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_15_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_15_Aval_01",
+                    "name": "Q1",
+                    "label": "Q1"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_16_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_16_Aval_01",
+                    "name": "Q3",
+                    "label": "Q3"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_17_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_17_Aval_01",
+                    "name": "N (LN scale)",
+                    "label": "N (LN scale)"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_18_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_18_Aval_01",
+                    "name": "Geom. Mean",
+                    "label": "Geom. Mean"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_19_Aval",
+            "dataDriven": false,
+            "name": "Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "AVAL",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_19_Aval_01",
+                    "name": "% GCV",
+                    "label": "% GCV"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_20_Astresc",
+            "dataDriven": false,
+            "name": "Character Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "ASTRESC",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 2,
+                    "id": "AnlsGrouping_20_Astresc_01",
+                    "name": "# BLQ",
+                    "label": "# BLQ"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_21_Astresc",
+            "dataDriven": false,
+            "name": "Character Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "ASTRESC",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_21_Astresc_01",
+                    "name": ">1/3 BLQ",
+                    "label": ">1/3 BLQ"
+                }
+            ]
+        },
+        {
+            "id": "AnlsGrouping_22_Astresc",
+            "dataDriven": false,
+            "name": "Character Analysis Value",
+            "label": "",
+            "groupingDataset": "ADPC",
+            "groupingVariable": "ASTRESC",
+            "groups": [
+                {
+                    "level": 1,
+                    "order": 1,
+                    "id": "AnlsGrouping_22_Astresc_01",
+                    "name": "% BLQ",
+                    "label": "% BLQ"
+                }
+            ]
+        }
+    ],
+    "dataSubsets": [
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_01",
+            "name": "Screened",
+            "label": "Screened",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "SCRNFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_02",
+            "name": "ITT Analysis Set",
+            "label": "ITT Analysis Set",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "ITTFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_03",
+            "name": "Safety Analysis Set",
+            "label": "Safety Analysis Set",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "SAFFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_04",
+            "name": "PK Analysis Set",
+            "label": "PK Analysis Set",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "PKFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_05",
+            "name": "Completed Study Drug",
+            "label": "Completed Study Drug",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "COMTFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_06",
+            "name": "Discontinued Study Drug",
+            "label": "Discontinued Study Drug",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "COMTFL",
+                "comparator": "EQ",
+                "value": [
+                    "N"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_07",
+            "name": "Adverse Event",
+            "label": "Adverse Event",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "DCTREAS",
+                "comparator": "EQ",
+                "value": [
+                    "ADVERSE EVENT"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_08",
+            "name": "Lack of Efficacy",
+            "label": "Lack of Efficacy",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "DCTREAS",
+                "comparator": "EQ",
+                "value": [
+                    "LACK OF EFFICACY"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_09",
+            "name": "Completed Study",
+            "label": "Completed Study",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "COMSFL",
+                "comparator": "EQ",
+                "value": [
+                    "Y"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_10",
+            "name": "Prematurely Discontinued Study",
+            "label": "Prematurely Discontinued Study",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "COMSFL",
+                "comparator": "EQ",
+                "value": [
+                    "N"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_11",
+            "name": "Death",
+            "label": "Death",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "DCSREAS",
+                "comparator": "EQ",
+                "value": [
+                    "DEATH"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_12",
+            "name": "Withdrawal by Subject",
+            "label": "Withdrawal by Subject",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "DCSREAS",
+                "comparator": "EQ",
+                "value": [
+                    "WITHDRAWAL BY SUBJECT"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_13",
+            "name": "< 65 years",
+            "label": "< 65 years",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "AGEGRyN",
+                "comparator": "EQ",
+                "value": [
+                    "1"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_14",
+            "name": ">= 65 years",
+            "label": ">= 65 years",
+            "condition": {
+                "dataset": "ADSL",
+                "variable": "AGEGR1N",
+                "comparator": "EQ",
+                "value": [
+                    "2"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_15",
+            "name": "Number (%) of Participants with Events (Death)",
+            "label": "Number (%) of Participants with Events (Death)",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADTTE",
+                            "variable": "PARAMCD",
+                            "comparator": "EQ",
+                            "value": [
+                                "OS"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADTTE",
+                            "variable": "CNSR",
+                            "comparator": "EQ",
+                            "value": [
+                                "0"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_16",
+            "name": "Number (%) of Participants Censored",
+            "label": "Number (%) of Participants Censored",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADTTE",
+                            "variable": "PARAMCD",
+                            "comparator": "EQ",
+                            "value": [
+                                "OS"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADTTE",
+                            "variable": "CNSR",
+                            "comparator": "NE",
+                            "value": [
+                                "1"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_17",
+            "name": "Kaplan-Meier Estimate of OS (Months) (95% CI) [a]",
+            "label": "Kaplan-Meier Estimate of OS (Months) (95% CI) [a]",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_18",
+            "name": "Kaplan-Meier Estimate of OS Rate (%) (95% CI)",
+            "label": "Kaplan-Meier Estimate of OS Rate (%) (95% CI)",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_19",
+            "name": "Analysis Value",
+            "label": "Analysis Value",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_20",
+            "name": "Hazard Ratio of A vs B (95% CI) [b]",
+            "label": "Hazard Ratio of A vs B (95% CI) [b]",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_21",
+            "name": "",
+            "label": "",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_22",
+            "name": "Duration of OS Follow-up (Months) [d]",
+            "label": "Duration of OS Follow-up (Months) [d]",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_23",
+            "name": "",
+            "label": "",
+            "condition": {
+                "dataset": "ADTTE",
+                "variable": "PARAMCD",
+                "comparator": "EQ",
+                "value": [
+                    "OS"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_24",
+            "name": "Any TEAE",
+            "label": "Any TEAE",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_25",
+            "name": "TEAE with Grade 3 or Higher",
+            "label": "TEAE with Grade 3 or Higher",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "ATOXGRN",
+                            "comparator": "GE",
+                            "value": [
+                                "3"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_26",
+            "name": "TEAE with Grade 2 or Higher",
+            "label": "TEAE with Grade 2 or Higher",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "ATOXGRN",
+                            "comparator": "GE",
+                            "value": [
+                                "2"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_27",
+            "name": "TEAE Related to Study Drug",
+            "label": "TEAE Related to Study Drug",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AREL",
+                            "comparator": "EQ",
+                            "value": [
+                                "RELATED"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_28",
+            "name": "TEAE Related to Study Drug with Grade 3 or Higher",
+            "label": "TEAE Related to Study Drug with Grade 3 or Higher",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "compoundExpression": {
+                            "logicalOperator": "AND",
+                            "whereClauses": [
+                                {
+                                    "level": 3,
+                                    "order": 1,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "AREL",
+                                        "comparator": "EQ",
+                                        "value": [
+                                            "RELATED"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "level": 3,
+                                    "order": 2,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "ATOXGRN",
+                                        "comparator": "GE",
+                                        "value": [
+                                            "3"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_29",
+            "name": "TEAE Related to Study Drug with Grade 2 or Higher",
+            "label": "TEAE Related to Study Drug with Grade 2 or Higher",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "compoundExpression": {
+                            "logicalOperator": "AND",
+                            "whereClauses": [
+                                {
+                                    "level": 3,
+                                    "order": 1,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "AREL",
+                                        "comparator": "EQ",
+                                        "value": [
+                                            "RELATED"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "level": 3,
+                                    "order": 2,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "ATOXGRN",
+                                        "comparator": "GE",
+                                        "value": [
+                                            "2"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_30",
+            "name": "TE Serious AE",
+            "label": "TE Serious AE",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AESER",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_31",
+            "name": "TE Serious AE Related to Study Drug",
+            "label": "TE Serious AE Related to Study Drug",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "compoundExpression": {
+                            "logicalOperator": "AND",
+                            "whereClauses": [
+                                {
+                                    "level": 3,
+                                    "order": 1,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "AESER",
+                                        "comparator": "EQ",
+                                        "value": [
+                                            "Y"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "level": 3,
+                                    "order": 2,
+                                    "condition": {
+                                        "dataset": "ADAE",
+                                        "variable": "AREL",
+                                        "comparator": "EQ",
+                                        "value": [
+                                            "RELATED"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_32",
+            "name": "TEAE Leading to Discontinuation of Study Drug",
+            "label": "TEAE Leading to Discontinuation of Study Drug",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AEACN",
+                            "comparator": "EQ",
+                            "value": [
+                                "DRUG WITHDRAWN"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_33",
+            "name": "TEAE Leading to Dose Interruption of Study Drug",
+            "label": "TEAE Leading to Dose Interruption of Study Drug",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AEACN",
+                            "comparator": "EQ",
+                            "value": [
+                                "DOSE INTERRUPTED"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_34",
+            "name": "TEAE Leading to Dose Reduction of Study Drug",
+            "label": "TEAE Leading to Dose Reduction of Study Drug",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AEACN",
+                            "comparator": "EQ",
+                            "value": [
+                                "DOSE REDUCED"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_35",
+            "name": "TEAE Leading to Death",
+            "label": "TEAE Leading to Death",
+            "compoundExpression": {
+                "logicalOperator": "AND",
+                "whereClauses": [
+                    {
+                        "level": 2,
+                        "order": 1,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "TRTEMFL",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    },
+                    {
+                        "level": 2,
+                        "order": 2,
+                        "condition": {
+                            "dataset": "ADAE",
+                            "variable": "AESDTH",
+                            "comparator": "EQ",
+                            "value": [
+                                "Y"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_36",
+            "name": "",
+            "label": "",
+            "condition": {
+                "dataset": "ADPC",
+                "variable": "AVALC",
+                "comparator": "EQ",
+                "value": [
+                    "BLQ"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_37",
+            "name": "",
+            "label": "",
+            "condition": {
+                "dataset": "ADPC",
+                "variable": "AVALC",
+                "comparator": "EQ",
+                "value": [
+                    "BLQ"
+                ]
+            },
+            "description": ""
+        },
+        {
+            "level": 1,
+            "order": 1,
+            "id": "Dss_38",
+            "name": "",
+            "label": "",
+            "condition": {
+                "dataset": "ADPC",
+                "variable": "AVALC",
+                "comparator": "EQ",
+                "value": [
+                    "BLQ"
+                ]
+            },
+            "description": ""
+        }
+    ],
+    "methods": [
+        {
+            "name": "Count by group for a categorical variable",
+            "description": "Count across groups for a categorical variable, based on subject occurrence",
+            "label": "Grouped count for categorical variable",
+            "id": "Mth_01",
+            "operations": [
+                {
+                    "name": "Count of subjects",
+                    "label": "n",
+                    "id": "Mth_01_01_n",
+                    "order": 1,
+                    "resultPattern": "(N=)"
+                }
+            ],
+            "codeTemplate": {
+                "context": "R (siera)",
+                "code": "in_data = df2_analysisidhere |>\r\n    dplyr::select(distinctlisthere) |>\r\n    unique() |>\r\n    dplyr::mutate(dummy = 'dummyvar')\r\n\r\ndf3_analysisidhere <-\r\n  cards::ard_categorical(\r\n    data = in_data\r\n    byhere\r\n   ,  variables = dummy\r\n  ) |>\r\ndplyr::filter(stat_name == 'n') |>\r\n dplyr::mutate(operationid = 'opid1here')",
+                "parameters": [
+                    {
+                        "description": "Comma-separated list of all Analysis Grouping Variables, as well as the Analysis Variable (no quotes)",
+                        "name": "distinctlisthere",
+                        "valueSource": "distinct_list"
+                    },
+                    {
+                        "name": "opid1here",
+                        "valueSource": "operation_1"
+                    },
+                    {
+                        "description": "By statement",
+                        "name": "byhere",
+                        "valueSource": "by_stmt"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_02",
+            "operations": [
+                {
+                    "id": "Mth_02_01_PK_Time",
+                    "order": 1,
+                    "name": "PK Time",
+                    "label": "PK Time",
+                    "resultPattern": "XXX.XX"
+                }
+            ],
+            "label": "Set 56 [XXX.XX] (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_03",
+            "operations": [
+                {
+                    "id": "Mth_03_01_n",
+                    "order": 1,
+                    "name": "n",
+                    "label": "n",
+                    "resultPattern": "XX"
+                },
+                {
+                    "id": "Mth_03_02_%",
+                    "order": 2,
+                    "name": "%",
+                    "label": "%",
+                    "resultPattern": "(XX.X%)",
+                    "referencedOperationRelationships": [
+                        {
+                            "id": "Mth_03_02_%_NUM",
+                            "referencedOperationRole": {
+                                "controlledTerm": "NUMERATOR"
+                            },
+                            "operationId": "Mth_03_01_n",
+                            "description": "The count operation whose result provides the numerator for calculation of the percentage. The referenced analysis should be the analysis that contains this percent operation."
+                        },
+                        {
+                            "id": "Mth_03_02_%_DEN",
+                            "referencedOperationRole": {
+                                "controlledTerm": "DENOMINATOR"
+                            },
+                            "operationId": "Mth_01_01_n",
+                            "description": "The count operation whose result provides the denominator for calculation of the percentage. The referenced analysis should have the same analysis set and subject grouping(s) as the analysis containing this percent operation."
+                        }
+                    ]
+                }
+            ],
+            "label": "Set 2 (n, %) (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_04",
+            "operations": [
+                {
+                    "id": "Mth_04_01_n",
+                    "order": 1,
+                    "name": "n",
+                    "label": "n",
+                    "resultPattern": "XXX"
+                }
+            ],
+            "label": "Set 1 (N) (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_05",
+            "operations": [
+                {
+                    "id": "Mth_05_01_Statistic",
+                    "order": 1,
+                    "name": "Statistic",
+                    "label": "Statistic",
+                    "resultPattern": "XXX.XXX"
+                }
+            ],
+            "label": "Set 39 XXX.XXX (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_06",
+            "operations": [
+                {
+                    "id": "Mth_06_01_{Stratified}_Hazard_Ratio",
+                    "order": 1,
+                    "name": "{Stratified} Hazard Ratio",
+                    "label": "{Stratified} Hazard Ratio",
+                    "resultPattern": "0.XX"
+                },
+                {
+                    "id": "Mth_06_02_95%_CI",
+                    "order": 2,
+                    "name": "95% CI",
+                    "label": "95% CI",
+                    "resultPattern": "(0.XX, NEst)"
+                }
+            ],
+            "label": "{Stratified} Hazard Ratio {of A vs B} (95% CI) (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a categorical variable",
+            "id": "Mth_07",
+            "operations": [
+                {
+                    "id": "Mth_07_01_XX.X",
+                    "order": 1,
+                    "name": "XX.X",
+                    "label": "XX.X",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_07_02_XX.X%,_XX.X%",
+                    "order": 2,
+                    "name": "XX.X%, XX.X%",
+                    "label": "XX.X%, XX.X%",
+                    "resultPattern": "(XX.X%, XX.X%)"
+                }
+            ],
+            "label": "Set 17 XX.X% (XX.X%, XX.X%) (Categorical)",
+            "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence"
+        },
+        {
+            "name": "Summary by group of a continuous variable",
+            "id": "Mth_08",
+            "operations": [
+                {
+                    "id": "Mth_08_01_n",
+                    "order": 1,
+                    "name": "n",
+                    "label": "n",
+                    "resultPattern": "XX"
+                },
+                {
+                    "id": "Mth_08_02_Mean",
+                    "order": 2,
+                    "name": "Mean",
+                    "label": "Mean",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_08_03_StD",
+                    "order": 3,
+                    "name": "StD",
+                    "label": "StD",
+                    "resultPattern": "(XX.XX)"
+                },
+                {
+                    "id": "Mth_08_04_Median",
+                    "order": 4,
+                    "name": "Median",
+                    "label": "Median",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_08_05_Q1",
+                    "order": 5,
+                    "name": "Q1",
+                    "label": "Q1",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_08_06_Q3",
+                    "order": 6,
+                    "name": "Q3",
+                    "label": "Q3",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_08_07_Min",
+                    "order": 7,
+                    "name": "min",
+                    "label": "Min",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_08_08_Max",
+                    "order": 8,
+                    "name": "max",
+                    "label": "Max",
+                    "resultPattern": "XX.X"
+                }
+            ],
+            "label": "Set 34 [n, Mean (StD), Median, Q1, Q3, Min, Max] (Continuous)",
+            "description": "Descriptive summary statistics across groups for a continuous variable"
+        },
+        {
+            "name": "Summary by group of a continuous variable",
+            "id": "Mth_09",
+            "operations": [
+                {
+                    "id": "Mth_09_01_n",
+                    "order": 1,
+                    "name": "n",
+                    "label": "n",
+                    "resultPattern": "XX"
+                },
+                {
+                    "id": "Mth_09_02_Mean",
+                    "order": 2,
+                    "name": "Mean",
+                    "label": "Mean",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_09_03_StD",
+                    "order": 3,
+                    "name": "StD",
+                    "label": "StD",
+                    "resultPattern": "(XX.XX)"
+                },
+                {
+                    "id": "Mth_09_04_Median",
+                    "order": 4,
+                    "name": "Median",
+                    "label": "Median",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_09_05_Q1",
+                    "order": 5,
+                    "name": "Q1",
+                    "label": "Q1",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_09_06_Q3",
+                    "order": 6,
+                    "name": "Q3",
+                    "label": "Q3",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_09_07_Min",
+                    "order": 7,
+                    "name": "min",
+                    "label": "Min",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_09_08_Max",
+                    "order": 8,
+                    "name": "max",
+                    "label": "Max",
+                    "resultPattern": "XX.X"
+                }
+            ],
+            "label": "Ct [Nb] / Cn [n, Mean (SD), Median, Q1, Q3, Min, Max] (Continuous)",
+            "description": "Descriptive summary statistics across groups for a continuous variable"
+        },
+        {
+            "name": "Summary by group of a continuous variable",
+            "id": "Mth_10",
+            "operations": [
+                {
+                    "id": "Mth_10_01_Q",
+                    "order": 1,
+                    "name": "Q1",
+                    "label": "Q",
+                    "resultPattern": "XX.X "
+                },
+                {
+                    "id": "Mth_10_02_1",
+                    "order": 2,
+                    "name": "95% CI",
+                    "label": "1",
+                    "resultPattern": "(XX.X, XX.X)"
+                },
+                {
+                    "id": "Mth_10_03_Median",
+                    "order": 3,
+                    "name": "Median",
+                    "label": "Median",
+                    "resultPattern": "XX.X "
+                },
+                {
+                    "id": "Mth_10_04_n",
+                    "order": 4,
+                    "name": "95% CI",
+                    "label": "n",
+                    "resultPattern": "(XX.X, XX.X)"
+                },
+                {
+                    "id": "Mth_10_05_Q",
+                    "order": 5,
+                    "name": "Q3",
+                    "label": "Q",
+                    "resultPattern": "XX.X "
+                },
+                {
+                    "id": "Mth_10_06_3",
+                    "order": 6,
+                    "name": "95% CI",
+                    "label": "3",
+                    "resultPattern": "(XX.X, XX.X)"
+                }
+            ],
+            "label": "Set 4 [Q1, Median, Q3] (Continuous)",
+            "description": "Descriptive summary statistics across groups for a continuous variable"
+        },
+        {
+            "name": "Summary by group of a continuous variable",
+            "id": "Mth_11",
+            "operations": [
+                {
+                    "id": "Mth_11_01_XX.X",
+                    "order": 1,
+                    "name": "XX.X",
+                    "label": "XX.X",
+                    "resultPattern": "XX.X"
+                },
+                {
+                    "id": "Mth_11_02_XX.X%,_XX.X%",
+                    "order": 2,
+                    "name": "XX.X%, XX.X%",
+                    "label": "XX.X%, XX.X%",
+                    "resultPattern": "(XX.X%, XX.X%)"
+                }
+            ],
+            "label": "Set 17 XX.X% (XX.X%, XX.X%) (Continuous)",
+            "description": "Descriptive summary statistics across groups for a continuous variable"
+        }
+    ],
+    "analyses": [
+        {
+            "name": "Count of Subjects by Treatment",
+            "id": "An_01",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_01",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Screened",
+            "id": "An_02",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_04",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_01",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for ITT Analysis Set",
+            "id": "An_03",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_04",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_02",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Safety Analysis Set",
+            "id": "An_04",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_04",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_03",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for PK Analysis Set",
+            "id": "An_05",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_04",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_04",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Completed Study Drug Flag",
+            "id": "An_06",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_05",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_06"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Completed Study Drug Flag",
+            "id": "An_07",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_06",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_07"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Reason for Discontinuation of Treatment",
+            "id": "An_08",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_07",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_08"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Reason for Discontinuation of Treatment",
+            "id": "An_09",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_08",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_09"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Study Completion Flag",
+            "id": "An_10",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_09",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_10"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Study Completion Flag",
+            "id": "An_11",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_10",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_11"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Reason for Discontinuation from Study",
+            "id": "An_12",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_11",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_12"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Reason for Discontinuation from Study",
+            "id": "An_13",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_01",
+            "dataSubsetId": "Dss_12",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_01_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_13"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_01"
+                }
+            ]
+        },
+        {
+            "name": "Count of Subjects by Treatment",
+            "id": "An_14",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_01",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Age by Treatment",
+            "id": "An_15",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_09",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "AGE",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Pooled Age Group 1 (N)",
+            "id": "An_16",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_13",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_16"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_14"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Pooled Age Group 1 (N)",
+            "id": "An_17",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_14",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_17"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_14"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Sex",
+            "id": "An_18",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                },
+                {
+                    "order": 2,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_03_Sex"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_18"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_14"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Race",
+            "id": "An_19",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                },
+                {
+                    "order": 2,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_04_Race"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_19"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_14"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Ethnicity",
+            "id": "An_20",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                },
+                {
+                    "order": 2,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_05_Ethnic"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_20"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_14"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Baseline Weight (kg) by Treatment",
+            "id": "An_21",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_09",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "BWT",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Baseline Height (cm) by Treatment",
+            "id": "An_22",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_09",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "BHT",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Baseline BMI (kg/m2) by Treatment",
+            "id": "An_23",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_09",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "dataset": "ADSL",
+            "variable": "BBMI",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_02_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Count of Subjects by Treatment",
+            "id": "An_24",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_01",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Number (%) of Participants with Events (Death)",
+            "id": "An_25",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_15",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_25"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_24"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Number (%) of Participants Censored",
+            "id": "An_26",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_16",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_26"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_24"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Analysis Value by Treatment",
+            "id": "An_27",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_10",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "AVAL",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_17",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ],
+            "programmingCode": {
+                "context": "KM Estimates at Quartiles",
+                "code": "/*For stratified log-rank test*/\r\nods output HomTests={logrank} Quartiles={km_q} means={means} CensoredSummary={censorsum} ProductLimitEstimates={rates};\r\nproc lifetest data={indata} conftype=loglog alpha=0.05 alphaqt=0.05 method=km outsurv={surv} timelist=xx reduceout;\r\n     time {SurTime}*{Censored(1)};\r\n     strata {strata1} {strata2} / group={trtgrp} diff=all test=logrank;\r\nrun;\r\nods output close;\r\n/*For Un-stratified log-rank test and KM estimates at time points*/\r\nods output HomTests={logrank} Quartiles={km_q} means={means} CensoredSummary={censorsum} ProductLimitEstimates={rates};\r\nproc lifetest data={indata} conftype=loglog alpha=0.05 alphaqt=0.05 method=km outsurv={surv} timelist=xx reduceout;\r\n     time {SurTime}*{Censored(1)};\r\n     strata {trtgrp} / diff=all test=logrank;\r\nrun;\r\nods output close;",
+                "parameters": []
+            }
+        },
+        {
+            "name": "Summary of Subjects by Treatment and Analysis Value",
+            "id": "An_28",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_07",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_18",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                },
+                {
+                    "order": 2,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_07_Aval"
+                }
+            ],
+            "programmingCode": {
+                "context": "KM Estimates at Time Points",
+                "code": "/*For stratified log-rank test*/\r\nods output HomTests={logrank} Quartiles={km_q} means={means} CensoredSummary={censorsum} ProductLimitEstimates={rates};\r\nproc lifetest data={indata} conftype=loglog alpha=0.05 alphaqt=0.05 method=km outsurv={surv} timelist=xx reduceout;\r\n     time {SurTime}*{Censored(1)};\r\n     strata {strata1} {strata2} / group={trtgrp} diff=all test=logrank;\r\nrun;\r\nods output close;\r\n/*For Un-stratified log-rank test and KM estimates at time points*/\r\nods output HomTests={logrank} Quartiles={km_q} means={means} CensoredSummary={censorsum} ProductLimitEstimates={rates};\r\nproc lifetest data={indata} conftype=loglog alpha=0.05 alphaqt=0.05 method=km outsurv={surv} timelist=xx reduceout;\r\n     time {SurTime}*{Censored(1)};\r\n     strata {trtgrp} / diff=all test=logrank;\r\nrun;\r\nods output close;",
+                "parameters": []
+            }
+        },
+        {
+            "name": "Summary of Analysis Value by Treatment and Analysis Value",
+            "id": "An_29",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_11",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "AVAL",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_19",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                },
+                {
+                    "order": 2,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_07_Aval"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Hazard Ratio of A vs B (95% CI) [b]",
+            "id": "An_30",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_06",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_20",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ],
+            "programmingCode": {
+                "context": "Hazard Ratio",
+                "code": "/* {Stratified} Hazard Ratio {of A vs B} (95% CI) [c] */\r\nods output HazardRatios={hr} estimates={test};\r\nproc phreg data={indata};\r\n     class {trtgrp} (ref = \"{B}\") / param=ref; /*specify the reference arm in (ref=’’)*/\r\n     strata {strata1} {strata2}; /*only needed for stratified test*/\r\n     model {SurTime}*{Censored(1)}={trtgrp} / rl alpha=0.05 ties=efron;\r\n     hazardratio {trtgrp} / alpha=0.05 diff=ref;\r\n     estimate {trtgrp} {1} / testvalue=Ln_HR0; /*only needed for non-inferiority test. “estimate {trtgrp} 1” assigns 1 as the coefficient to be applied to the non-inferiority statistical test assign Ln_HR0=ln(HR0) where HR0 is the non-inferiority test boundary*/\r\nrun;\r\nods output close;",
+                "parameters": []
+            }
+        },
+        {
+            "name": "Summary of Analysis Value by Treatment",
+            "id": "An_31",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_08",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "dataset": "ADTTE",
+            "variable": "AVAL",
+            "analysisSetId": "AnalysisSet_04",
+            "dataSubsetId": "Dss_22",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_06_Trt01Pn"
+                }
+            ],
+            "programmingCode": {
+                "context": "Summary Statistics Standard",
+                "code": "proc means data={indata} n mean std median q1 q3 min max;\r\n    var {variable};\r\n\tby {trtgrp};\r\n\toutput out={summary} (drop=_TYPE_ _FREQ_) n=n mean=mean std=std median=median q1=q1 q3=q3 min=min max=max;\r\nrun;",
+                "parameters": []
+            }
+        },
+        {
+            "name": "Count of Subjects by Treatment",
+            "id": "An_32",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_01",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for Any TEAE",
+            "id": "An_33",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_24",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_33"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE with Grade 3 or Higher",
+            "id": "An_34",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_25",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_34"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE with Grade 2 or Higher",
+            "id": "An_35",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_26",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_35"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug",
+            "id": "An_36",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_27",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_36"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug with Grade 3 or Higher",
+            "id": "An_37",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_28",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_37"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Related to Study Drug with Grade 2 or Higher",
+            "id": "An_38",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_29",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_38"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TE Serious AE",
+            "id": "An_39",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_30",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_39"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TE Serious AE Related to Study Drug",
+            "id": "An_40",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_31",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_40"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Leading to Discontinuation of Study Drug",
+            "id": "An_41",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_32",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_41"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Leading to Dose Interruption of Study Drug",
+            "id": "An_42",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_33",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_42"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Leading to Dose Reduction of Study Drug",
+            "id": "An_43",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_34",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_43"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for TEAE Leading to Death",
+            "id": "An_44",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_03",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "dataset": "ADAE",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_02",
+            "dataSubsetId": "Dss_35",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_10_Trt01An"
+                }
+            ],
+            "referencedAnalysisOperations": [
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_NUM",
+                    "analysisId": "An_44"
+                },
+                {
+                    "referencedOperationRelationshipId": "Mth_03_02_%_DEN",
+                    "analysisId": "An_32"
+                }
+            ]
+        },
+        {
+            "name": "Count of Subjects by Treatment",
+            "id": "An_45",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_01",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": "",
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for 001",
+            "id": "An_46",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_02",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "ADPC",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for 002",
+            "id": "An_47",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_02",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for . . .",
+            "id": "An_48",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_02",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "ADSL",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for 90% CI (Lower)",
+            "id": "An_49",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_05",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        },
+        {
+            "name": "Summary of Subjects by Treatment for 90% CI (Upper)",
+            "id": "An_50",
+            "reason": {
+                "controlledTerm": ""
+            },
+            "purpose": {
+                "controlledTerm": ""
+            },
+            "methodId": "Mth_05",
+            "version": 1,
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "dataset": "ADPC",
+            "variable": "USUBJID",
+            "analysisSetId": "AnalysisSet_03",
+            "dataSubsetId": null,
+            "orderedGroupings": [
+                {
+                    "order": 1,
+                    "resultsByGroup": true,
+                    "groupingId": "AnlsGrouping_11_"
+                }
+            ]
+        }
+    ],
+    "globalDisplaySections": [
+        {
+            "sectionType": "Title",
+            "subSections": [
+                {
+                    "id": "GlobalDisp_Header_01",
+                    "text": "GS-US-000-0000 (DSS)"
+                }
+            ],
+            "shellType": "Table"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "Participant Disposition",
+            "id": "Out_01",
+            "version": 1,
+            "fileSpecifications": [],
+            "displays": [
+                {
+                    "order": 1,
+                    "display": {
+                        "name": "Participant Disposition",
+                        "id": "Disp_01",
+                        "version": 1,
+                        "displayTitle": "Participant Disposition",
+                        "displaySections": [
+                            {
+                                "sectionType": "Title",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_01_Title_01",
+                                            "text": "Table 15.8.1.3.1"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_01_Title_02",
+                                            "text": "Participant Disposition"
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_01_Title_03",
+                                            "text": "All Screened Participants"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Footnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_01_Footnote_01",
+                                            "text": "Percentages for completion status were calculated based on the number of participants in the Safety Analysis Set."
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_01_Footnote_02",
+                                            "text": "Source: Listing 16.2.1.3.1"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_03"
+            ],
+            "documentRefs": [],
+            "programmingCode": {}
+        },
+        {
+            "name": "Demographics and Baseline Characteristics",
+            "id": "Out_02",
+            "version": 1,
+            "fileSpecifications": [],
+            "displays": [
+                {
+                    "order": 1,
+                    "display": {
+                        "name": "Demographics and Baseline Characteristics",
+                        "id": "Disp_02",
+                        "version": 1,
+                        "displayTitle": "Demographics and Baseline Characteristics",
+                        "displaySections": [
+                            {
+                                "sectionType": "Title",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_02_Title_01",
+                                            "text": "Table 15.8.3.1"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_02_Title_02",
+                                            "text": "Demographics and Baseline Characteristics"
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_02_Title_03",
+                                            "text": "ITT Analysis Set"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Footnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_02_Footnote_01",
+                                            "text": "Denominator for percentages was the ITT Analysis Set."
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_02_Footnote_02",
+                                            "text": "Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1 visit if dose, date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized."
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_02_Footnote_03",
+                                            "text": "Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000."
+                                        }
+                                    },
+                                    {
+                                        "order": 4,
+                                        "subSection": {
+                                            "id": "Disp_02_Footnote_04",
+                                            "text": "Source: Listing 16.2.4.1"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_04"
+            ],
+            "documentRefs": [],
+            "programmingCode": {}
+        },
+        {
+            "name": "Overall Survival (OS)",
+            "id": "Out_03",
+            "version": 1,
+            "fileSpecifications": [],
+            "displays": [
+                {
+                    "order": 1,
+                    "display": {
+                        "name": "Overall Survival (OS)",
+                        "id": "Disp_03",
+                        "version": 1,
+                        "displayTitle": "Overall Survival (OS)",
+                        "displaySections": [
+                            {
+                                "sectionType": "Title",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_03_Title_01",
+                                            "text": "Table 15.9.1.x"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_03_Title_02",
+                                            "text": "Overall Survival (OS)"
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_03_Title_03",
+                                            "text": "ITT Analysis Set"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Footnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_01",
+                                            "text": "{Definition of Analysis set.}"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_02",
+                                            "text": "NEst = Not Estimable."
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_03",
+                                            "text": "a   OS (months) = (date of death or censoring – date of {randomization/first dose} + 1)/30.4375, and the 95% CI is derived using log-log transformation."
+                                        }
+                                    },
+                                    {
+                                        "order": 4,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_04",
+                                            "text": "b   Hazard ratio and 95% CIs are calculated using the Cox proportional hazards model / statistical method."
+                                        }
+                                    },
+                                    {
+                                        "order": 5,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_05",
+                                            "text": "c   P value for comparing the overall survival functions from the two treatment groups is from."
+                                        }
+                                    },
+                                    {
+                                        "order": 6,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_06",
+                                            "text": "d   Duration of OS follow-up (months) = (date of death or censoring – date of randomization + 1)/30.4375."
+                                        }
+                                    },
+                                    {
+                                        "order": 7,
+                                        "subSection": {
+                                            "id": "Disp_03_Footnote_07",
+                                            "text": "Source: Listing 16.2.6.x"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "categoryIds": [
+                "ANSET_02",
+                "ANSET_02_ANINT_01"
+            ],
+            "documentRefs": [],
+            "programmingCode": {}
+        },
+        {
+            "name": "Treatment-Emergent Adverse Events: Overall Summary",
+            "id": "Out_04",
+            "version": 1,
+            "fileSpecifications": [],
+            "displays": [
+                {
+                    "order": 1,
+                    "display": {
+                        "name": "Treatment-Emergent Adverse Events: Overall Summary",
+                        "id": "Disp_04",
+                        "version": 1,
+                        "displayTitle": "Treatment-Emergent Adverse Events: Overall Summary",
+                        "displaySections": [
+                            {
+                                "sectionType": "Title",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_04_Title_01",
+                                            "text": "Table 15.11.2.1.1"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_04_Title_02",
+                                            "text": "Treatment-Emergent Adverse Events: Overall Summary"
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_04_Title_03",
+                                            "text": "Safety Analysis Set"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Footnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_01",
+                                            "text": "TE = treatment-emergent; TEAE = treatment-emergent adverse event."
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_02",
+                                            "text": "Adverse events were coded according to MedDRA Version {XX.X}."
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_03",
+                                            "text": "Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the date of the last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy]."
+                                        }
+                                    },
+                                    {
+                                        "order": 4,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_04",
+                                            "text": "Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The DAIDS Version XX]. [Participants were counted only one based on their highest grade for each summary row.]"
+                                        }
+                                    },
+                                    {
+                                        "order": 5,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_05",
+                                            "text": "Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of participants in the DLT Evaluable Set."
+                                        }
+                                    },
+                                    {
+                                        "order": 6,
+                                        "subSection": {
+                                            "id": "Disp_04_Footnote_06",
+                                            "text": "Source: Listing 16.2.7.1, 16.2.7.2.1, 16.2.7.2.2, 16.2.7.3, 16.2.7.4.x and 16.2.7.5.x"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Programmingnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_04_Programmingnote_01",
+                                            "text": "BIOSTAT NOTES: If not using the severity grading system, replace 'AE with Grade >= 3' with 'Severe AE' and delete severity grade footnote."
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Rowlabel Header",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_04_RowlabelHeader_01",
+                                            "text": "Number (%) of Participants with"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_02"
+            ],
+            "documentRefs": [],
+            "programmingCode": {}
+        },
+        {
+            "name": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times",
+            "id": "Out_05",
+            "version": 1,
+            "fileSpecifications": [],
+            "displays": [
+                {
+                    "order": 1,
+                    "display": {
+                        "name": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times",
+                        "id": "Disp_05",
+                        "version": 1,
+                        "displayTitle": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times",
+                        "displaySections": [
+                            {
+                                "sectionType": "Title",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_05_Title_01",
+                                            "text": "Table 15.10.1.1.x"
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_05_Title_02",
+                                            "text": "Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times"
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_05_Title_03",
+                                            "text": "PK Analysis Set"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Footnote",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_05_Footnote_01",
+                                            "text": "BLQ = below the limit of quantitation; LLOQ = lower limit of quantitation; CI = confidence interval."
+                                        }
+                                    },
+                                    {
+                                        "order": 2,
+                                        "subSection": {
+                                            "id": "Disp_05_Footnote_02",
+                                            "text": "Values BLQ were treated as 0 for predose and postdose."
+                                        }
+                                    },
+                                    {
+                                        "order": 3,
+                                        "subSection": {
+                                            "id": "Disp_05_Footnote_03",
+                                            "text": "If > 1/3 of postdose values are BLQ at a time point, then the mean, StD, and %CV are not calculated at that time point."
+                                        }
+                                    },
+                                    {
+                                        "order": 4,
+                                        "subSection": {
+                                            "id": "Disp_05_Footnote_04",
+                                            "text": "LLQ was defined as 5.0 ng/mL for analyte GS-XXXX."
+                                        }
+                                    },
+                                    {
+                                        "order": 5,
+                                        "subSection": {
+                                            "id": "Disp_05_Footnote_05",
+                                            "text": "For each participant in PK analysis set, intensive serial PK sample collection (samples over 24-hr postdose) was performed at Day 1."
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionType": "Rowlabel Header",
+                                "orderedSubSections": [
+                                    {
+                                        "order": 1,
+                                        "subSection": {
+                                            "id": "Disp_05_RowlabelHeader_01",
+                                            "text": "Participant ID"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "categoryIds": [
+                "ANSET_01",
+                "ANSET_01_ANINT_01"
+            ],
+            "documentRefs": [],
+            "programmingCode": {}
+        }
+    ],
+    "@type": "ReportingEvent"
+}

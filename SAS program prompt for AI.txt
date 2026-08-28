@@ -1,0 +1,318 @@
+You are an expert SAS programmer specializing in CDISC ADaM, clinical study reporting, and production-quality TFL programming.
+
+Generate complete, executable SAS 9.4 code to create clinical summary tables from the ADaM datasets stored in:
+
+C:\Users\carol\DSC541\DSC541\adam
+
+Use the following metadata and table-shell sources:
+
+1. Analysis-results standards:
+   C:\Users\carol\DSC541\DSC541\metadata\DSS_Tables.json
+
+2. Table shells and programming notes:
+   C:\Users\carol\DSC541\DSC541\metadata\DSS.rtf
+
+Inspect and interpret both metadata sources before generating code.
+
+Use the JSON as the authoritative source for:
+
+- Table identifiers and titles
+- Analysis datasets
+- Analysis populations
+- Population filters
+- Treatment-arm definitions
+- Row definitions
+- Statistics
+- Precision and display rules
+- Footnotes
+- Source references
+
+Use the RTF as the authoritative source for:
+
+- Table layouts
+- Row ordering
+- Column structure
+- Header and title formatting
+- Programming notes
+- Footnotes
+- Page orientation
+- Pagination
+- Treatment-arm presentation
+
+Create the output directory if it does not exist:
+
+C:\Users\carol\DSC541\DSC541\output
+
+Create a `TLF` directory if it does not exist:
+
+C:\Users\carol\DSC541\DSC541\tlf
+
+Use a SAS library named `ADAM` pointing to:
+
+C:\Users\carol\DSC541\DSC541\adam
+
+Use the following ADaM datasets:
+
+- ADSL: participant-level disposition and demographics
+- ADAE: adverse events
+- ADTTE: time-to-event and overall survival
+- ADPC: plasma concentration data
+
+Generate a separate, complete, executable SAS program for each table. Each table program must generate only its assigned table and its corresponding individual PDF.
+
+Create these programs:
+
+1. `C:\Users\carol\DSC541\DSC541\tlf\table_15_8_1_3_1_disposition.sas`
+2. `C:\Users\carol\DSC541\DSC541\tlf\table_15_8_3_1_demographics.sas`
+3. `C:\Users\carol\DSC541\DSC541\tlf\table_15_9_1_x_overall_survival.sas`
+4. `C:\Users\carol\DSC541\DSC541\tlf\table_15_11_2_1_1_ae_summary.sas`
+5. `C:\Users\carol\DSC541\DSC541\tlf\table_15_10_1_1_x_pk_concentration.sas`
+
+Create this driver program:
+
+`C:\Users\carol\DSC541\DSC541\tlf\run_all_tables.sas`
+
+The driver program must:
+
+- Set common input, output, and metadata paths.
+- Set SAS options.
+- Include or call each table-specific SAS program.
+- Run every table independently.
+- Record success or failure for each table.
+- Confirm that each expected PDF was created.
+- Produce a combined execution and validation report.
+- Continue running other tables when one table fails.
+- Return a clear final status for each table.
+
+Expected PDF files:
+
+- `C:\Users\carol\DSC541\DSC541\output\t-s-disp.pdf`
+- `C:\Users\carol\DSC541\DSC541\output\t-s-demog.pdf`
+- `C:\Users\carol\DSC541\DSC541\output\t-os.pdf`
+- `C:\Users\carol\DSC541\DSC541\output\t-s-aebrief.pdf`
+- `C:\Users\carol\DSC541\DSC541\output\t-pkpc.pdf`
+
+Use ODS PDF and PROC REPORT for table production. Use PROC SUMMARY, PROC MEANS, PROC FREQ, PROC LIFETEST, and PROC PHREG where appropriate.
+
+Each table program must:
+
+- Set up the ADAM library.
+- Read only the required ADaM datasets.
+- Apply the correct analysis-set filters.
+- Apply the treatment-arm definitions from the JSON.
+- Preserve the shell row order.
+- Generate all table-specific summaries.
+- Apply the required titles, subtitles, headers, footnotes, borders, indentation, spacing, orientation, and pagination.
+- Write one individual PDF.
+- Close the ODS PDF destination after generation.
+- Perform table-specific validation before generating the PDF.
+- Write table-specific validation results.
+- Avoid reliance on execution order.
+- Return an error and do not create the PDF if required datasets or variables are missing.
+
+Table 1: Participant Disposition
+
+- Table key: `t-s-disp`
+- Dataset: ADSL
+- Include screened participants and relevant analysis sets.
+- Include screened, ITT, safety, PK, treatment completion, study completion, treatment discontinuation, and study discontinuation rows as defined in the shell.
+- Use `TRT01PN` or `TRT01P` for planned treatment columns.
+- Use `SCRNFL`, `ITTFL`, `SAFFL`, and `PKFL` when available.
+- Use `COMTFL`, `COMSFL`, `DCSREAS`, and `DCTREAS`.
+- Calculate n and percentages using the correct denominator for each section.
+- Apply conditional display rules from the RTF programming notes.
+- Omit all-zero discontinuation categories only when permitted by the shell.
+- Sort discontinuation reasons by descending frequency under the total column, then alphabetically for ties.
+- Use participant-level counts.
+
+Table 2: Demographics and Baseline Characteristics
+
+- Table key: `t-s-demog`
+- Dataset: ADSL
+- Filter to `ITTFL = "Y"`.
+- Use planned treatment columns based on `TRT01PN`.
+- Include age, age group, sex, race, ethnicity, weight, height, and BMI.
+- Produce categorical n (%) summaries.
+- Produce continuous n, mean (SD), median, Q1/Q3, and minimum/maximum summaries.
+- Use the precision specified by the JSON and RTF.
+- Calculate percentages using the ITT analysis-set denominator.
+- Preserve the shell category order.
+- Use baseline variables from ADSL without inventing replacement variables.
+
+Table 3: Overall Survival
+
+- Table key: `t-os`
+- Dataset: ADTTE, with ADSL treatment and population information as needed.
+- Filter to `PARAMCD = "OS"` and the ITT analysis set.
+- Use `TRT01PN` or `TRT01P` for planned treatment groups.
+- Summarize events using `CNSR = 0`.
+- Summarize censored participants using `CNSR = 1`.
+- Produce Kaplan-Meier estimates, quartiles, survival rates at 6, 12, and 18 months, and 95% confidence intervals where specified.
+- Produce the treatment-comparison hazard ratio and 95% confidence interval using PROC PHREG.
+- Produce the log-rank p-value using PROC LIFETEST.
+- Use the event and censoring definitions in ADTTE.
+- Use the shell precision rules: HR and CI to 2 decimals, survival rates to 3 decimals, and medians/quartiles to 1 decimal unless metadata specifies otherwise.
+- Display `NE` or `NEst` when an estimate is not estimable, consistent with the shell.
+- Verify the time scale and confirm whether `ADTTE.AVAL` is suitable for the requested analysis.
+- Do not silently substitute a different time derivation.
+
+Table 4: Treatment-Emergent Adverse Events Overall Summary
+
+- Table key: `t-s-aebrief`
+- Dataset: ADAE, linked to ADSL when required.
+- Filter to `SAFFL = "Y"` and `TRTEMFL = "Y"`.
+- Use actual treatment columns based on `TRT01AN`.
+- Count participants, not AE records, for participant-level summary rows.
+- Ensure each participant is counted only once per applicable summary category.
+- Include the following categories where defined by the shell:
+  - Any TEAE
+  - TEAE with Grade 3 or higher
+  - TEAE with Grade 2 or higher
+  - TEAE related to study drug
+  - Related TEAE with Grade 3 or higher
+  - Related TEAE with Grade 2 or higher
+  - Serious TEAE
+  - Serious TEAE related to study drug
+  - TEAE leading to study-drug discontinuation
+  - TEAE leading to dose interruption
+  - TEAE leading to dose reduction
+  - TEAE leading to death
+- Use ADAE variables including `TRTEMFL`, `ATOXGRN`, `AREL`, `AESER`, `AEACN`, `AESDTH`, and `USUBJID`.
+- Use the correct safety-set treatment denominator for percentages.
+- Deduplicate by `USUBJID` within each summary category and treatment arm.
+- Preserve the shell order and display zero-count categories when required.
+
+Table 5: Individual Data and Summary Statistics of Plasma Concentration
+
+- Table key: `t-pkpc`
+- Dataset: ADPC, with ADSL population and treatment information as needed.
+- Filter to the PK analysis set and `ANL01FL = "Y"`.
+- Verify that `PKFL` exists and is correctly defined before generating the table.
+- Produce columns for predose, 1h, 2h, 4h, 8h, 12h, 16h, 18h, and 24h as defined in the shell.
+- Use `ATPT` and `ATPTN` to order sampling times.
+- Summarize `PCSTRESN` or `AVAL` only after confirming the correct analysis variable from the metadata.
+- Handle BLQ records correctly and never treat BLQ as numeric zero.
+- Produce n, mean, standard deviation, and coefficient of variation where specified.
+- Follow the shell's significant-digit and precision rules.
+- Include the required BLQ, LLOQ, CI, and source footnotes.
+- Use the treatment and sampling-time structure defined in the JSON.
+- Preserve the shell's predose and postdose column labels.
+
+General validation requirements:
+
+Before generating each table, validate:
+
+- Required dataset existence.
+- Required variable existence.
+- Dataset record counts.
+- Analysis-set counts.
+- Treatment-arm counts.
+- Missing values in key analysis variables.
+- Duplicate participant records where participant-level counts are required.
+- Metadata-to-dataset variable mappings.
+- Population filter mappings.
+- Treatment-arm mappings.
+- Row and statistic definitions.
+- Output-directory availability.
+- ODS PDF output status.
+
+Create validation outputs containing:
+
+- Table key.
+- Dataset name.
+- Variable name.
+- Validation check.
+- Expected value or condition.
+- Actual value or condition.
+- Status: PASS, WARNING, or ERROR.
+- Validation message.
+
+Write a combined validation dataset and report to:
+
+`C:\Users\carol\DSC541\DSC541\output\table_validation.sas7bdat`
+
+`C:\Users\carol\DSC541\DSC541\output\table_validation.pdf`
+
+Do not invent variables, values, analysis flags, treatment groups, or study rules.
+
+Inspect the actual SAS programs and dataset structures before generating table code. Validate every variable referenced by the JSON or RTF against the ADaM datasets.
+
+If a shell variable is absent, create a mapping only when an equivalent variable is demonstrably available and document the mapping in the validation report.
+
+If no defensible mapping exists:
+
+- Mark the table as ERROR.
+- Identify the unresolved variable.
+- Identify the affected table rows or statistics.
+- Do not generate that table's PDF.
+- Continue processing the other tables.
+
+In particular, verify the availability and intended definition of `PKFL` before generating the PK table. The supplied ADTTE program creates OS records from ADSL using `DTHDT`, `LSTALVDT`, `CNSR`, `STARTDT`, `ADT`, and `AVAL`; verify that the requested OS statistics are compatible with those variables and derivations.
+
+Preserve CDISC variable names and use metadata labels where possible.
+
+Use explicit formats for:
+
+- n
+- Percentages
+- Mean and standard deviation
+- Median
+- Quartiles
+- Minimum and maximum
+- Confidence intervals
+- p-values
+- Hazard ratios
+- Survival estimates
+- PK summary statistics
+
+Use participant-level deduplication for all participant counts.
+
+Use stable sorting and preserve shell row order.
+
+Do not suppress zero-count categories unless the RTF programming notes explicitly permit suppression.
+
+Use ODS PDF `FILE=` separately for each table. Close each PDF destination before opening another one.
+
+Use `%LET` parameters for:
+
+- ADaM input path
+- Metadata path
+- RTF shell path
+- TLF program path
+- PDF output path
+- Validation output path
+
+Include concise comments explaining:
+
+- Analysis-set filters
+- Treatment-arm filters
+- Denominators
+- Deduplication logic
+- Statistical methods
+- Precision rules
+- Any metadata-to-dataset mappings
+- Any unresolved issues
+
+Each program must generate only its assigned table and must not overwrite another table's PDF or validation results.
+
+Do not hard-code calculated results. All displayed values must be derived from the ADaM datasets.
+
+Use defensive SAS programming practices:
+
+- Check `&SYSERR`.
+- Check for missing datasets and variables.
+- Check ODS output status.
+- Prevent accidental duplicate counts.
+- Use `PROC CONTENTS` or dictionary tables for metadata validation.
+- Use clear SAS log messages.
+- Set meaningful return-status macro variables for each table.
+
+The final response must contain:
+
+1. The complete code for all five table-specific SAS programs.
+2. The complete code for `run_all_tables.sas`.
+3. Any shared utility macro code, if used.
+4. A concise explanation of each table's analysis logic.
+5. A list of all assumptions.
+6. A list of all unresolved or unavailable metadata mappings.
+7. Expected PDF and validation output locations.
