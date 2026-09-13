@@ -1,0 +1,2574 @@
+#### start of automatic log check result(s) ####
+   /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/mk-safety.log
+      3 instance(s) of search pattern #37:VALUES HAVE BEEN CONVERTED TO
+##### end of automatic log check result(s) #####
+1                                                          The SAS System                              15:40 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.14 seconds
+      cpu time            0.05 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:40 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/mk-safety.sas;
+21         %let gsas_orig_pgm_name = mk-safety.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/mk-safety.sas_1788129617.747937@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=2091122
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/mk-safety.sas
+      * Run by:         cpearson1 on sjgsasappprdg07
+      * On Date:        30AUG2026:15:40
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/mk-safety.sas_1788129617.747937@sjgsasappprdg09/original_mk-safety.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/mk-safety.sas_1788129617.747937@sjgsasappprdg09/original_mk-safety.sas is file 
+      /gridwork/gsubwork/cpearson1/mk-safety.sas_1788129617.747937@sjgsasappprdg09/original_mk-safety.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      mk-safety.sas
+991       +Program Author:    First Last (userid)
+992       +Program Purpose:   Driver program for creating Safety TFLs (Version 1.5)
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +%m_safety(metafile=../docs/m_safety.xlsx,                     /* Specify program metadata XLSX file */
+997       +          version=%str(v1.5),                                 /* Specify version */
+998       +          templdir=/biometrics/global/template/stars/v1.5);   /* Specify the template program directory for a specified version */
+MPRINT(M_SAFETY):   options missing=' ' compress='yes';
+MPRINT(M_SAFETY):   ***********************************;
+MPRINT(M_SAFETY):   ***********************************;
+MPRINT(M_SAFETY):   **checksum must exist;
+MPRINT(M_SAFETY):   **m_safety.sas7bdat must exist (no force option);
+MPRINT(M_SAFETY):   ***********************************;
+MPRINT(M_SAFETY):   ***********************************;
+MPRINT(M_SAFETY):   **import titlekeys from tnf.inc;
+MPRINT(M_SAFETY):   data tfls (drop=text rename=(testtext=titlekey));
+MPRINT(M_SAFETY):   infile "../tools/tnf.inc" lrecl=1000 pad;
+MPRINT(M_SAFETY):   length testtext $ 40;
+MPRINT(M_SAFETY):   input @1 text $1000.;
+MPRINT(M_SAFETY):   testtext = scan(text,1," ");
+MPRINT(M_SAFETY):   if testtext = "/*";
+MPRINT(M_SAFETY):   testtext = scan(text,2," ");
+MPRINT(M_SAFETY):   if upcase(testtext) not in ('DEFAULT','----------------------------------------') then output;
+MPRINT(M_SAFETY):   run;
+
+NOTE: The infile "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33,
+      File Size (bytes)=10383
+
+NOTE: 109 records were read from the infile "../tools/tnf.inc".
+      The minimum record length was 0.
+      The maximum record length was 187.
+NOTE: The data set WORK.TFLS has 67 observations and 1 variables.
+NOTE: Compressing data set WORK.TFLS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+                                                                    The SAS System
+
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc sort data=tfls nodupkey;
+MPRINT(M_SAFETY):   by titlekey;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 67 observations read from the data set WORK.TFLS.
+NOTE: SAS sort was used.
+NOTE: 59 observations with duplicate key values were deleted.
+NOTE: The data set WORK.TFLS has 8 observations and 1 variables.
+NOTE: Compressing data set WORK.TFLS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   libname stnd xlsx "../docs/m_safety.xlsx";
+NOTE: Libref STND was successfully assigned as follows: 
+      Engine:        XLSX 
+      Physical Name: ../docs/m_safety.xlsx
+MPRINT(M_SAFETY):   data sheets_;
+MPRINT(M_SAFETY):   set sashelp.vtable;
+MPRINT(M_SAFETY):   where upcase(libname) = 'STND';
+MPRINT(M_SAFETY):   run;
+
+NOTE:    Variable Name Change.  Tables: -> Tables_                         
+NOTE:    Variable Name Change.  STARS Template Version # -> STARS_Template_Version__        
+NOTE:    Variable Name Change.  Metadata Version # -> Metadata_Version__              
+NOTE:    Variable Name Change.  Description of Change -> Description_of_Change           
+NOTE: There were 57 observations read from the data set SASHELP.VTABLE.
+      WHERE UPCASE(libname)='STND';
+NOTE: The data set WORK.SHEETS_ has 57 observations and 41 variables.
+NOTE: Compressing data set WORK.SHEETS_ decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.49 seconds
+      cpu time            0.46 seconds
+      
+
+MPRINT(M_SAFETY):   data sheets(where=(upcase(titlekey) not in("VERSION", "TABLE OF CONTENTS", "GLOBAL")));
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set sheets_;
+MPRINT(M_SAFETY):   titlekey=lowcase(memname);
+                                                                    The SAS System
+
+MPRINT(M_SAFETY):   sasprog=trim(titlekey)||'.sas';
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 57 observations read from the data set WORK.SHEETS_.
+NOTE: The data set WORK.SHEETS has 54 observations and 43 variables.
+NOTE: Compressing data set WORK.SHEETS decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   *** Differential processing for v1.1 and v1.2;
+MPRINT(M_SAFETY):   ** Import table of contents tab and get active tab information;
+MPRINT(M_SAFETY):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=toc replace;
+MPRINT(M_SAFETY):   RXLX;
+MPRINT(M_SAFETY):   sheet="Table of Contents";
+MPRINT(M_SAFETY):   run;
+
+NOTE:    Variable Name Change.  Tables: -> Tables_                         
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable Active has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable Tables_ has been converted to CHAR data type.
+NOTE: The import data set has 59 observations and 2 variables.
+NOTE: Compressing data set WORK.TOC increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.TOC data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(M_SAFETY):   data active_tab;
+MPRINT(M_SAFETY):   length active_tab $200;
+MPRINT(M_SAFETY):   set toc (where=(upcase(active) in ('Y','YES')));
+MPRINT(M_SAFETY):   active_tab=strip(compress(scan(tables_, 2, "("), ")"))||".sas";
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.TOC.
+      WHERE UPCASE(active) in ('Y', 'YES');
+NOTE: The data set WORK.ACTIVE_TAB has 3 observations and 3 variables.
+NOTE: Compressing data set WORK.ACTIVE_TAB increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+                                                                    The SAS System
+
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   proc sql noprint;
+MPRINT(M_SAFETY):   select quote(strip(active_tab))into: active_tab_list separated by ', ' from active_tab ;
+MPRINT(M_SAFETY):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+"t-s-aebrief.sas", "t-s-demog.sas", "t-s-disp.sas"=
+MPRINT(M_SAFETY):   data _null_;
+MPRINT(M_SAFETY):   set sheets;
+MPRINT(M_SAFETY):   where sasprog in ("t-s-aebrief.sas", "t-s-demog.sas", "t-s-disp.sas");
+MPRINT(M_SAFETY):   call symput("prog"||compress(put(_n_,8.)),trim(sasprog));
+MPRINT(M_SAFETY):   call symput("titlekey"||compress(put(_n_,8.)),trim(titlekey));
+MPRINT(M_SAFETY):   call symput("max",compress(put(_n_,8.)));
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.SHEETS.
+      WHERE sasprog in ('t-s-aebrief.sas', 't-s-demog.sas', 't-s-disp.sas');
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param1 replace;
+MPRINT(M_SAFETY):   RXLX;
+MPRINT(M_SAFETY):   sheet="t-s-aebrief";
+MPRINT(M_SAFETY):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable POP_FLAG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable KEEP_ADSL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AEDSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACROAE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_DATA has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SEV_GRD_SYS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_G3 has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_G2 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NUM_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REF_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REL_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REFG2 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REFG3 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV_ANYREL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV_REL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_SDISC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_INTER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_MOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_MOD_INTER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REDUC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACN_REF_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACN_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_SPROC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AESI_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AESI_LBL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_IRR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DLT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DLT_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DTHFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DTH30FL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_LEAD2DTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_RELDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF_RELDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF_RELDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_TEDTHFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OTHER_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PREFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALPAT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPGROUPS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVAL_HEADER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+NOTE: The import data set has 1 observations and 60 variables.
+                                                                    The SAS System
+
+NOTE: Compressing data set WORK.PARAM1 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM1 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_SAFETY):   data param1 (where=(titlekey^='' and upcase(active) in ('Y','YES')));
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set param1;
+MPRINT(M_SAFETY):   sasprog="t-s-aebrief.sas";
+MPRINT(M_SAFETY):   format _all_;
+MPRINT(M_SAFETY):   informat _all_;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM1.
+NOTE: The data set WORK.PARAM1 has 1 observations and 61 variables.
+NOTE: Compressing data set WORK.PARAM1 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   data newsheets;
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set param1 (keep=sasprog titlekey);
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM1.
+NOTE: The data set WORK.NEWSHEETS has 1 observations and 2 variables.
+NOTE: Compressing data set WORK.NEWSHEETS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param2 replace;
+MPRINT(M_SAFETY):   RXLX;
+MPRINT(M_SAFETY):   sheet="t-s-demog";
+MPRINT(M_SAFETY):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable POP_FLAG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGEU has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE_GRP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE_GRPF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NOTPERM has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MISSPCT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BWT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BWTSEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BHT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BHTSEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBMI has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBMISEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBSA has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBSASEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_GENIDENT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_SEXORIE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BMI_GRP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BMI_GRPF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REGION has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REGIONF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOWALL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALCONT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALCAT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPGROUPS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MISSPVAL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NOMISSPC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVAL_HEADER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+NOTE: The import data set has 1 observations and 43 variables.
+NOTE: Compressing data set WORK.PARAM2 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM2 data set was successfully created.
+                                                                    The SAS System
+
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_SAFETY):   data param2 (where=(titlekey^='' and upcase(active) in ('Y','YES')));
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set param2;
+MPRINT(M_SAFETY):   sasprog="t-s-demog.sas";
+MPRINT(M_SAFETY):   format _all_;
+MPRINT(M_SAFETY):   informat _all_;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM2.
+NOTE: The data set WORK.PARAM2 has 1 observations and 44 variables.
+NOTE: Compressing data set WORK.PARAM2 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   data newsheets;
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set newsheets param2 (keep=sasprog titlekey);
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 1 observations read from the data set WORK.NEWSHEETS.
+NOTE: There were 1 observations read from the data set WORK.PARAM2.
+NOTE: The data set WORK.NEWSHEETS has 2 observations and 2 variables.
+NOTE: Compressing data set WORK.NEWSHEETS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param3 replace;
+MPRINT(M_SAFETY):   RXLX;
+MPRINT(M_SAFETY):   sheet="t-s-disp";
+MPRINT(M_SAFETY):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable EFF_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR_SAFFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_SCRNFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_SCFAILFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_NOTENRLL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_NOTDOSED has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_EFFFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPT_POPFL_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPT_POPFL_LBL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR_OPT_POPFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPTRT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DCTREAS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPSTDY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DCSREAS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_ASSIGN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_COMPTRT_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_DCTREAS_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DRUG_ZERO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPTRT_ANY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BYPERIOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NUM_PERIOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PERIOD_NM has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOWALL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+NOTE: The import data set has 1 observations and 39 variables.
+NOTE: Compressing data set WORK.PARAM3 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM3 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   data param3 (where=(titlekey^='' and upcase(active) in ('Y','YES')));
+                                                                    The SAS System
+
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set param3;
+MPRINT(M_SAFETY):   sasprog="t-s-disp.sas";
+MPRINT(M_SAFETY):   format _all_;
+MPRINT(M_SAFETY):   informat _all_;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM3.
+NOTE: The data set WORK.PARAM3 has 1 observations and 40 variables.
+NOTE: Compressing data set WORK.PARAM3 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   data newsheets;
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   set newsheets param3 (keep=sasprog titlekey);
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 2 observations read from the data set WORK.NEWSHEETS.
+NOTE: There were 1 observations read from the data set WORK.PARAM3.
+NOTE: The data set WORK.NEWSHEETS has 3 observations and 2 variables.
+NOTE: Compressing data set WORK.NEWSHEETS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_SAFETY):   data tfls;
+MPRINT(M_SAFETY):   length sasprog temp $200;
+MPRINT(M_SAFETY):   set tfls;
+MPRINT(M_SAFETY):   if scan(titlekey,4,'-')^='' then temp=scan(titlekey,1,'-')||'-'||scan(titlekey,2,'-')||'-'||scan(titlekey,3,'-');
+MPRINT(M_SAFETY):   else temp=titlekey;
+MPRINT(M_SAFETY):   sasprog=trim(temp)||'.sas';
+MPRINT(M_SAFETY):   if titlekey=:'t-s-' or titlekey=:'l-s-' or titlekey=:'g-s-' or titlekey=:'t-sb-' or titlekey=:'l-sb-' or titlekey=:'t-so-' or 
+titlekey=:'l-so-';
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TFLS.
+NOTE: The data set WORK.TFLS has 3 observations and 3 variables.
+NOTE: Compressing data set WORK.TFLS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+                                                                    The SAS System
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc sort data=tfls;
+MPRINT(M_SAFETY):   where titlekey^='';
+MPRINT(M_SAFETY):   by titlekey;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.TFLS.
+      WHERE titlekey not = ' ';
+NOTE: SAS sort was used.
+NOTE: The data set WORK.TFLS has 3 observations and 3 variables.
+NOTE: Compressing data set WORK.TFLS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc sort data=newsheets;
+MPRINT(M_SAFETY):   where titlekey^='';
+MPRINT(M_SAFETY):   by titlekey;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.NEWSHEETS.
+      WHERE titlekey not = ' ';
+NOTE: SAS sort was used.
+NOTE: The data set WORK.NEWSHEETS has 3 observations and 2 variables.
+NOTE: Compressing data set WORK.NEWSHEETS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   data newsheets;
+MPRINT(M_SAFETY):   length sasprog titlekey $200;
+MPRINT(M_SAFETY):   merge newsheets (drop=in=in1) tfls (in=in2 drop=sasprog);
+MPRINT(M_SAFETY):   by titlekey;
+MPRINT(M_SAFETY):   if in1 and not in2 then flag=1;
+MPRINT(M_SAFETY):   if not in1 and in2 then flag=2;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.NEWSHEETS.
+                                                                    The SAS System
+
+NOTE: There were 3 observations read from the data set WORK.TFLS.
+NOTE: The data set WORK.NEWSHEETS has 3 observations and 4 variables.
+NOTE: Compressing data set WORK.NEWSHEETS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   proc sort data=newsheets out=progs nodupkey;
+MPRINT(M_SAFETY):   where flag in (.,1);
+MPRINT(M_SAFETY):   by sasprog;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.NEWSHEETS.
+      WHERE flag in (., 1);
+NOTE: SAS sort was used.
+NOTE: 0 observations with duplicate key values were deleted.
+NOTE: The data set WORK.PROGS has 3 observations and 4 variables.
+NOTE: Compressing data set WORK.PROGS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PRINTSET):   data _null_;
+MPRINT(PRINTSET):   if index("mk-safety",'-')>0 then hyund="-";
+MPRINT(PRINTSET):   else hyund="_";
+MPRINT(PRINTSET):   call symput("hyund",compress(hyund));
+MPRINT(PRINTSET):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PRINTSET):   data _null_;
+MPRINT(PRINTSET):   formchar='|----|+|----+=|-/\<>*™';
+MPRINT(PRINTSET):   substr(formchar,2,1)='_';
+MPRINT(PRINTSET):   call symput('formchar',formchar);
+MPRINT(PRINTSET):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+                                                                    The SAS System
+
+      
+
+MPRINT(PRINTSET):   options orientation = LANDSCAPE papersize = letter topmargin = "1 in" bottommargin = "1 in" leftmargin = "1 in" rightmargin = "1 
+in" formchar="|_---|+|----+=|-/\<>*™";
+MPRINT(PRINTSET):   options pagesize = 48 linesize = 150 nodate nonumber;
+MPRINT(TNFSET):   filename _tnftmp temp;
+MPRINT(TNFSET):   data _null_;
+MPRINT(TNFSET):   file _tnftmp lrecl=1000 recfm=v;
+MPRINT(TNFSET):   infile "../tools/tnf.inc" lrecl=1000 pad;
+MPRINT(TNFSET):   length testtext $ 40;
+MPRINT(TNFSET):   input @1 text $1000.;
+MPRINT(TNFSET):   testtext = scan(text,1," ");
+MPRINT(TNFSET):   if testtext = "/*";
+MPRINT(TNFSET):   testtext = scan(text,2," ");
+MPRINT(TNFSET):   if upcase(testtext) in ("MK-SAFETY" , "DEFAULT");
+MPRINT(TNFSET):   testtext = scan(text,3," ");
+MPRINT(TNFSET):   if testtext =: "*/";
+MPRINT(TNFSET):   put text;
+MPRINT(TNFSET):   run;
+
+NOTE: The file _TNFTMP is:
+      Filename=/saswork/SAS_work4ED6001FE872_sjgsasappprdg07/#LN00143,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rw--w-rw-,
+      Last Modified=30Aug2026:15:40:22
+
+NOTE: The infile "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33,
+      File Size (bytes)=10383
+
+NOTE: 1 record was written to the file _TNFTMP.
+      The minimum record length was 68.
+      The maximum record length was 68.
+NOTE: 109 records were read from the infile "../tools/tnf.inc".
+      The minimum record length was 0.
+      The maximum record length was 187.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 2) file _TNFTMP is file /saswork/SAS_work4ED6001FE872_sjgsasappprdg07/#LN00143.
+999       +/* default       */ %let ttl1 = NO ASSIGNED TITLE FOR JOB &titlekey;
+NOTE: %INCLUDE (level 2) ending.
+NOTE: %INCLUDE (level 1) resuming.
+MPRINT(TNFSET):   filename _tnftmp clear;
+NOTE: Fileref _TNFTMP has been deassigned.
+MPRINT(TNFSET):   title1 j=r "                                                                                                                        
+         Gilead Sciences, Inc.";
+MPRINT(TNFSET):   title2 j=r "                                                                                                                        
+          Study GS-US-000-0000";
+MPRINT(TNFSET):   title3 j=c "                                                         NO ASSIGNED TITLE FOR JOB mk-safety                            
+                              ";
+MPRINT(TNFSET):   footnote1 j=l "Data Extracted: ddmmmyyyy                                                                                            
+                                 ";
+MPRINT(TNFSET):   footnote2 j=l "Source: .../final/draft1/tools/mk-safety.sas v9.4  Output file: mk-safety.pdf 30AUG2026:15:40                        
+                  PAGE XX OF YYY ";
+MPRINT(PRINTSET):  ;
+MPRINT(PRINTSET):   proc printto print = "mk-safety.out" new ;
+MPRINT(PRINTSET):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_SAFETY):   data sheets2;
+MPRINT(M_SAFETY):   set newsheets;
+MPRINT(M_SAFETY):   if flag in (1,2);
+MPRINT(M_SAFETY):   **Remove alert message caused by adhoc titlekey;
+MPRINT(M_SAFETY):   if index(titlekey, "r-req")>0 and flag=1 then delete;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.NEWSHEETS.
+NOTE: The data set WORK.SHEETS2 has 0 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   title3 "Safety Program Summary";
+MPRINT(M_SAFETY):   title4 "Source Workbook File: ../docs/m_safety.xlsx";
+MPRINT(M_SAFETY):   data text;
+MPRINT(M_SAFETY):   text="NOTE: NO ERRORS OR WARNINGS REGARDING CONTENTS OF TFL SPREADSHEET";
+MPRINT(M_SAFETY):   output;
+MPRINT(M_SAFETY):   text=" ";
+                                                                    The SAS System
+
+MPRINT(M_SAFETY):   output;
+MPRINT(M_SAFETY):   text="Source File: ../tools/tnf.inc";
+MPRINT(M_SAFETY):   output;
+MPRINT(M_SAFETY):   text="Source File: ../docs/m_safety.xlsx";
+MPRINT(M_SAFETY):   output;
+MPRINT(M_SAFETY):   run;
+
+NOTE: The data set WORK.TEXT has 4 observations and 1 variables.
+NOTE: Compressing data set WORK.TEXT increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   title5 "Safety programs and titlekeys";
+MPRINT(M_SAFETY):   proc report data=text ls=150 headline spacing=1 missing nowindows formchar(2)="-" split="ff"x;
+MPRINT(M_SAFETY):   column text;
+MPRINT(M_SAFETY):   define text / display width=100 " " left;
+MPRINT(M_SAFETY):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 4 observations read from the data set WORK.TEXT.
+NOTE: The PROCEDURE REPORT printed page 1.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(M_SAFETY):   title5 "Safety programs and titlekeys";
+MPRINT(M_SAFETY):   proc report data=newsheets ls=150 headline spacing=1 missing nowindows formchar(2)="-" split="ff"x;
+MPRINT(M_SAFETY):   where flag=.;
+MPRINT(M_SAFETY):   column sasprog titlekey;
+MPRINT(M_SAFETY):   define sasprog / display width=40 "Program" left;
+MPRINT(M_SAFETY):   define titlekey / display width=40 "Titlekey" left;
+MPRINT(M_SAFETY):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 3 observations read from the data set WORK.NEWSHEETS.
+      WHERE flag=.;
+NOTE: The PROCEDURE REPORT printed page 2.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+                                                                    The SAS System
+
+MPRINT(PAGESET):   proc printto print=print;
+MPRINT(PAGESET):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PAGESET):   *** count pages and save text to temporary file ***;
+MPRINT(PAGESET):   filename _outfil_ "mk-safety.out";
+MPRINT(PAGESET):   data pagesettext(compress=yes keep=text obsnum) pagesetnums(keep=obsnum_u);
+MPRINT(PAGESET):   infile _outfil_ lrecl=200 pad eof=eof;
+MPRINT(PAGESET):   input text $char200.;
+MPRINT(PAGESET):   obsnum + 1;
+MPRINT(PAGESET):   output pagesettext;
+MPRINT(PAGESET):   if( index(text,"PAGE XX OF YYY ") ) then do;
+MPRINT(PAGESET):   obsnum_u = obsnum-2;
+MPRINT(PAGESET):   totpages + 1;
+MPRINT(PAGESET):   output pagesetnums;
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   return;
+MPRINT(PAGESET):   eof: call symput("totpages",compress(put(totpages,best.)));
+MPRINT(PAGESET):   run;
+
+NOTE: Compression was disabled for data set WORK.PAGESETNUMS because compression overhead would increase the size of the data set.
+NOTE: The infile _OUTFIL_ is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/mk-safety.out,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:23,
+      File Size (bytes)=3233
+
+NOTE: 96 records were read from the infile _OUTFIL_.
+      The minimum record length was 0.
+      The maximum record length was 151.
+NOTE: The data set WORK.PAGESETTEXT has 96 observations and 2 variables.
+NOTE: Compressing data set WORK.PAGESETTEXT increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: The data set WORK.PAGESETNUMS has 2 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PAGESET):   *** Insert page numbering ***;
+                                                                    The SAS System
+
+MPRINT(PAGESET):   data pagesettext;
+MPRINT(PAGESET):   merge pagesettext(in=_txt_) pagesetnums(in=_num_ rename=(obsnum_u=obsnum));
+MPRINT(PAGESET):   by obsnum;
+MPRINT(PAGESET):   *** insert underline above footnotes ***;
+MPRINT(PAGESET):   if _txt_ and _num_ then if text = " " then text = repeat("_",149);
+MPRINT(PAGESET):   length pagenumtxt $ 20;
+MPRINT(PAGESET):   retain totpages 2;
+MPRINT(PAGESET):   file _outfil_ linesize = 200 recfm=v noprint;
+MPRINT(PAGESET):   if text = ' ' then put;
+MPRINT(PAGESET):   else do;
+MPRINT(PAGESET):   if _n_ le 2 and substr(text,1,1) = "0c"x then text=substr(text,2);
+MPRINT(PAGESET):   if length(left(text)) > 1 then if substr(left(text),1,2)='zf' then text=substr(left(text),3);
+MPRINT(PAGESET):   *** process page numbering ***;
+MPRINT(PAGESET):   pnumpos = index(text, "PAGE XX OF YYY ");
+MPRINT(PAGESET):   if pnumpos > 0 then do;
+MPRINT(PAGESET):   page + 1;
+MPRINT(PAGESET):   pagenumtxt = 'Page ' || trim(left(put(page, 6.))) || ' of ' || trim(left(put(totpages, 6.)));
+MPRINT(PAGESET):   pagenumlen = length(pagenumtxt);
+MPRINT(PAGESET):   text = substr(text, 1, pnumpos-1);
+MPRINT(PAGESET):   substr(text, 1+150-pagenumlen) = trim(pagenumtxt);
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   outlen = length(text);
+MPRINT(PAGESET):   put text $varying200. outlen;
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   delete;
+MPRINT(PAGESET):   run;
+
+NOTE: The file _OUTFIL_ is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/mk-safety.out,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:23
+
+NOTE: 96 records were written to the file _OUTFIL_.
+      The minimum record length was 0.
+      The maximum record length was 151.
+NOTE: There were 96 observations read from the data set WORK.PAGESETTEXT.
+NOTE: There were 2 observations read from the data set WORK.PAGESETNUMS.
+NOTE: The data set WORK.PAGESETTEXT has 0 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   data _null_;
+                                                                    The SAS System
+
+MPRINT(M_SAFETY):   set progs;
+MPRINT(M_SAFETY):   call symput("prog"||compress(put(_n_,8.)),trim(sasprog));
+MPRINT(M_SAFETY):   call symput("max",compress(put(_n_,8.)));
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 3 observations read from the data set WORK.PROGS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=paramg replace;
+MPRINT(M_SAFETY):   RXLX;
+MPRINT(M_SAFETY):   sheet="global";
+MPRINT(M_SAFETY):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable Param has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable value has been converted to CHAR data type.
+NOTE: The import data set has 2 observations and 2 variables.
+NOTE: WORK.PARAMG data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_SAFETY):   data paramg;
+MPRINT(M_SAFETY):   length param $32 value $2000;
+MPRINT(M_SAFETY):   set paramg;
+MPRINT(M_SAFETY):   format _all_;
+MPRINT(M_SAFETY):   informat _all_;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 2 observations read from the data set WORK.PARAMG.
+NOTE: The data set WORK.PARAMG has 2 observations and 2 variables.
+NOTE: Compressing data set WORK.PARAMG increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param1 replace;
+MPRINT(META):   RXLX;
+MPRINT(META):   sheet="t-s-aebrief";
+MPRINT(META):   run;
+                                                                    The SAS System
+
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable POP_FLAG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable KEEP_ADSL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AEDSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACROAE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_DATA has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SEV_GRD_SYS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_G3 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_G2 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NUM_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REF_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REL_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REFG2 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REFG3 has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV_ANYREL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MAXSEV_REL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_SDISC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_INTER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_MOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_MOD_INTER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REDUC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACN_REF_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACN_REF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_SPROC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AESI_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AESI_LBL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_IRR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DLT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DLT_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DTHFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_DTH30FL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_LEAD2DTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_RELDTH has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_REF_RELDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_ANYREF_RELDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DISP_TEDTHFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OTHER_ACN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PREFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALPAT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPGROUPS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVAL_HEADER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+NOTE: The import data set has 1 observations and 60 variables.
+NOTE: Compressing data set WORK.PARAM1 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM1 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param1;
+MPRINT(META):   set param1(where=(titlekey^='' and upcase(active) in ('Y','YES')));
+MPRINT(META):   nrows=_n_;
+MPRINT(META):   call symput("nrows",compress(put(nrows,8.)));
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM1.
+      WHERE (titlekey not = ' ') and UPCASE(active) in ('Y', 'YES');
+NOTE: The data set WORK.PARAM1 has 1 observations and 61 variables.
+NOTE: Compressing data set WORK.PARAM1 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   proc sort data=param1;
+MPRINT(META):   by titlekey;
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM1.
+NOTE: SAS sort was used.
+                                                                    The SAS System
+
+NOTE: The data set WORK.PARAM1 has 1 observations and 61 variables.
+NOTE: Compressing data set WORK.PARAM1 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc transpose data=param1 out=param1t (rename=(_name_=param)) prefix=value;
+MPRINT(META):   var _all_;
+MPRINT(META):   id nrows;
+MPRINT(META):   run;
+
+NOTE: Numeric variables in the input data set will be converted to character in the output data set.
+NOTE: There were 1 observations read from the data set WORK.PARAM1.
+NOTE: The data set WORK.PARAM1T has 61 observations and 3 variables.
+NOTE: Compressing data set WORK.PARAM1T increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param1t;
+MPRINT(META):   length param $32 value1-value1 $2000;
+MPRINT(META):   set param1t;
+MPRINT(META):   param=lowcase(param);
+MPRINT(META):   array val {*} value:;
+MPRINT(META):   do i=1 to dim(val);
+MPRINT(META):   val{i}=trim(left(val{i}));
+MPRINT(META):   val{i}=tranwrd(val{i},'"','""');
+MPRINT(META):   end;
+MPRINT(META):   if upcase(param) not in ('ACTIVE','NROWS');
+MPRINT(META):   format _all_;
+MPRINT(META):   informat _all_;
+MPRINT(META):   run;
+
+NOTE: There were 61 observations read from the data set WORK.PARAM1T.
+NOTE: The data set WORK.PARAM1T has 59 observations and 4 variables.
+NOTE: Compressing data set WORK.PARAM1T decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+                                                                    The SAS System
+
+MPRINT(META):   data param;
+MPRINT(META):   set paramg (in=in1) param1t;
+MPRINT(META):   retain flag 0;
+MPRINT(META):   if in1 then global=1;
+MPRINT(META):   run;
+
+NOTE: There were 2 observations read from the data set WORK.PARAMG.
+NOTE: There were 59 observations read from the data set WORK.PARAM1T.
+NOTE: The data set WORK.PARAM has 61 observations and 7 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data _null_;
+MPRINT(META):   call symput("rundt","30AUG2026");
+MPRINT(META):   call symput("runtm","15:40:23");
+MPRINT(META):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param;
+MPRINT(META):   set param;
+MPRINT(META):   length sheetnm $50;
+MPRINT(META):   rundt=input("30AUG2026",date9.);
+MPRINT(META):   runtm=input("15:40:23",time8.);
+MPRINT(META):   sheetnm=upcase("t-s-aebrief");
+MPRINT(META):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(META):   format rundt date9. runtm time8.;
+MPRINT(META):   run;
+
+NOTE: There were 61 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 61 observations and 10 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 33.33 percent. 
+      Compressed is 2 pages; un-compressed would require 3 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data current;
+                                                                    The SAS System
+
+MPRINT(META):   set param ;
+MPRINT(META):   run;
+
+NOTE: There were 61 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.CURRENT has 61 observations and 10 variables.
+NOTE: Compressing data set WORK.CURRENT decreased size by 33.33 percent. 
+      Compressed is 2 pages; un-compressed would require 3 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param2 replace;
+MPRINT(META):   RXLX;
+MPRINT(META):   sheet="t-s-demog";
+MPRINT(META):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable POP_FLAG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGEU has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE_GRP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable AGE_GRPF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NOTPERM has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MISSPCT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BWT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BWTSEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BHT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BHTSEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBMI has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBMISEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBSA has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_BBSASEX has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_GENIDENT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D_SEXORIE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BMI_GRP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BMI_GRPF has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REGION has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable REGIONF has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOWALL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALCONT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVALCAT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPGROUPS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable MISSPVAL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NOMISSPC has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PVAL_HEADER has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+NOTE: The import data set has 1 observations and 43 variables.
+NOTE: Compressing data set WORK.PARAM2 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM2 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data param2;
+MPRINT(META):   set param2(where=(titlekey^='' and upcase(active) in ('Y','YES')));
+MPRINT(META):   nrows=_n_;
+MPRINT(META):   call symput("nrows",compress(put(nrows,8.)));
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM2.
+      WHERE (titlekey not = ' ') and UPCASE(active) in ('Y', 'YES');
+NOTE: The data set WORK.PARAM2 has 1 observations and 44 variables.
+NOTE: Compressing data set WORK.PARAM2 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc sort data=param2;
+MPRINT(META):   by titlekey;
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM2.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.PARAM2 has 1 observations and 44 variables.
+                                                                    The SAS System
+
+NOTE: Compressing data set WORK.PARAM2 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc transpose data=param2 out=param2t (rename=(_name_=param)) prefix=value;
+MPRINT(META):   var _all_;
+MPRINT(META):   id nrows;
+MPRINT(META):   run;
+
+NOTE: Numeric variables in the input data set will be converted to character in the output data set.
+NOTE: There were 1 observations read from the data set WORK.PARAM2.
+NOTE: The data set WORK.PARAM2T has 44 observations and 3 variables.
+NOTE: Compressing data set WORK.PARAM2T increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param2t;
+MPRINT(META):   length param $32 value1-value1 $2000;
+MPRINT(META):   set param2t;
+MPRINT(META):   param=lowcase(param);
+MPRINT(META):   array val {*} value:;
+MPRINT(META):   do i=1 to dim(val);
+MPRINT(META):   val{i}=trim(left(val{i}));
+MPRINT(META):   val{i}=tranwrd(val{i},'"','""');
+MPRINT(META):   end;
+MPRINT(META):   if upcase(param) not in ('ACTIVE','NROWS');
+MPRINT(META):   format _all_;
+MPRINT(META):   informat _all_;
+MPRINT(META):   run;
+
+NOTE: There were 44 observations read from the data set WORK.PARAM2T.
+NOTE: The data set WORK.PARAM2T has 42 observations and 4 variables.
+NOTE: Compressing data set WORK.PARAM2T increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data param;
+                                                                    The SAS System
+
+MPRINT(META):   set paramg (in=in1) param2t;
+MPRINT(META):   retain flag 0;
+MPRINT(META):   if in1 then global=1;
+MPRINT(META):   run;
+
+NOTE: There were 2 observations read from the data set WORK.PARAMG.
+NOTE: There were 42 observations read from the data set WORK.PARAM2T.
+NOTE: The data set WORK.PARAM has 44 observations and 7 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param;
+MPRINT(META):   set param;
+MPRINT(META):   length sheetnm $50;
+MPRINT(META):   rundt=input("30AUG2026",date9.);
+MPRINT(META):   runtm=input("15:40:23",time8.);
+MPRINT(META):   sheetnm=upcase("t-s-demog");
+MPRINT(META):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(META):   format rundt date9. runtm time8.;
+MPRINT(META):   run;
+
+NOTE: There were 44 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 44 observations and 10 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data current;
+MPRINT(META):   set current param ;
+MPRINT(META):   run;
+
+NOTE: There were 61 observations read from the data set WORK.CURRENT.
+NOTE: There were 44 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.CURRENT has 105 observations and 10 variables.
+NOTE: Compressing data set WORK.CURRENT decreased size by 50.00 percent. 
+      Compressed is 2 pages; un-compressed would require 4 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+                                                                    The SAS System
+
+      
+
+MPRINT(META):   proc import dbms=xlsx file="../docs/m_safety.xlsx" out=param3 replace;
+MPRINT(META):   RXLX;
+MPRINT(META):   sheet="t-s-disp";
+MPRINT(META):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable ACTIVE has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TITLEKEY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable LIB has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DSIN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable EFF_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable WHERE_CL_POP has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TMACRO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR_SAFFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable TRT_FMT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_SCRNFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_SCFAILFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_NOTENRLL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_NOTDOSED has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_EFFFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPT_POPFL_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OPT_POPFL_LBL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COLVAR_OPT_POPFL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPTRT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DCTREAS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPSTDY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DCSREAS has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_ASSIGN has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_COMPTRT_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_DCTREAS_VAR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable DRUG_NAME has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_DRUG_ZERO has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOW_COMPTRT_ANY has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable BYPERIOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable NUM_PERIOD has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable PERIOD_NM has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable OCPRINT has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SHOWALL has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable COL1WIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CWIDTH has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPACING has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANHDR has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable SPANRANG has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable CLEANUP has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: The import data set has 1 observations and 39 variables.
+NOTE: Compressing data set WORK.PARAM3 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: WORK.PARAM3 data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data param3;
+MPRINT(META):   set param3(where=(titlekey^='' and upcase(active) in ('Y','YES')));
+MPRINT(META):   nrows=_n_;
+MPRINT(META):   call symput("nrows",compress(put(nrows,8.)));
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM3.
+      WHERE (titlekey not = ' ') and UPCASE(active) in ('Y', 'YES');
+NOTE: The data set WORK.PARAM3 has 1 observations and 40 variables.
+NOTE: Compressing data set WORK.PARAM3 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc sort data=param3;
+MPRINT(META):   by titlekey;
+MPRINT(META):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PARAM3.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.PARAM3 has 1 observations and 40 variables.
+NOTE: Compressing data set WORK.PARAM3 increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   proc transpose data=param3 out=param3t (rename=(_name_=param)) prefix=value;
+MPRINT(META):   var _all_;
+MPRINT(META):   id nrows;
+MPRINT(META):   run;
+
+NOTE: Numeric variables in the input data set will be converted to character in the output data set.
+NOTE: There were 1 observations read from the data set WORK.PARAM3.
+                                                                    The SAS System
+
+NOTE: The data set WORK.PARAM3T has 40 observations and 3 variables.
+NOTE: Compressing data set WORK.PARAM3T increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data param3t;
+MPRINT(META):   length param $32 value1-value1 $2000;
+MPRINT(META):   set param3t;
+MPRINT(META):   param=lowcase(param);
+MPRINT(META):   array val {*} value:;
+MPRINT(META):   do i=1 to dim(val);
+MPRINT(META):   val{i}=trim(left(val{i}));
+MPRINT(META):   val{i}=tranwrd(val{i},'"','""');
+MPRINT(META):   end;
+MPRINT(META):   if upcase(param) not in ('ACTIVE','NROWS');
+MPRINT(META):   format _all_;
+MPRINT(META):   informat _all_;
+MPRINT(META):   run;
+
+NOTE: There were 40 observations read from the data set WORK.PARAM3T.
+NOTE: The data set WORK.PARAM3T has 38 observations and 4 variables.
+NOTE: Compressing data set WORK.PARAM3T increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(META):   data param;
+MPRINT(META):   set paramg (in=in1) param3t;
+MPRINT(META):   retain flag 0;
+MPRINT(META):   if in1 then global=1;
+MPRINT(META):   run;
+
+NOTE: There were 2 observations read from the data set WORK.PARAMG.
+NOTE: There were 38 observations read from the data set WORK.PARAM3T.
+NOTE: The data set WORK.PARAM has 40 observations and 7 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+                                                                    The SAS System
+
+
+MPRINT(META):   data param;
+MPRINT(META):   set param;
+MPRINT(META):   length sheetnm $50;
+MPRINT(META):   rundt=input("30AUG2026",date9.);
+MPRINT(META):   runtm=input("15:40:23",time8.);
+MPRINT(META):   sheetnm=upcase("t-s-disp");
+MPRINT(META):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(META):   format rundt date9. runtm time8.;
+MPRINT(META):   run;
+
+NOTE: There were 40 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 40 observations and 10 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(META):   data current;
+MPRINT(META):   set current param ;
+MPRINT(META):   run;
+
+NOTE: There were 105 observations read from the data set WORK.CURRENT.
+NOTE: There were 40 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.CURRENT has 145 observations and 10 variables.
+NOTE: Compressing data set WORK.CURRENT decreased size by 60.00 percent. 
+      Compressed is 2 pages; un-compressed would require 5 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(M_SAFETY):   data _null_;
+MPRINT(M_SAFETY):   file "../prog/runtfl-safety.xml" dsd;
+MPRINT(M_SAFETY):   set progs end=eod;
+MPRINT(M_SAFETY):   length line $200;
+MPRINT(M_SAFETY):   line='                                <program name="'||trim(lowcase(sasprog))||'"/>';
+MPRINT(M_SAFETY):   varlen=length(line);
+MPRINT(M_SAFETY):   if _n_=1 then do;
+MPRINT(M_SAFETY):   put @1 "                <gsub>";
+MPRINT(M_SAFETY):   put @1 "                <!-- FailOnError/ -->";
+MPRINT(M_SAFETY):   put @1 "                <programs>";
+MPRINT(M_SAFETY):   end;
+                                                                    The SAS System
+
+MPRINT(M_SAFETY):   put @1 line $varying200. varlen;
+MPRINT(M_SAFETY):   if eod then do;
+MPRINT(M_SAFETY):   put @1 "                </programs>";
+MPRINT(M_SAFETY):   put @1 "                </gsub>";
+MPRINT(M_SAFETY):   end;
+MPRINT(M_SAFETY):   run;
+
+NOTE: The file "../prog/runtfl-safety.xml" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/prog/runtfl-safety.xml,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:23
+
+NOTE: 8 records were written to the file "../prog/runtfl-safety.xml".
+      The minimum record length was 22.
+      The maximum record length was 65.
+NOTE: There were 3 observations read from the data set WORK.PROGS.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):   data tools.m_safety (drop=_label_ flag i);
+MPRINT(M_SAFETY):   set current;
+MPRINT(M_SAFETY):   current_run='Y';
+MPRINT(M_SAFETY):   numoutputs=0;
+MPRINT(M_SAFETY):   totaloutputs=0;
+MPRINT(M_SAFETY):   run;
+
+NOTE: There were 145 observations read from the data set WORK.CURRENT.
+NOTE: The data set TOOLS.M_SAFETY has 145 observations and 10 variables.
+NOTE: Compressing data set TOOLS.M_SAFETY decreased size by 60.00 percent. 
+      Compressed is 2 pages; un-compressed would require 5 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(TNFCOUNT):   proc sort data=tools.m_safety;
+MPRINT(TNFCOUNT):   by descending rundt descending runtm sheetnm;
+MPRINT(TNFCOUNT):   run;
+
+NOTE: There were 145 observations read from the data set TOOLS.M_SAFETY.
+NOTE: SAS sort was used.
+NOTE: The data set TOOLS.M_SAFETY has 145 observations and 10 variables.
+                                                                    The SAS System
+
+NOTE: Compressing data set TOOLS.M_SAFETY decreased size by 60.00 percent. 
+      Compressed is 2 pages; un-compressed would require 5 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(TNFCOUNT):   proc contents data=tools.m_safety out=cont noprint;
+MPRINT(TNFCOUNT):   run;
+
+NOTE: The data set WORK.CONT has 10 observations and 41 variables.
+NOTE: Compressing data set WORK.CONT increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(TNFCOUNT):   data _null_;
+MPRINT(TNFCOUNT):   set cont (where=(name=:'VALUE'));
+MPRINT(TNFCOUNT):   call symput ("valuemax",compress(substr(name,6)));
+MPRINT(TNFCOUNT):   run;
+
+NOTE: There were 2 observations read from the data set WORK.CONT.
+      WHERE name=:'VALUE';
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(TNFCOUNT):   proc sort data=tools.m_safety out=counts;
+MPRINT(TNFCOUNT):   where upcase(param)='TITLEKEY';
+MPRINT(TNFCOUNT):   by descending rundt descending runtm sheetnm;
+MPRINT(TNFCOUNT):   run;
+
+NOTE: Input data set is already sorted; it has been copied to the output data set.
+NOTE: There were 3 observations read from the data set TOOLS.M_SAFETY.
+      WHERE UPCASE(param)='TITLEKEY';
+NOTE: The data set WORK.COUNTS has 3 observations and 10 variables.
+NOTE: Compressing data set WORK.COUNTS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+                                                                    The SAS System
+
+MPRINT(TNFCOUNT):   data counts (keep=rundt runtm numoutputs totaloutputs);
+MPRINT(TNFCOUNT):   set counts (drop=numoutputs totaloutputs);
+MPRINT(TNFCOUNT):   by descending rundt descending runtm sheetnm;
+MPRINT(TNFCOUNT):   retain numoutputs totaloutputs;
+MPRINT(TNFCOUNT):   if first.runtm then do;
+MPRINT(TNFCOUNT):   numoutputs=0;
+MPRINT(TNFCOUNT):   totaloutputs=0;
+MPRINT(TNFCOUNT):   end;
+MPRINT(TNFCOUNT):   if current_run='Y' then do;
+MPRINT(TNFCOUNT):   if value1^='' then numoutputs+1;
+MPRINT(TNFCOUNT):   end;
+MPRINT(TNFCOUNT):   if value1^='' then totaloutputs+1;
+MPRINT(TNFCOUNT):   if last.runtm;
+MPRINT(TNFCOUNT):   run;
+
+NOTE: There were 3 observations read from the data set WORK.COUNTS.
+NOTE: The data set WORK.COUNTS has 1 observations and 4 variables.
+NOTE: Compressing data set WORK.COUNTS increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(TNFCOUNT):   data tools.m_safety;
+MPRINT(TNFCOUNT):   merge tools.m_safety (drop=numoutputs totaloutputs) counts;
+MPRINT(TNFCOUNT):   by descending rundt descending runtm;
+MPRINT(TNFCOUNT):   run;
+
+NOTE: There were 145 observations read from the data set TOOLS.M_SAFETY.
+NOTE: There were 1 observations read from the data set WORK.COUNTS.
+NOTE: The data set TOOLS.M_SAFETY has 145 observations and 10 variables.
+NOTE: Compressing data set TOOLS.M_SAFETY decreased size by 60.00 percent. 
+      Compressed is 2 pages; un-compressed would require 5 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_SAFETY):  ;
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set current (where=(upcase(sheetnm)=upcase("t-s-aebrief")));
+MPRINT(LOOP):   array val {*} value:;
+MPRINT(LOOP):   retain counter 0;
+MPRINT(LOOP):   do i=1 to dim(val);
+MPRINT(LOOP):   if val{i}^='' and upcase(param)='TITLEKEY' then counter+1;
+                                                                    The SAS System
+
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   call symput("nrows",compress(put(counter,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: There were 61 observations read from the data set WORK.CURRENT.
+      WHERE UPCASE(sheetnm)='T-S-AEBRIEF';
+NOTE: The data set WORK.PARAM has 61 observations and 11 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 33.33 percent. 
+      Compressed is 2 pages; un-compressed would require 3 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set param;
+MPRINT(LOOP):   if global=1 then value1=value;
+MPRINT(LOOP):   if upcase(param)='COL1WIDTH' and value1='' then value1='50';
+MPRINT(LOOP):   if upcase(param)='SPACING' and value1='' then value1='3';
+MPRINT(LOOP):   call symput("flag",compress(put(flag,8.)));
+MPRINT(LOOP):   call symput("param"||compress(put(_n_,8.)),trim(param));
+MPRINT(LOOP):   if value1=:'%str' then strflag1=1;
+MPRINT(LOOP):   if value1=:'%nrbquote' then strflag1=2;
+MPRINT(LOOP):   call symput("strflag1_"||compress(put(_n_,8.)),trim(strflag1));
+MPRINT(LOOP):   call symput("paramv1_"||compress(put(_n_,8.)),trim(value1));
+MPRINT(LOOP):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: Numeric values have been converted to character values at the places given by: (Line):(Column).
+      999:1   
+NOTE: There were 61 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 61 observations and 12 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 33.33 percent. 
+      Compressed is 2 pages; un-compressed would require 3 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(LOOP):   data template;
+MPRINT(LOOP):   infile "/biometrics/global/template/stars/v1.5/template-t-s-aebrief.sas" pad dsd lrecl=32567;
+MPRINT(LOOP):   length line $2000;
+MPRINT(LOOP):   retain keepflag;
+MPRINT(LOOP):   if _n_=1 then keepflag=1;
+MPRINT(LOOP):   len=2000;
+MPRINT(LOOP):   input @1 line $varying2000. len;
+                                                                    The SAS System
+
+MPRINT(LOOP):   if length(compbl(line))>=14 and lowcase(substr(compbl(line), 1, 14))='change history' then keepflag=0;
+MPRINT(LOOP):   if index(lowcase(line), 'end of header') then keepflag=1;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   if keepflag=1;
+MPRINT(LOOP):   drop keepflag;
+MPRINT(LOOP):   run;
+
+NOTE: The infile "/biometrics/global/template/stars/v1.5/template-t-s-aebrief.sas" is:
+      Filename=/biometrics/global/template/stars/v1.5/template-t-s-aebrief.sas,
+      Owner Name=kdaughtry01,Group Name=stats,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=09Dec2025:10:25:44,
+      File Size (bytes)=56658
+
+NOTE: 1221 records were read from the infile "/biometrics/global/template/stars/v1.5/template-t-s-aebrief.sas".
+      The minimum record length was 0.
+      The maximum record length was 186.
+NOTE: The data set WORK.TEMPLATE has 1184 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE decreased size by 92.59 percent. 
+      Compressed is 2 pages; un-compressed would require 27 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_PASSW):   option nomprint;
+
+NOTE: There were 1 observations read from the data set MGARDATA.PWENCODE.
+      WHERE name='MMETRICS';
+NOTE: The data set WORK.__PWORD has 1 observations and 14 variables.
+NOTE: Compressing data set WORK.__PWORD increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 1 observations read from the data set WORK.__PWORD.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + libname mmetrics sqlsvr schema=dbo user=db_macro_metrics dsn=MACROMETRICS_PROD 
+                                                                    The SAS System
+
+password=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+NOTE: Libref MMETRICS was successfully assigned as follows: 
+      Engine:        SQLSVR 
+      Physical Name: MACROMETRICS_PROD
+MPRINT(LOOP):  ;
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   set mmetrics.mgarea_b3pres (where=("CPEARSON1"=upcase(ntname)));
+MPRINT(LOOP):   call symput("first",strip(firstname));
+MPRINT(LOOP):   call symput("last",strip(lastname));
+MPRINT(LOOP):   run;
+
+NOTE: There were 1 observations read from the data set MMETRICS.mgarea_b3pres.
+      WHERE 'CPEARSON1'=UPCASE(ntname);
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.05 seconds
+      
+
+MPRINT(LOOP):   data template2 (where=(compress(line)^=
+MPRINT(LOOP):  "<<run>>"));
+MPRINT(LOOP):   set template;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   line=tranwrd(line,"<<sysuserid>>","cpearson1");
+MPRINT(LOOP):   line=tranwrd(line,"<<sysdate>>","30AUG26");
+MPRINT(LOOP):   line=tranwrd(line,"<<First Last>>","Caroline Pearson");
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   if index(line,
+MPRINT(LOOP):  "<<run>>") then do;
+MPRINT(LOOP):   line='%mk_'||"t_s_aebrief(";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   subjid=subjid,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   statlen=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   titlekey=t-s-aebrief,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   lib=adamdata,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   dsin=adsl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   tmacro= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   colvar=trt01an,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   trt_fmt=trtfmt,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   pop_flag=saffl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   where_cl_pop= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   keep_adsl= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   aedsin=adae,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   tmacroae= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   where_cl_data=(where=(trtemfl = 'Y')),";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   sev_grd_sys=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_g3=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_g2=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   maxsev= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_ref=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   num_ref= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   ref_name= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   rel_ref= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_anyref=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_refg2=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_refg3=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   maxsev_anyrel= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   maxsev_rel= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_sdisc=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_inter=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_mod=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_mod_inter=N,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   disp_reduc=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_ref_acn=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   acn_ref_name= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   acn_ref= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_anyref_acn=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_sproc=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   aesi_var= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   aesi_lbl= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_irr=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_dlt=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   dlt_var= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_dthfl=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_dth30fl=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_lead2dth=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_reldth=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_ref_reldth=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_anyref_reldth=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   disp_tedthfl=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   other_acn=aeacnoth,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   prefl=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   ocprint=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   pvalpat= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   opgroups= ,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   pval_header=P Value,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   col1width=50,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spacing=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanhdr= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanrang= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cwidth= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cleanup=Y";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   );";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line=" ";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   run;
+
+NOTE: There were 1184 observations read from the data set WORK.TEMPLATE.
+NOTE: The data set WORK.TEMPLATE2 has 1247 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 89.66 percent. 
+      Compressed is 3 pages; un-compressed would require 29 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(LOOP):   proc sort data=template2;
+MPRINT(LOOP):   by counter;
+MPRINT(LOOP):   run;
+
+NOTE: There were 1247 observations read from the data set WORK.TEMPLATE2.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.TEMPLATE2 has 1247 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 89.66 percent. 
+      Compressed is 3 pages; un-compressed would require 29 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   file "../prog/t-s-aebrief.sas" dsd;
+                                                                    The SAS System
+
+MPRINT(LOOP):   set template2;
+MPRINT(LOOP):   varlen=length(line);
+MPRINT(LOOP):   line=trim(line);
+MPRINT(LOOP):   put @1 line $varying2000. varlen;
+MPRINT(LOOP):   run;
+
+NOTE: The file "../prog/t-s-aebrief.sas" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/prog/t-s-aebrief.sas,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:23
+
+NOTE: 1247 records were written to the file "../prog/t-s-aebrief.sas".
+      The minimum record length was 1.
+      The maximum record length was 184.
+NOTE: There were 1247 observations read from the data set WORK.TEMPLATE2.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set current (where=(upcase(sheetnm)=upcase("t-s-demog")));
+MPRINT(LOOP):   array val {*} value:;
+MPRINT(LOOP):   retain counter 0;
+MPRINT(LOOP):   do i=1 to dim(val);
+MPRINT(LOOP):   if val{i}^='' and upcase(param)='TITLEKEY' then counter+1;
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   call symput("nrows",compress(put(counter,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: There were 44 observations read from the data set WORK.CURRENT.
+      WHERE UPCASE(sheetnm)='T-S-DEMOG';
+NOTE: The data set WORK.PARAM has 44 observations and 11 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set param;
+MPRINT(LOOP):   if global=1 then value1=value;
+MPRINT(LOOP):   if upcase(param)='COL1WIDTH' and value1='' then value1='50';
+                                                                    The SAS System
+
+MPRINT(LOOP):   if upcase(param)='SPACING' and value1='' then value1='3';
+MPRINT(LOOP):   call symput("flag",compress(put(flag,8.)));
+MPRINT(LOOP):   call symput("param"||compress(put(_n_,8.)),trim(param));
+MPRINT(LOOP):   if value1=:'%str' then strflag1=1;
+MPRINT(LOOP):   if value1=:'%nrbquote' then strflag1=2;
+MPRINT(LOOP):   call symput("strflag1_"||compress(put(_n_,8.)),trim(strflag1));
+MPRINT(LOOP):   call symput("paramv1_"||compress(put(_n_,8.)),trim(value1));
+MPRINT(LOOP):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: Numeric values have been converted to character values at the places given by: (Line):(Column).
+      999:1   
+NOTE: There were 44 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 44 observations and 12 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data template;
+MPRINT(LOOP):   infile "/biometrics/global/template/stars/v1.5/template-t-s-demog.sas" pad dsd lrecl=32567;
+MPRINT(LOOP):   length line $2000;
+MPRINT(LOOP):   retain keepflag;
+MPRINT(LOOP):   if _n_=1 then keepflag=1;
+MPRINT(LOOP):   len=2000;
+MPRINT(LOOP):   input @1 line $varying2000. len;
+MPRINT(LOOP):   if length(compbl(line))>=14 and lowcase(substr(compbl(line), 1, 14))='change history' then keepflag=0;
+MPRINT(LOOP):   if index(lowcase(line), 'end of header') then keepflag=1;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   if keepflag=1;
+MPRINT(LOOP):   drop keepflag;
+MPRINT(LOOP):   run;
+
+NOTE: The infile "/biometrics/global/template/stars/v1.5/template-t-s-demog.sas" is:
+      Filename=/biometrics/global/template/stars/v1.5/template-t-s-demog.sas,
+      Owner Name=kdaughtry01,Group Name=stats,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=20May2026:12:36:56,
+      File Size (bytes)=24050
+
+NOTE: 657 records were read from the infile "/biometrics/global/template/stars/v1.5/template-t-s-demog.sas".
+      The minimum record length was 0.
+      The maximum record length was 151.
+NOTE: The data set WORK.TEMPLATE has 641 observations and 3 variables.
+                                                                    The SAS System
+
+NOTE: Compressing data set WORK.TEMPLATE decreased size by 86.67 percent. 
+      Compressed is 2 pages; un-compressed would require 15 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_PASSW):   option nomprint;
+
+NOTE: There were 1 observations read from the data set MGARDATA.PWENCODE.
+      WHERE name='MMETRICS';
+NOTE: The data set WORK.__PWORD has 1 observations and 14 variables.
+NOTE: Compressing data set WORK.__PWORD increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 1 observations read from the data set WORK.__PWORD.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + libname mmetrics sqlsvr schema=dbo user=db_macro_metrics dsn=MACROMETRICS_PROD 
+password=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+NOTE: Libref MMETRICS was successfully assigned as follows: 
+      Engine:        SQLSVR 
+      Physical Name: MACROMETRICS_PROD
+MPRINT(LOOP):  ;
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   set mmetrics.mgarea_b3pres (where=("CPEARSON1"=upcase(ntname)));
+MPRINT(LOOP):   call symput("first",strip(firstname));
+MPRINT(LOOP):   call symput("last",strip(lastname));
+MPRINT(LOOP):   run;
+
+NOTE: There were 1 observations read from the data set MMETRICS.mgarea_b3pres.
+      WHERE 'CPEARSON1'=UPCASE(ntname);
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.06 seconds
+      
+
+                                                                    The SAS System
+
+MPRINT(LOOP):   data template2 (where=(compress(line)^=
+MPRINT(LOOP):  "<<run>>"));
+MPRINT(LOOP):   set template;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   line=tranwrd(line,"<<sysuserid>>","cpearson1");
+MPRINT(LOOP):   line=tranwrd(line,"<<sysdate>>","30AUG26");
+MPRINT(LOOP):   line=tranwrd(line,"<<First Last>>","Caroline Pearson");
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   if index(line,
+MPRINT(LOOP):  "<<run>>") then do;
+MPRINT(LOOP):   line='%mk_'||"t_s_demog(";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   subjid=subjid,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   statlen=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   titlekey=t-s-demog,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   lib=adamdata,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   dsin=adsl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   pop_flag=ittfl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   where_cl_pop= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   tmacro= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   colvar=trt01pn,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   trt_fmt=trtfmt,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   age=age,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   ageu=ageu,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   age_grp=agegr1n,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   age_grpf=agegrfmt,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   notperm= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   misspct=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bwt=Y,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   d_bwtsex=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bht=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bhtsex=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bbmi=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bbmisex=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bbsa=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_bbsasex=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_genident=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   d_sexorie=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   bmi_grp= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   bmi_grpf= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   region= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   regionf= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   ocprint=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   showall=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   pvalcont= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   pvalcat= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   opgroups= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   misspval=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   nomisspc=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   pval_header=P Value,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   col1width=50,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cwidth= ,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   spacing=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanhdr= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanrang= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cleanup=Y";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   );";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line=" ";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   run;
+
+NOTE: There were 641 observations read from the data set WORK.TEMPLATE.
+NOTE: The data set WORK.TEMPLATE2 has 687 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 87.50 percent. 
+      Compressed is 2 pages; un-compressed would require 16 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(LOOP):   proc sort data=template2;
+MPRINT(LOOP):   by counter;
+MPRINT(LOOP):   run;
+
+NOTE: There were 687 observations read from the data set WORK.TEMPLATE2.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.TEMPLATE2 has 687 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 87.50 percent. 
+      Compressed is 2 pages; un-compressed would require 16 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   file "../prog/t-s-demog.sas" dsd;
+MPRINT(LOOP):   set template2;
+MPRINT(LOOP):   varlen=length(line);
+MPRINT(LOOP):   line=trim(line);
+MPRINT(LOOP):   put @1 line $varying2000. varlen;
+MPRINT(LOOP):   run;
+
+                                                                    The SAS System
+
+NOTE: The file "../prog/t-s-demog.sas" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/prog/t-s-demog.sas,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:24
+
+NOTE: 687 records were written to the file "../prog/t-s-demog.sas".
+      The minimum record length was 1.
+      The maximum record length was 151.
+NOTE: There were 687 observations read from the data set WORK.TEMPLATE2.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set current (where=(upcase(sheetnm)=upcase("t-s-disp")));
+MPRINT(LOOP):   array val {*} value:;
+MPRINT(LOOP):   retain counter 0;
+MPRINT(LOOP):   do i=1 to dim(val);
+MPRINT(LOOP):   if val{i}^='' and upcase(param)='TITLEKEY' then counter+1;
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   call symput("nrows",compress(put(counter,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: There were 40 observations read from the data set WORK.CURRENT.
+      WHERE UPCASE(sheetnm)='T-S-DISP';
+NOTE: The data set WORK.PARAM has 40 observations and 11 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(LOOP):   data param;
+MPRINT(LOOP):   set param;
+MPRINT(LOOP):   if global=1 then value1=value;
+MPRINT(LOOP):   if upcase(param)='COL1WIDTH' and value1='' then value1='50';
+MPRINT(LOOP):   if upcase(param)='SPACING' and value1='' then value1='3';
+MPRINT(LOOP):   call symput("flag",compress(put(flag,8.)));
+MPRINT(LOOP):   call symput("param"||compress(put(_n_,8.)),trim(param));
+MPRINT(LOOP):   if value1=:'%str' then strflag1=1;
+MPRINT(LOOP):   if value1=:'%nrbquote' then strflag1=2;
+MPRINT(LOOP):   call symput("strflag1_"||compress(put(_n_,8.)),trim(strflag1));
+                                                                    The SAS System
+
+MPRINT(LOOP):   call symput("paramv1_"||compress(put(_n_,8.)),trim(value1));
+MPRINT(LOOP):   call symput("pmax",compress(put(_n_,8.)));
+MPRINT(LOOP):   run;
+
+NOTE: Numeric values have been converted to character values at the places given by: (Line):(Column).
+      999:1   
+NOTE: There were 40 observations read from the data set WORK.PARAM.
+NOTE: The data set WORK.PARAM has 40 observations and 12 variables.
+NOTE: Compressing data set WORK.PARAM decreased size by 0.00 percent. 
+      Compressed is 2 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data template;
+MPRINT(LOOP):   infile "/biometrics/global/template/stars/v1.5/template-t-s-disp.sas" pad dsd lrecl=32567;
+MPRINT(LOOP):   length line $2000;
+MPRINT(LOOP):   retain keepflag;
+MPRINT(LOOP):   if _n_=1 then keepflag=1;
+MPRINT(LOOP):   len=2000;
+MPRINT(LOOP):   input @1 line $varying2000. len;
+MPRINT(LOOP):   if length(compbl(line))>=14 and lowcase(substr(compbl(line), 1, 14))='change history' then keepflag=0;
+MPRINT(LOOP):   if index(lowcase(line), 'end of header') then keepflag=1;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   if keepflag=1;
+MPRINT(LOOP):   drop keepflag;
+MPRINT(LOOP):   run;
+
+NOTE: The infile "/biometrics/global/template/stars/v1.5/template-t-s-disp.sas" is:
+      Filename=/biometrics/global/template/stars/v1.5/template-t-s-disp.sas,
+      Owner Name=kdaughtry01,Group Name=stats,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=29Apr2026:10:49:11,
+      File Size (bytes)=70461
+
+NOTE: 1551 records were read from the infile "/biometrics/global/template/stars/v1.5/template-t-s-disp.sas".
+      The minimum record length was 0.
+      The maximum record length was 146.
+NOTE: The data set WORK.TEMPLATE has 1504 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE decreased size by 91.43 percent. 
+      Compressed is 3 pages; un-compressed would require 35 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+                                                                    The SAS System
+
+
+MPRINT(M_PASSW):   option nomprint;
+
+NOTE: There were 1 observations read from the data set MGARDATA.PWENCODE.
+      WHERE name='MMETRICS';
+NOTE: The data set WORK.__PWORD has 1 observations and 14 variables.
+NOTE: Compressing data set WORK.__PWORD increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 1 observations read from the data set WORK.__PWORD.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + libname mmetrics sqlsvr schema=dbo user=db_macro_metrics dsn=MACROMETRICS_PROD 
+password=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+NOTE: Libref MMETRICS was successfully assigned as follows: 
+      Engine:        SQLSVR 
+      Physical Name: MACROMETRICS_PROD
+MPRINT(LOOP):  ;
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   set mmetrics.mgarea_b3pres (where=("CPEARSON1"=upcase(ntname)));
+MPRINT(LOOP):   call symput("first",strip(firstname));
+MPRINT(LOOP):   call symput("last",strip(lastname));
+MPRINT(LOOP):   run;
+
+NOTE: There were 1 observations read from the data set MMETRICS.mgarea_b3pres.
+      WHERE 'CPEARSON1'=UPCASE(ntname);
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.05 seconds
+      
+
+MPRINT(LOOP):   data template2 (where=(compress(line)^=
+MPRINT(LOOP):  "<<run>>"));
+MPRINT(LOOP):   set template;
+MPRINT(LOOP):   counter=_n_;
+MPRINT(LOOP):   line=tranwrd(line,"<<sysuserid>>","cpearson1");
+MPRINT(LOOP):   line=tranwrd(line,"<<sysdate>>","30AUG26");
+                                                                    The SAS System
+
+MPRINT(LOOP):   line=tranwrd(line,"<<First Last>>","Caroline Pearson");
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   if index(line,
+MPRINT(LOOP):  "<<run>>") then do;
+MPRINT(LOOP):   line='%mk_'||"t_s_disp(";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   subjid=subjid,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   statlen=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   titlekey=t-s-disp,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   lib=adamdata,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   dsin=adsl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   eff_pop=ittfl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   where_cl_pop= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   tmacro= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   colvar=trt01pn,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   colvar_saffl= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   trt_fmt=trtfmt,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_scrnfl=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_scfailfl=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_notenrll=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_notdosed=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_efffl=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   opt_popfl_var=pkfl,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   opt_popfl_lbl=Pharmacokinetic Analysis Set,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   colvar_opt_popfl= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_comptrt=Y,";
+MPRINT(LOOP):   output;
+                                                                    The SAS System
+
+MPRINT(LOOP):   line="   show_dctreas=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_compstdy=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_dcsreas=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   drug_assign= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   drug_comptrt_var= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   drug_dctreas_var= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   drug_name= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_drug_zero=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   show_comptrt_any=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   byperiod=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   num_period= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   period_nm= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   ocprint=Y,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   showall=N,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   col1width=50,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cwidth= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spacing=3,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanhdr= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   spanrang= ,";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   cleanup=Y";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line="   );";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   line=" ";
+MPRINT(LOOP):   output;
+MPRINT(LOOP):   end;
+MPRINT(LOOP):   run;
+                                                                    The SAS System
+
+
+NOTE: There were 1504 observations read from the data set WORK.TEMPLATE.
+NOTE: The data set WORK.TEMPLATE2 has 1546 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 91.67 percent. 
+      Compressed is 3 pages; un-compressed would require 36 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(LOOP):   proc sort data=template2;
+MPRINT(LOOP):   by counter;
+MPRINT(LOOP):   run;
+
+NOTE: There were 1546 observations read from the data set WORK.TEMPLATE2.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.TEMPLATE2 has 1546 observations and 3 variables.
+NOTE: Compressing data set WORK.TEMPLATE2 decreased size by 91.67 percent. 
+      Compressed is 3 pages; un-compressed would require 36 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(LOOP):   data _null_;
+MPRINT(LOOP):   file "../prog/t-s-disp.sas" dsd;
+MPRINT(LOOP):   set template2;
+MPRINT(LOOP):   varlen=length(line);
+MPRINT(LOOP):   line=trim(line);
+MPRINT(LOOP):   put @1 line $varying2000. varlen;
+MPRINT(LOOP):   run;
+
+NOTE: The file "../prog/t-s-disp.sas" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/prog/t-s-disp.sas,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:40:24
+
+NOTE: 1546 records were written to the file "../prog/t-s-disp.sas".
+      The minimum record length was 1.
+      The maximum record length was 146.
+NOTE: There were 1546 observations read from the data set WORK.TEMPLATE2.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+                                                                    The SAS System
+
+      
+
+MPRINT(M_SAFETY):  ;
+1000      +
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           4.60 seconds
+      cpu time            3.27 seconds
+      
+
+Grid Job Id: 214364

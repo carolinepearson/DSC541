@@ -1,0 +1,8 @@
+                <gsub>
+                <!-- FailOnError/ -->
+                <programs>
+                                <program name="t-s-aebrief.sas"/>
+                                <program name="t-s-demog.sas"/>
+                                <program name="t-s-disp.sas"/>
+                </programs>
+                </gsub>

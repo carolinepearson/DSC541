@@ -1,0 +1,265 @@
+====================================================================================================
+From Metadata-Driven TFL Shells to AI-Assisted SAS Code Development
+A Case Study in Using ARS JSON Metadata, RTF Table Shells, and Global SAS Macros with Claude
+Study: GS-US-000-0000 (DSS 2026) | Report Date: 2026-08-30
+====================================================================================================
+
+
+INTRODUCTION
+============
+Tables, Figures, and Listings (TFLs) are central to clinical study reporting, but TFL development
+still requires substantial manual effort. Statistical programmers must translate protocol and SAP
+requirements into shells, specifications, metadata, SAS code, and validated outputs. Although
+standards and automation have improved efficiency over the years, many reporting workflows remain
+document-based and difficult to scale.
+
+This report documents a hands-on pilot exercise that operationalizes the AI-assisted TFL
+automation vision described in the DSS 2026 poster and abstract materials ("From Metadata-Driven
+TFL Shells to AI-Assisted SAS Code Development"). Rather than describing the approach in the
+abstract, this exercise put it into practice: an AI coding assistant (Claude, via GitHub Copilot in
+Visual Studio Code) was tasked with writing five production-style SAS 9.4 TFL programs for study
+GS-US-000-0000, using structured ARS (Analysis Results Standard) JSON metadata and RTF-derived
+table shells as the source of truth, and Gilead's shared global SAS macro library (bpgl v4.19.01)
+to render the final PDF outputs. The exercise confirms, with concrete evidence, the abstract's
+central thesis: the value of generative AI in this space comes not from "AI writes the code" but
+from structured metadata and real example code giving the AI the context it needs to produce useful
+draft code, with a programmer firmly in the loop throughout.
+
+
+AIM
+===
+To evaluate whether an AI coding assistant can independently produce SAS TFL programs that are:
+  1. Correctly derived from structured ARS JSON metadata and RTF/tnf.inc table shells (rather than
+     hand-interpreted specifications), preserving the shell as the authoritative source of truth
+     for row structure, variables, where-clauses, and display text;
+  2. Built using the existing shared global macro library (bpgl v4.19.01) rather than one-off,
+     hand-rolled reporting code, so the resulting programs are consistent with the rest of the
+     study's TFL suite; and
+  3. Refined to a submission-ready state through an iterative, log-driven feedback loop with a
+     human reviewer, in an environment where the AI assistant has no live SAS execution access of
+     its own and must reason entirely from logs, listings, PDFs, and macro source code.
+
+A secondary aim was to identify what conditions make this kind of AI-assisted workflow succeed or
+fail, so those lessons can inform how TFL Designer and similar metadata-driven platforms should
+package and expose information to AI coding assistants in the future.
+
+
+METHODS
+=======
+
+Inputs and source-of-truth hierarchy
+-------------------------------------
+Files under G:\gsi_stds\dss_2026\s0000000\final\draft1\ were used as the working project:
+  - docs/DSS TFL Shells_Tables.json - the literal table shell (row labels, compound expressions/
+    where-clauses, category sub-levels) for each of five titlekeys: t-disp, t-demog, t-os,
+    t-aebrief, t-pkpc. Treated as the PRIMARY source of truth for row content and display text.
+  - docs/DSS TFL Shells.json - ARS analysis-results metadata (analyses, methods, analysis sets,
+    data subsets, groupings). Used as a secondary cross-check for population/statistic taxonomy.
+  - tools/tnf.inc - the authoritative source for all titles and footnotes, referenced by every
+    program through the shared macros rather than hardcoded text.
+  - adamdata/ - the study's ADaM datasets (ADSL, ADAE, ADTTE, ADPC), inspected defensively at
+    runtime (%m_chkvar existence checks) since not every variable assumption could be confirmed
+    from an existing working program.
+  - G:\global\bpgl\v4.19.01 - Gilead's shared global SAS macro library (fetch, tabdesc, tabcount,
+    tabdcat, tabprep, printset, tabdrpt, m_pkconc_new, m_chkvar, and related utilities), used
+    directly rather than through the STARS-generated wrapper style, to keep the AI-authored
+    programs consistent with the rest of the study's reporting suite.
+
+The importance of real example code
+-------------------------------------
+A recurring and decisive finding of this exercise was that AI-generated SAS code, however
+carefully reasoned from macro header comments and documentation, was measurably less reliable than
+code adapted directly from real, validated production programs written by human programmers using
+the same macro library. Two reference programs proved essential:
+  - G:\projects\p200\s2006718\final\version1\prog\t-pkconc-*.sas (PK concentration tables)
+  - G:\projects\p627\s21\ia01\version1\prog\t-os-a.sas (OS survival tables)
+Both are real, validated programs built on bpgl v4.19.01. Whenever the AI assistant was uncertain
+about a macro's correct call pattern, a statistical model choice (e.g., Cox proportional hazards
+options), or an ODS output extraction technique, comparing directly against these reference
+programs resolved the question far faster and far more reliably than reasoning from the macro's
+own header comments alone - and, on at least one occasion (the PROC LIFETEST OUTSURV=/REDUCEOUT
+pattern for landmark survival rates with confidence intervals, described below), it corrected a
+plausible-looking but subtly wrong approach the AI had independently constructed. This confirms a
+practical requirement for any metadata-driven, AI-assisted TFL workflow: access to a small library
+of representative, already-validated example programs is as important as access to structured
+shell metadata itself.
+
+Designing a clear initial prompt for Claude
+----------------------------------------------
+Early attempts to let the AI assistant work from the ARS JSON and RTF shells alone, without an
+explicit upfront specification of environment constraints and known macro-library pitfalls,
+produced a substantial amount of avoidable rework. Based on the lessons captured over the course
+of this exercise, a consolidated "ideal starting prompt" was authored (see Appendix A and the
+companion file sas_tfl_program_creation_prompt.txt) covering:
+  - the deliverables and the explicit priority order of source-of-truth documents;
+  - environment constraints (no live SAS session available to the assistant; tool-search
+    limitations outside the active workspace folder);
+  - data assumptions to confirm rather than guess (variable names/types per dataset);
+  - mandatory program-structure conventions (macro wrapping, hyphen-safe macro-variable naming);
+  - a catalog of known bpgl macro parameter traps (non-blank defaults, hardcoded internal column
+    names, label-prefixing behavior, indentation/sortord rendering rules); and
+  - the specific technique required for custom (non-tabcount/tabdcat) statistical rows, such as
+    Kaplan-Meier and Cox model results, to render correctly within the shared COMBINE/TABPREP/
+    TABDRPT pipeline.
+Retrospective analysis strongly suggests that supplying this consolidated prompt at the start of a
+project (rather than discovering each item empirically across many rounds) would materially reduce
+the number of iteration cycles required to reach a working program.
+
+The trial-and-error feedback loop
+-------------------------------------
+Because the AI assistant had no live SAS execution environment, all iteration followed a strict
+human-in-the-loop, evidence-driven cycle:
+  1. The AI assistant authored or revised a SAS program based on the shells, macro source code,
+     and (where relevant) the reference production programs.
+  2. A human programmer executed the program on the SAS grid and returned the resulting .log,
+     .out, and/or .pdf artifacts.
+  3. The AI assistant diagnosed the outcome strictly from that evidence - reading the actual log
+     text for the first real error (distinguishing genuine errors from downstream cascade noise
+     caused by an early failure putting the session into OBS=0 mode), reading rendered .out/.pdf
+     content directly when a rendering (not syntax) problem was suspected, and reading macro
+     source code directly rather than trusting its own assumptions about macro behavior.
+  4. A targeted fix was proposed and applied, syntax-checked, and handed back for another run.
+This cycle repeated across approximately 25 rounds spanning the five programs, each round
+addressing a specific, evidence-backed issue - never a speculative "let's try this and see" change
+without a log, listing, or source-code citation to justify it.
+
+Human review and validation checkpoints
+-------------------------------------------
+Each program included defensive, self-documenting validation logging: every dataset/variable
+existence check and material assumption was appended to a shared tools.val_report dataset (via
+PROC APPEND, safe for concurrent runs) and rendered to a consolidated tools/val_report.out listing,
+giving a human reviewer a single place to confirm what the AI assistant had assumed versus
+confirmed at runtime.
+
+
+RESULTS
+=======
+
+Programs produced
+--------------------
+Five titlekey programs were built and brought to a working state: t-disp.sas (Participant
+Disposition), t-demog.sas (Demographics), t-os.sas (Overall Survival, Kaplan-Meier/Cox), t-
+aebrief.sas (Adverse Event brief summary), and t-pkpc.sas (PK Concentration listing/summary). Each
+produces exactly one PDF via the shared %tabdesc/%tabcount/%tabprep/%printset/%tabdrpt pipeline (or
+%m_pkconc_new for the PK table), with titles/footnotes resolved from tools/tnf.inc rather than
+hardcoded.
+
+Representative categories of issues found and resolved
+-----------------------------------------------------------
+  - Foundational SAS errors invisible behind cascading noise: an invalid hyphen in a derived macro-
+    variable name put the SAS session into OBS=0 syntax-check mode for the remainder of the job,
+    producing dozens of unrelated-looking downstream errors; a bare %goto/label pair used in open
+    code (outside a %macro) caused a different, superficially similar cascade. Both root causes
+    were found by locating the FIRST real error in the log rather than reacting to the last one -
+    and the second bug recurred later in a standalone utility script (tools/val_report.sas) that
+    had not been through the same original fix, confirming this is a class of bug worth checking
+    for in any new SAS script in this codebase, not just the five table programs.
+  - Global macro parameter traps: several bpgl macro parameters default to the literal string of
+    their own name rather than blank, silently breaking when omitted for a study whose data lacks
+    that column; one macro's internal SQL hardcoded a literal column name instead of using the
+    caller's parameter value. Both were only discoverable by reading the macro's actual source
+    code, not its header documentation.
+  - Rendering-layer bugs distinct from data bugs: TABCOUNT/TABPREP have specific, source-code-
+    confirmed rules for row indentation, blank-line suppression between header and sub-rows, and
+    when a blank "spacer" row survives versus gets silently deleted - each governed by the SAME
+    sortord/statord/level fields, and each discovered by direct macro source inspection rather than
+    trial guesses.
+  - Statistical model correctness: comparing the OS table's Kaplan-Meier landmark survival-rate
+    extraction against the proven reference program revealed that PROC LIFETEST's OUTSURV=/
+    REDUCEOUT option set is the correct way to obtain a landmark survival estimate WITH its
+    confidence interval, superseding two earlier, more complex workaround attempts that were each
+    individually reasonable but ultimately unnecessary once the reference program's own approach
+    was consulted directly.
+  - Iterative visual/formatting refinement: achieving true decimal/digit alignment of stacked
+    numeric values in the rendered PDF required three successive rounds of user feedback (right-
+    justify via format width, then left-justify, then a non-breaking-space padding technique) before
+    the actual rendering behavior of the PDF pipeline was correctly characterized - a clear
+    illustration that some formatting behavior can only be confirmed by looking at the real
+    rendered output, not by reasoning about the code alone.
+  - A latent bug in the shared m_pkconc_new macro itself was identified (an abort condition firing
+    after a correct, complete PDF had already rendered) and, after exhaustive source-level tracing
+    failed to find a fixable root cause on the calling side, was correctly escalated as a macro-
+    team issue rather than continuing to chase it from the calling program - an important
+    illustration that not every AI-diagnosed issue is fixable from the calling program, and knowing
+    when to stop and escalate is itself part of a disciplined workflow.
+
+Efficiency observations
+--------------------------
+Rounds that were anchored to a concrete artifact (a log line, a rendered .out listing, or a
+reference program's actual source) resolved in a single iteration. Rounds that relied on
+plausible-sounding reasoning without such an artifact (e.g., early decimal-alignment attempts, and
+one diagnostic-logging macro-call failure where two reasonable hypotheses were each tried and
+failed) required additional cycles before the correct fix was found. This is consistent with the
+poster abstract's framing: AI performs best when given strong, structured context (metadata,
+shells, and real example code) and a tight evidence loop, not when reasoning in a vacuum.
+
+
+CONCLUSION
+==========
+This exercise provides concrete, working evidence for the approach described in the DSS 2026
+poster: pairing a large language model such as Claude with structured, machine-readable TFL
+metadata and a shared macro library is a practical and effective way to accelerate first-pass SAS
+TFL programming. Five working, shell-conformant, macro-library-consistent programs were produced
+and refined to a stable state entirely through metadata-driven, evidence-based iteration.
+
+At the same time, this exercise equally demonstrates the limits of the approach and reinforces why
+programmer oversight cannot be removed from the loop. The AI assistant had no ability to execute
+SAS itself; every conclusion, every fix, and every "this now looks correct" assessment was inferred
+from static text - log files, listings, and macro source code - never from directly observing a
+live program run. Some defects (rendering behavior in the PDF, whether a statistical result is
+genuinely "Not Estimable" versus a bug, whether a macro's internal abort is escalatable or fixable)
+were only correctly resolved because a human ran the actual program and supplied real logs, real
+rendered listings, and real PDFs back into the loop, and because a human made the final judgment
+call on each fix. Final review and sign-off of the generated code, its execution logs, and its
+PDF/output artifacts by a qualified statistical programmer remain non-negotiable, essential steps -
+not a formality - before any AI-assisted SAS program or its output can be considered acceptable
+for use in a regulated clinical reporting context. The AI assistant is best understood, and was
+used throughout this exercise, as a fast first-pass drafting and diagnostic partner operating under
+continuous human direction and final human accountability, exactly as described in the poster
+abstract's core thesis: "the value is not 'AI writes the code,' but 'metadata provides context that
+enables AI to generate better starter code and review support.'"
+
+
+ACKNOWLEDGEMENTS
+=================
+The authors acknowledge the Gilead DSS statistical programming and metadata standards teams for
+developing and maintaining the ARS/shell metadata conventions, the tnf.inc title/footnote
+framework, and the bpgl global macro library that made this exercise possible; the maintainers and
+authors of the reference production programs (t-pkconc-*.sas and t-os-a.sas) whose real, validated
+code was essential to correctly diagnosing and resolving multiple issues in this exercise; and the
+TFL Designer and AI-assisted TFL automation initiative teams whose DSS 2026 poster and abstract
+materials framed and motivated this hands-on case study.
+
+
+REFERENCES
+==========
+1. DSS TFL Shells_Tables.json - study GS-US-000-0000 table shell metadata (row labels, compound
+   expressions, sub-level categories), docs/ folder.
+2. DSS TFL Shells.json - study GS-US-000-0000 ARS analysis-results metadata (analyses, methods,
+   analysis sets, data subsets, groupings), docs/ folder.
+3. tools/tnf.inc - study GS-US-000-0000 title/footnote include file.
+4. Gilead Global bpgl Macro Library, version 4.19.01 (G:\global\bpgl\v4.19.01), including fetch,
+   tabdesc, tabcount, tabdcat, tabprep, printset, tabdrpt, m_pkconc_new, m_chkvar, tmtoevnt/
+   m_tmtoevnt, and pkconc/m_pkconc source modules.
+5. Reference production program G:\projects\p200\s2006718\final\version1\prog\t-pkconc-*.sas (PK
+   concentration tables).
+6. Reference production program G:\projects\p627\s21\ia01\version1\prog\t-os-a.sas (Overall
+   Survival tables).
+7. CDISC Analysis Data Model Implementation Guide (ADaM IG) - BDS/TTE variable conventions used to
+   validate ADTTE/ADPC assumptions.
+8. "From Metadata-Driven TFL Shells to AI-Assisted SAS Code Development" - DSS 2026 Poster
+   Abstract and AI-Assisted TFL Automation Summary, G:\gsi_stds\dss_2026\Poster.
+9. sas_tfl_program_creation_prompt.txt - consolidated initial AI prompt authored as part of this
+   exercise, capturing the environment constraints, source-of-truth hierarchy, macro-library
+   pitfalls, and formatting conventions discovered across ~25 rounds of iteration.
+
+
+APPENDIX A - Summary of the Initial AI Prompt Structure
+=========================================================
+The full consolidated prompt is provided as a companion file, sas_tfl_program_creation_prompt.txt.
+Its major sections are: Objective; Source of Truth (priority order); Environment Constraints;
+Data Assumptions (confirm before coding, don't guess); Program Structure Requirements; bpgl Macro
+Gotchas (checking every parameter's default before omitting it); Custom Statistical Rows (KM/Cox
+row-building technique); Value-String Formatting (decimal/digit alignment); and Validation
+Logging. This structure is offered as a reusable starting template for future AI-assisted SAS TFL
+programming exercises using ARS JSON metadata, RTF/tnf.inc shells, and the bpgl macro library.

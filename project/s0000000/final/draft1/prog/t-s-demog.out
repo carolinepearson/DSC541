@@ -1,0 +1,96 @@
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                             Table 15.8.3.1.2: Demographics and Baseline Characteristics
+                                                                   ITT Analysis Set
+                                                                STARS Generated Output
+
+                          __________________________________________________________________________________________________
+                                                                                  Drug A          Drug B           Total
+                                                                                  (N=50)          (N=50)          (N=100)
+                          __________________________________________________________________________________________________
+
+                          Age (years)
+                             N                                                  50              50             100
+                             Mean (SD)                                          45 (17.4)       48 (17.4)       47 (17.4)
+                             Median                                             45              48              47
+                             Q1, Q3                                             30, 60          33, 63          32, 62
+                             Min, Max                                           18, 72          21, 75          18, 75
+
+                          Age Group
+                             < 65                                               40 ( 80.0%)     40 ( 80.0%)     80 ( 80.0%)
+                             >= 65                                              10 ( 20.0%)     10 ( 20.0%)     20 ( 20.0%)
+
+                          Sex at Birth
+                             Male                                               50 (100.0%)      0              50 ( 50.0%)
+                             Female                                              0              50 (100.0%)     50 ( 50.0%)
+
+                          Race
+                             Asian                                              25 ( 50.0%)      0              25 ( 25.0%)
+                             Black or African American                           0              25 ( 50.0%)     25 ( 25.0%)
+                             White                                              25 ( 50.0%)      0              25 ( 25.0%)
+                             Other                                               0              25 ( 50.0%)     25 ( 25.0%)
+
+                          Ethnicity
+                             Not Hispanic or Latino                             34 ( 68.0%)     33 ( 66.0%)     67 ( 67.0%)
+                             Hispanic or Latino                                 16 ( 32.0%)     17 ( 34.0%)     33 ( 33.0%)
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Denominator for percentages was the ITT Analysis Set.
+Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1 visit if dose,
+date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized.
+Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000.
+Source: Listing 16.2.4.1
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-s-demog.sas v9.4  Output file: t-s-demog.pdf 30AUG2026:15:40                                               Page 1 of 2
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                             Table 15.8.3.1.2: Demographics and Baseline Characteristics
+                                                                   ITT Analysis Set
+                                                                STARS Generated Output
+
+                          __________________________________________________________________________________________________
+                                                                                  Drug A          Drug B           Total
+                                                                                  (N=50)          (N=50)          (N=100)
+                          __________________________________________________________________________________________________
+
+                          Weight (kg)
+                             N                                                    50              50             100
+                             Mean (SD)                                          69.5 (9.95)     69.5 (10.01)    69.5 (9.93)
+                             Median                                             69.7            69.4            69.6
+                             Q1, Q3                                             62.2, 76.6      62.3, 76.7      62.3, 76.7
+                             Min, Max                                           55.1, 83.8      55.1, 83.9      55.1, 83.9
+
+                          Height (cm)
+                             N                                                    50              50             100
+                             Mean (SD)                                         165.4 (10.03)   165.3 (10.17)   165.4 (10.05)
+                             Median                                            165.7           165.6           165.6
+                             Q1, Q3                                            155.9, 175.2    155.5, 175.4    155.8, 175.3
+                             Min, Max                                          150.2, 180.9    150.0, 181.0    150.0, 181.0
+
+                          Body Mass Index (kg/m^2)
+                             N                                                    50              50             100
+                             Mean (SD)                                          25.7 (5.11)     25.7 (4.86)     25.7 (4.96)
+                             Median                                             25.5            25.5            25.5
+                             Q1, Q3                                             21.6, 28.8      21.7, 28.7      21.7, 28.8
+                             Min, Max                                           17.0, 36.9      16.9, 37.3      16.9, 37.3
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Denominator for percentages was the ITT Analysis Set.
+Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1 visit if dose,
+date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized.
+Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000.
+Source: Listing 16.2.4.1
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-s-demog.sas v9.4  Output file: t-s-demog.pdf 30AUG2026:15:40                                               Page 2 of 2

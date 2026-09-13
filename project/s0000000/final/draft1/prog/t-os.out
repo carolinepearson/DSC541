@@ -1,0 +1,48 @@
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                        Table 15.9.1.x: Overall Survival (OS)
+                                                                   ITT Analysis Set
+
+           ________________________________________________________________________________________________________________________________
+                                                                                       Drug A                                 Drug B
+                                                                                       (N=50)                                 (N=50)
+           ________________________________________________________________________________________________________________________________
+
+           Number (%) of Participants with Events (Death)                        26 ( 52.0%)                            25 ( 50.0%)
+
+           Number (%) of Participants Censored                                   24 ( 48.0%)                            25 ( 50.0%)
+
+           Kaplan-Meier Estimate of OS (Months) (95% CI) [a]                    15.0 (10.1, NEst)                      16.0 (11.0, NEst)
+
+           Kaplan-Meier Estimate of OS Rate (%) (95% CI)
+              At 6 Months                                                        83.6 ( 69.9,  91.5)                    86.0 ( 72.9,  93.1)
+              At 12 Months                                                       62.5 ( 47.3,  74.5)                    60.8 ( 45.5,  73.0)
+              At 18 Months                                                       42.2 ( 27.3,  56.4)                    46.0 ( 31.0,  59.8)
+
+           Hazard Ratio of A vs B (95% CI) [b]                                  1.12 (0.65, 1.94)
+           Log-Rank P Value [c]                                                 0.6805
+
+           Duration of OS Follow-up (Months) [d]
+              >= 6 Months                                                        40 ( 80.0%)                            43 ( 86.0%)
+              >= 12 Months                                                       27 ( 54.0%)                            27 ( 54.0%)
+              >= 18 Months                                                        9 ( 18.0%)                            12 ( 24.0%)
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+NEst = Not Estimable.
+a   OS (months) = (date of death or censoring – date of randomization + 1)/30.4375, and the 95% CI is derived using log-log
+transformation.
+b   Hazard ratio and 95% CIs are calculated using the Cox proportional hazards model / statistical method.
+c   P value for comparing the overall survival functions from the two treatment groups is from.
+d   Duration of OS follow-up (months) = (date of death or censoring – date of randomization + 1)/30.4375.
+Source: Listing 16.2.6.x
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-os.sas v9.4  Output file: t-os.pdf 30AUG2026:15:52                                                         Page 1 of 1

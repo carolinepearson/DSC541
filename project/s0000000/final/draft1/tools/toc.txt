@@ -1,0 +1,17 @@
+# File:    toc.txt
+# Date:    30AUG2026 15:39
+# Desc:    Table of Contents for Study GS-US-000-0000 TFLs
+# Gen by:  Macro %M_TNFCONV
+# Run by:  cpearson1
+
+# Rule to check column alignment
+#---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+t-disp.pdf              Table 15.8.1.3.1.1            Participant Disposition, All Screened Participants
+t-s-disp.pdf            Table 15.8.1.3.1.2            Participant Disposition, All Screened Participants, STARS Generated Output
+t-demog.pdf             Table 15.8.3.1.1              Demographics and Baseline Characteristics, ITT Analysis Set
+t-s-demog.pdf           Table 15.8.3.1.2              Demographics and Baseline Characteristics, ITT Analysis Set, STARS Generated Output
+t-os.pdf                Table 15.9.1.x                Overall Survival (OS), ITT Analysis Set
+t-aebrief.pdf           Table 15.11.2.1.1.1           Treatment-Emergent Adverse Events: Overall Summary, Safety Analysis Set
+t-s-aebrief.pdf         Table 15.11.2.1.1.2           Treatment-Emergent Adverse Events: Overall Summary, Safety Analysis Set, STARS Generated Output
+t-pkpc.pdf              Table 15.10.1.1.x             Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times, PK Analysis Set
+

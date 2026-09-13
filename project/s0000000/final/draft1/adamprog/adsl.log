@@ -1,0 +1,336 @@
+1                                                          The SAS System                              15:36 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.13 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:36 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adsl.sas;
+21         %let gsas_orig_pgm_name = adsl.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/adsl.sas_1788129409.328786@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=3325397
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adsl.sas
+      * Run by:         cpearson1 on sjgsasappprdg14
+      * On Date:        30AUG2026:15:36
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/adsl.sas_1788129409.328786@sjgsasappprdg09/original_adsl.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/adsl.sas_1788129409.328786@sjgsasappprdg09/original_adsl.sas is file 
+      /gridwork/gsubwork/cpearson1/adsl.sas_1788129409.328786@sjgsasappprdg09/original_adsl.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      adsl.sas
+991       +Program Author:    Caroline Pearson (cpearson)
+992       +Program Purpose:   Create ADSL dummy records for 100 participants
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +data adamdata.adsl;
+997       +    call streaminit(20260823);
+998       +retain STUDYID USUBJID SUBJID SITEID RFICDT RANDDT SCRNFL RANDFL SAFFL ITTFL COMT01FL COMSFL PKFL
+999       +        SEX RACE ETHNIC AGE AGEU AGEGR1 AGEGR1N ARM TRTSDT TRTEDT TRT01P TRT01PN TRT01A TRT01AN
+1000      +        EOTSTT DCT01RS EOSDT EOSSTT DCSREAS DTHFL DTHDT DTHCAUS LSTALVDT BWT BHT BBMI;
+1001      +    length
+1002      +        STUDYID USUBJID $20
+1003      +        SUBJID SITEID $10
+1004      +        RANDFL SAFFL ITTFL
+1005      +        SCRNFL COMT01FL COMSFL PKFL DTHFL $1
+1006      +        SEX RACE ETHNIC $40
+1007      +        AGEU AGEGR1 $20
+1008      +        ARM TRT01P TRT01A $20
+1009      +        EOSSTT EOTSTT $20
+1010      +        DCSREAS DCT01RS DTHCAUS $100;
+1011      +
+1012      +    length AGEGR1N BWT BHT BBMI 8;
+1013      +
+1014      +    label
+1015      +        SCRNFL = "Screened Population Flag"
+1016      +        COMT01FL = "Completed Study Treatment Flag"
+1017      +        COMSFL = "Completed Study Flag"
+1018      +        PKFL = "Pharmacokinetic Population Flag"
+1019      +        AGEGR1 = "Age Group 1"
+1020      +        AGEGR1N = "Age Group 1 Numeric"
+1021      +        BWT = "Baseline Weight"
+1022      +        BHT = "Baseline Height"
+1023      +        BBMI = "Baseline Body Mass Index";
+1024      +
+1025      +    format TRTSDT TRTEDT EOSDT RFICDT RANDDT
+1026      +           LSTALVDT DTHDT date9.;
+1027      +
+1028      +    do SubjectNumber = 1 to 100;
+1029      +        STUDYID = "STUDY001";
+1030      +        SUBJID = put(SubjectNumber, z3.);
+1031      +        SITEID = put(100 + mod(SubjectNumber - 1, 5), z3.);
+                                                                    The SAS System
+
+1032      +        USUBJID = cats(STUDYID, "-", SUBJID);
+1033      +
+1034      +        RANDFL = "Y";
+1035      +        SAFFL = "Y";
+1036      +        ITTFL = "Y";
+1037      +
+1038      +        AGE = 18 + mod(SubjectNumber * 3, 60);
+1039      +        AGEU = "YEARS";
+1040      +        if AGE < 65 then do;
+1041      +            AGEGR1 = "< 65";
+1042      +            AGEGR1N = 1;
+1043      +        end;
+1044      +        else do;
+1045      +            AGEGR1 = ">= 65";
+1046      +            AGEGR1N = 2;
+1047      +        end;
+1048      +        if mod(SubjectNumber, 2) = 0 then SEX = "M";
+1049      +        else SEX = "F";
+1050      +
+1051      +        select (mod(SubjectNumber, 4));
+1052      +            when (0) RACE = "WHITE";
+1053      +            when (1) RACE = "BLACK OR AFRICAN AMERICAN";
+1054      +            when (2) RACE = "ASIAN";
+1055      +            otherwise RACE = "OTHER";
+1056      +        end;
+1057      +
+1058      +        if mod(SubjectNumber, 3) = 0 then ETHNIC = "HISPANIC OR LATINO";
+1059      +        else ETHNIC = "NOT HISPANIC OR LATINO";
+1060      +
+1061      +        select (mod(SubjectNumber, 2));
+1062      +            when (0) do;
+1063      +                ARM = "Drug A";
+1064      +                TRT01P = "Drug A";
+1065      +                TRT01PN = 1;
+1066      +                TRT01A = "Drug A";
+1067      +                TRT01AN = 1;
+1068      +            end;
+1069      +            otherwise do;
+1070      +                ARM = "Drug B";
+1071      +                TRT01P = "Drug B";
+1072      +                TRT01PN = 2;
+1073      +                TRT01A = "Drug B";
+1074      +                TRT01AN = 2;
+1075      +            end;
+1076      +        end;
+1077      +
+                                                                    The SAS System
+
+1078      +        RFICDT = "15DEC2016"d + mod(SubjectNumber - 1, 10);
+1079      +        RANDDT = "01JAN2016"d + SubjectNumber - 1;
+1080      +        TRTSDT = RANDDT;
+1081      +        *TreatmentDays = rand("integer", 10, 100);
+1082      +        *TRTEDT = TRTSDT + TreatmentDays;
+1083      +
+1084      +        if SubjectNumber > 49 then do;
+1085      +            TreatmentDiscontinue = 1;
+1086      +            StudyDiscontinue = 1;
+1087      +        	TreatmentMonths = rand("integer", 4, 16);
+1088      +        	DTHDT = intnx("month", TRTSDT, TreatmentMonths, "same");
+1089      +           	*DTHDT = TRTSDT + TreatmentDays;
+1090      +			DTHFL = "Y";
+1091      +            TRTEDT = DTHDT;
+1092      +            EOSSTT = "DISCONTINUED";
+1093      +            EOSDT = DTHDT;
+1094      +            DCSREAS = "DEATH";
+1095      +            EOTSTT = "DISCONTINUED";
+1096      +            DCT01RS = "ADVERSE EVENT";
+1097      +            LSTALVDT = DTHDT;
+1098      +            select (mod(SubjectNumber, 3));
+1099      +                when (0) DTHCAUS = "Cardiac event";
+1100      +                when (1) DTHCAUS = "Respiratory failure";
+1101      +                otherwise DTHCAUS = "Underlying disease";
+1102      +            end;
+1103      +        end;
+1104      +        else do;
+1105      +            StudyDiscontinue = (rand("uniform") < 0.15);
+1106      +            TreatmentDiscontinue = (rand("uniform") < 0.20);
+1107      +
+1108      +            if StudyDiscontinue then
+1109      +                TreatmentDiscontinue = 1;
+1110      +
+1111      +            if TreatmentDiscontinue then do;
+1112      +                EOTSTT = "DISCONTINUED";
+1113      +                DCT01RS = "LACK OF EFFICACY";
+1114      +            end;
+1115      +            else do;
+1116      +                EOTSTT = "COMPLETED";
+1117      +                DCT01RS = "";
+1118      +            end;
+1119      +
+1120      +            if StudyDiscontinue then do;
+1121      +                EOSSTT = "DISCONTINUED";
+1122      +                EOSDT = TRTEDT + rand("integer", 1, 14);
+1123      +                DCSREAS = "WITHDRAWAL BY SUBJECT";
+                                                                    The SAS System
+
+1124      +            end;
+1125      +            else do;
+1126      +                EOSSTT = "COMPLETED";
+1127      +                EOSDT = TRTEDT;
+1128      +                DCSREAS = "";
+1129      +            end;
+1130      +
+1131      +            LSTALVDT = EOSDT;
+1132      +            DTHDT = .;
+1133      +            DTHCAUS = "";
+1134      +        end;
+1135      +
+1136      +        SCRNFL = "Y";
+1137      +        PKFL = "Y";
+1138      +        if EOTSTT = "COMPLETED" then
+1139      +            COMT01FL = "Y";
+1140      +        else
+1141      +            COMT01FL = "N";
+1142      +
+1143      +        if COMT01FL = "N" then do;
+1144      +            TreatmentMonths = rand("integer", 2, 16);
+1145      +            TRTEDT = intnx("month", TRTSDT, TreatmentMonths, "same");
+1146      +            if not missing(DTHDT) then do;
+1147      +                DTHDT = TRTEDT;
+1148      +                EOSDT = DTHDT;
+1149      +                LSTALVDT = DTHDT;
+1150      +            end;
+1151      +            else if StudyDiscontinue then do;
+1152      +                EOSDT = TRTEDT + rand("integer", 1, 14);
+1153      +                LSTALVDT = EOSDT;
+1154      +            end;
+1155      +            else do;
+1156      +                EOSDT = TRTEDT;
+1157      +                LSTALVDT = EOSDT;
+1158      +            end;
+1159      +        end;
+1160      +        else do;
+1161      +            TreatmentMonths = rand("integer", 17, 19);
+1162      +            TRTEDT = intnx("month", TRTSDT, TreatmentMonths, "same");
+1163      +            EOSDT = TRTEDT;
+1164      +            LSTALVDT = EOSDT;
+1165      +        end;
+1166      +
+1167      +        if EOSSTT = "COMPLETED" then
+1168      +            COMSFL = "Y";
+1169      +        else
+                                                                    The SAS System
+
+1170      +            COMSFL = "N";
+1171      +
+1172      +        BWT = round(55 + mod(SubjectNumber * 7, 35) + rand("uniform"), 0.1);
+1173      +        BHT = round(150 + mod(SubjectNumber * 5, 35) + rand("uniform"), 0.1);
+1174      +        BBMI = round(BWT / ((BHT / 100) ** 2), 0.1);
+1175      +
+1176      +        output;
+1177      +    end;
+1178      +
+1179      +        drop SubjectNumber /*TreatmentDays*/ TreatmentMonths
+1180      +            TreatmentDiscontinue StudyDiscontinue;
+1181      +run;
+
+NOTE: The data set ADAMDATA.ADSL has 100 observations and 39 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.00 seconds
+      
+
+1182      +/*
+1183      +proc contents data=adamdata.adsl;
+1184      +run;
+1185      +
+1186      +proc print data=adamdata.adsl(obs=10);
+1187      +run;
+1188      +*/
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.36 seconds
+      cpu time            1.01 seconds
+      
+
+Grid Job Id: 214359

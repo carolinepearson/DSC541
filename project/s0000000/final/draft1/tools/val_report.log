@@ -1,0 +1,252 @@
+1                                                          The SAS System                              16:08 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.12 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              16:08 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/val_report.sas;
+21         %let gsas_orig_pgm_name = val_report.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/val_report.sas_1788131303.1382434@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=1555278
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/val_report.sas
+      * Run by:         cpearson1 on sjgsasappprdg12
+      * On Date:        30AUG2026:16:08
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/val_report.sas_1788131303.1382434@sjgsasappprdg09/original_val_report.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/val_report.sas_1788131303.1382434@sjgsasappprdg09/original_val_report.sas is file 
+      /gridwork/gsubwork/cpearson1/val_report.sas_1788131303.1382434@sjgsasappprdg09/original_val_report.sas.
+988       +/* start of header *********************************************************************************
+989       +Program Name:      val_report.sas
+990       +Program Author:    GitHub Copilot (copilot)
+991       +Program Purpose:   Phase 2 - render the consolidated cross-table validation report at
+992       +                    tools/val_report.out from the shared TOOLS.VAL_REPORT dataset that each
+993       +                    <titlekey>.sas program appends to via PROC APPEND.
+994       +
+995       +*********************************************************************************** end of header */
+996       +
+997       +/*----------------------------------------------------------------------------------------------
+998       +  Run this program AFTER any subset of t-disp.sas / t-demog.sas / t-aebrief.sas / t-os.sas /
+999       +  t-pkpc.sas have executed. It only READS tools.val_report (never overwrites it) and produces a
+1000      +  plain-text listing at tools/val_report.out - the deliverable path requested for Phase 2.
+1001      +  Re-running this program is always safe: it regenerates the .out listing from whatever rows
+1002      +  are currently present in the shared dataset, it does not mutate tools.val_report itself.
+1003      +----------------------------------------------------------------------------------------------*/
+1004      +
+1005      +options missing='';
+1006      +
+1007      +%let tools = ../tools;
+1008      +libname tools "&tools";
+NOTE: Libref TOOLS refers to the same physical library as _FMTS_1.
+NOTE: Libref TOOLS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+1009      +
+1010      +%macro main;
+1011      +
+1012      +%if %sysfunc(exist(tools.val_report))=0 %then %do;
+1013      +   %put %str(ER)ROR: [USER] tools.val_report does not exist yet - run at least one table program first.;
+1014      +   %goto endprogram;
+1015      +%end;
+1016      +
+1017      +proc sort data=tools.val_report out=_val_sorted;
+1018      +   by titlekey rundttm;
+1019      +run;
+1020      +
+1021      +ods listing close;
+1022      +ods pdf close;
+1023      +proc printto print="&tools/val_report.out" new;
+1024      +run;
+1025      +
+1026      +options linesize=200 pagesize=60 nodate nonumber;
+1027      +
+                                                                    The SAS System
+
+1028      +title1 "Consolidated TFL Validation Report";
+1029      +title2 "Generated %sysfunc(datetime(), datetime20.)";
+1030      +
+1031      +proc report data=_val_sorted nowd;
+1032      +   column titlekey dsname varname check expected actual status message;
+1033      +   define titlekey / order   "Titlekey"     width=10;
+1034      +   define dsname   / display "Dataset(s)"   width=12;
+1035      +   define varname  / display "Variable(s)"  width=16;
+1036      +   define check    / display "Validation Check" width=24;
+1037      +   define expected / display "Expected"     width=22;
+1038      +   define actual   / display "Actual"       width=22;
+1039      +   define status   / display "Status"       width=8;
+1040      +   define message  / display "Message"      width=60 flow;
+1041      +run;
+1042      +
+1043      +title; footnote;
+1044      +proc printto;
+1045      +run;
+1046      +ods listing;
+1047      +
+1048      +%put NOTE: [USER] Consolidated validation report written to &tools/val_report.out;
+1049      +
+1050      +%endprogram:
+1051      +
+1052      +%mend main;
+1053      +
+1054      +%main;
+MPRINT(MAIN):   proc sort data=tools.val_report out=_val_sorted;
+MPRINT(MAIN):   by titlekey rundttm;
+MPRINT(MAIN):   run;
+
+NOTE: There were 779 observations read from the data set TOOLS.VAL_REPORT.
+NOTE: SAS sort was used.
+NOTE: The data set WORK._VAL_SORTED has 779 observations and 9 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MAIN):   ods listing close;
+MPRINT(MAIN):   ods pdf close;
+MPRINT(MAIN):   proc printto print="../tools/val_report.out" new;
+MPRINT(MAIN):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.01 seconds
+                                                                    The SAS System
+
+      cpu time            0.01 seconds
+      
+
+MPRINT(MAIN):   options linesize=200 pagesize=60 nodate nonumber;
+MPRINT(MAIN):   title1 "Consolidated TFL Validation Report";
+MPRINT(MAIN):   title2 "Generated   30AUG2026:16:08:28";
+MPRINT(MAIN):   proc report data=_val_sorted nowd;
+MPRINT(MAIN):   column titlekey dsname varname check expected actual status message;
+MPRINT(MAIN):   define titlekey / order "Titlekey" width=10;
+MPRINT(MAIN):   define dsname / display "Dataset(s)" width=12;
+MPRINT(MAIN):   define varname / display "Variable(s)" width=16;
+MPRINT(MAIN):   define check / display "Validation Check" width=24;
+MPRINT(MAIN):   define expected / display "Expected" width=22;
+MPRINT(MAIN):   define actual / display "Actual" width=22;
+MPRINT(MAIN):   define status / display "Status" width=8;
+MPRINT(MAIN):   define message / display "Message" width=60 flow;
+MPRINT(MAIN):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 779 observations read from the data set WORK._VAL_SORTED.
+NOTE: The PROCEDURE REPORT printed pages 1-22.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(MAIN):   title;
+MPRINT(MAIN):   footnote;
+MPRINT(MAIN):   proc printto;
+MPRINT(MAIN):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MAIN):   ods listing;
+NOTE: [USER] Consolidated validation report written to ../tools/val_report.out
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.05 seconds
+      cpu time            0.59 seconds
+      
+
+Grid Job Id: 214389

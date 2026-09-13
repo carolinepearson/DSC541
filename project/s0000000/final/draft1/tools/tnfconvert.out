@@ -1,0 +1,240 @@
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                          Titles and Footnotes Spreadsheet Summary ERROR and WARNING Report
+                                                        Source Workbook File: ../docs/tnf.xlsx
+                                                                Titles Worksheet: tfl
+                                                               Footnotes Worksheet: fn
+
+
+                                          -----------------------------------------------------------------
+                                          NOTE: NO ERRORS OR WARNINGS REGARDING CONTENTS OF TFL SPREADSHEET
+
+                                          Source File: ../docs/tnf.xlsx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                                            Page 1 of 5
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                       Titles and Footnotes Spreadsheet Report
+                                                        Source Workbook File: ../docs/tnf.xlsx
+                                                                Titles Worksheet: tfl
+
+Variable  # Title / Footnote
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+TFL:        Table 15.8.1.3.1.1
+Titlekey:   t-disp
+Title:    1 Table 15.8.1.3.1.1: Participant Disposition
+          2 All Screened Participants
+Footnote: 1 Percentages for completion status were calculated based on the number of participants in the Safety Analysis Set.
+          2 Source: Listing 16.2.1.3.1
+
+TFL:        Table 15.8.1.3.1.2
+Titlekey:   t-s-disp
+Title:    1 Table 15.8.1.3.1.2: Participant Disposition
+          2 All Screened Participants
+          3 STARS Generated Output
+Footnote: 1 Percentages for completion status were calculated based on the number of participants in the Safety Analysis Set.
+          2 Source: Listing 16.2.1.3.1
+
+TFL:        Table 15.8.3.1.1
+Titlekey:   t-demog
+Title:    1 Table 15.8.3.1.1: Demographics and Baseline Characteristics
+          2 ITT Analysis Set
+Footnote: 1 Denominator for percentages was the ITT Analysis Set.
+          2 Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1
+            visit if dose,
+          3 date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized.
+          4 Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000.
+          5 Source: Listing 16.2.4.1
+
+TFL:        Table 15.8.3.1.2
+Titlekey:   t-s-demog
+Title:    1 Table 15.8.3.1.2: Demographics and Baseline Characteristics
+          2 ITT Analysis Set
+          3 STARS Generated Output
+Footnote: 1 Denominator for percentages was the ITT Analysis Set.
+          2 Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1
+            visit if dose,
+          3 date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized.
+          4 Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000.
+          5 Source: Listing 16.2.4.1
+______________________________________________________________________________________________________________________________________________________
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                                            Page 2 of 5
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                       Titles and Footnotes Spreadsheet Report
+                                                        Source Workbook File: ../docs/tnf.xlsx
+                                                                Titles Worksheet: tfl
+
+Variable  # Title / Footnote
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+TFL:        Table 15.9.1.x
+Titlekey:   t-os
+Title:    1 Table 15.9.1.x: Overall Survival (OS)
+          2 ITT Analysis Set
+Footnote: 1 NEst = Not Estimable.
+          2 a   OS (months) = (date of death or censoring – date of randomization + 1)/30.4375, and the 95% CI is derived using log-log
+          3 transformation.
+          4 b   Hazard ratio and 95% CIs are calculated using the Cox proportional hazards model / statistical method.
+          5 c   P value for comparing the overall survival functions from the two treatment groups is from.
+          6 d   Duration of OS follow-up (months) = (date of death or censoring – date of randomization + 1)/30.4375.
+          7 Source: Listing 16.2.6.x
+
+TFL:        Table 15.11.2.1.1.1
+Titlekey:   t-aebrief
+Title:    1 Table 15.11.2.1.1.1: Treatment-Emergent Adverse Events: Overall Summary
+          2 Safety Analysis Set
+Footnote: 1 TE = treatment-emergent; TEAE = treatment-emergent adverse event.
+          2 Adverse events were coded according to MedDRA Version {XX.X}.
+          3 Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after
+            the date of the
+          4  last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].
+          5 Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version
+            X][The DAIDS
+          6 Version XX]. [Participants were counted only one based on their highest grade for each summary row.]
+          7 Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number
+            of
+
+TFL:        Table 15.11.2.1.1.2
+Titlekey:   t-s-aebrief
+Title:    1 Table 15.11.2.1.1.2: Treatment-Emergent Adverse Events: Overall Summary
+          2 Safety Analysis Set
+          3 STARS Generated Output
+Footnote: 1 TE = treatment-emergent; TEAE = treatment-emergent adverse event.
+          2 Adverse events were coded according to MedDRA Version {XX.X}.
+          3 Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after
+            the date of the
+          4  last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].
+______________________________________________________________________________________________________________________________________________________
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                                            Page 3 of 5
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                       Titles and Footnotes Spreadsheet Report
+                                                        Source Workbook File: ../docs/tnf.xlsx
+                                                                Titles Worksheet: tfl
+
+Variable  # Title / Footnote
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Footnote: 5 Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version
+            X][The DAIDS
+          6 Version XX]. [Participants were counted only one based on their highest grade for each summary row.]
+          7 Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number
+            of
+
+TFL:        Table 15.10.1.1.x
+Titlekey:   t-pkpc
+Title:    1 Table 15.10.1.1.x: Individual Data and Summary Statistics of Plasma Concentration (ng/mL) at Protocol-Specified Sampling Times
+          2 PK Analysis Set
+Footnote: 1 BLQ = below the limit of quantitation; LLOQ = lower limit of quantitation; CI = confidence interval.
+          2 Values BLQ were treated as 0 for predose and postdose.
+          3 If > 1/3 of postdose values are BLQ at a time point, then the mean, StD, and %CV are not calculated at that time point.
+          4 LLQ was defined as 5.0 ng/mL for analyte GS-XXXX.
+          5 For each participant in PK analysis set, intensive serial PK sample collection (samples over 24-hr postdose) was performed at Day 1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                                            Page 4 of 5
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                                   Footnotes Report
+                                                        Source Workbook File: ../docs/tnf.xlsx
+                                                               Footnotes Worksheet: fn
+
+Number  Footnote Text
+------------------------------------------------------------------------------------------------------------------------------------------------------
+1       a   OS (months) = (date of death or censoring – date of randomization + 1)/30.4375, and the 95% CI is derived using log-log
+1.1     transformation.
+2       Adverse events were coded according to MedDRA Version {XX.X}.
+3       Age (in years{or specify unit}) was collected on date of Day 1 visit. [If age was not collected, age was derived using data of Day 1 visit if
+        dose,
+3.1     date of [randomization] [enrollment] if not dosed, or the date of informed consent if not randomized.
+4       b   Hazard ratio and 95% CIs are calculated using the Cox proportional hazards model / statistical method.
+5       BLQ = below the limit of quantitation; LLOQ = lower limit of quantitation; CI = confidence interval.
+6       Body Mass Index (BMI) (kg/m^2) = [Weight (kg)/Height (cm) ^2] * 10,000.
+7       c   P value for comparing the overall survival functions from the two treatment groups is from.
+8       d   Duration of OS follow-up (months) = (date of death or censoring – date of randomization + 1)/30.4375.
+9       Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of
+9.1     participants in the DLT Evaluable Set.
+10      Denominator for percentages was the ITT Analysis Set.
+11      For each participant in PK analysis set, intensive serial PK sample collection (samples over 24-hr postdose) was performed at Day 1.
+12      If > 1/3 of postdose values are BLQ at a time point, then the mean, StD, and %CV are not calculated at that time point.
+13      LLQ was defined as 5.0 ng/mL for analyte GS-XXXX.
+14      NEst = Not Estimable.
+15      Percentages for completion status were calculated based on the number of participants in the Safety Analysis Set.
+16      Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The
+        DAIDS
+16.1    Version XX]. [Participants were counted only one based on their highest grade for each summary row.]
+17      Source: Listing 16.2.1.3.1
+18      Source: Listing 16.2.4.1
+19      Source: Listing 16.2.6.x
+20      Source: Listing 16.2.7.1, 16.2.7.2.1, 16.2.7.2.2, 16.2.7.3, 16.2.7.4.x and 16.2.7.5.x
+21      TE = treatment-emergent; TEAE = treatment-emergent adverse event.
+22      Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the
+        date of the
+22.1     last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].
+23      Values BLQ were treated as 0 for predose and postdose.
+24      {Definition of Analysis set.}
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                                            Page 5 of 5

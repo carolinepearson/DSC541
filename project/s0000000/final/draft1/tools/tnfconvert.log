@@ -1,0 +1,1804 @@
+1                                                          The SAS System                              15:39 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.06 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:39 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnfconvert.sas;
+21         %let gsas_orig_pgm_name = tnfconvert.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/tnfconvert.sas_1788129569.171342@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=3328468
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnfconvert.sas
+      * Run by:         cpearson1 on sjgsasappprdg14
+      * On Date:        30AUG2026:15:39
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/tnfconvert.sas_1788129569.171342@sjgsasappprdg09/original_tnfconvert.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/tnfconvert.sas_1788129569.171342@sjgsasappprdg09/original_tnfconvert.sas is file 
+      /gridwork/gsubwork/cpearson1/tnfconvert.sas_1788129569.171342@sjgsasappprdg09/original_tnfconvert.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      tnfconvert.sas
+991       +Program Author:    First Last (userid)
+992       +Program Purpose:   Read titles and footnotes information and create tools/tnf.inc file
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +%m_tnfconv( in      = &docs/tnf.xlsx,  /* Path and filename of titles file     */
+997       +            tnf     = &tools/tnf.inc,  /* Path and filename of output tnf file */
+998       +            outname = &jobname)        /* Report name                          */
+MPRINT(M_TNFCONV):   ** if tnf.inc file .not. exists, then create a dummy one so tnfset **;
+MPRINT(M_TNFCONV):   ** (from within printset) will not cause er ror **;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   ** Process footnotes *;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   proc import datafile="../docs/tnf.xlsx" out=footnotes dbms=xlsx replace;
+MPRINT(M_TNFCONV):   RXLX;
+MPRINT(M_TNFCONV):   sheet = 'fn';
+MPRINT(M_TNFCONV):   getnames = no;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable A has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable B has been converted to CHAR data type.
+NOTE: The import data set has 30 observations and 2 variables.
+NOTE: WORK.FOOTNOTES data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   set footnotes (obs=1) nobs=nobs;
+MPRINT(M_TNFCONV):   array vars {*} _char_;
+MPRINT(M_TNFCONV):   format rnrn $4000.;
+MPRINT(M_TNFCONV):   do _i = 1 to hbound(vars);
+MPRINT(M_TNFCONV):   if (vars[_i]>' ') then rnrn = trim(rnrn)||' '||byte(64+_i)||'='||translate(strip(vars[_i]),'____','- (),;');
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   rnrn = 'rename=('||strip(rnrn)||')';
+MPRINT(M_TNFCONV):   call symput( '__rnrn', trim(rnrn));
+MPRINT(M_TNFCONV):   call symput( '__nobs', trim(left(put(nobs,best.))));
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 1 observations read from the data set WORK.FOOTNOTES.
+                                                                    The SAS System
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data footnotes (rename=(A=FNN B=FNText));
+MPRINT(M_TNFCONV):   set footnotes;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 30 observations read from the data set WORK.FOOTNOTES.
+NOTE: The data set WORK.FOOTNOTES has 30 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data footnotes;
+MPRINT(M_TNFCONV):   set footnotes (where=(fnn^=' ')) nobs=nobs;
+MPRINT(M_TNFCONV):   call symput( '__nobs', trim(left(put(nobs,best.))));
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 30 observations read from the data set WORK.FOOTNOTES.
+      WHERE fnn not = ' ';
+NOTE: The data set WORK.FOOTNOTES has 30 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data footnotes;
+MPRINT(M_TNFCONV):   set footnotes (firstobs=2);
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 29 observations read from the data set WORK.FOOTNOTES.
+NOTE: The data set WORK.FOOTNOTES has 29 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   data footnotes (keep=fmtname type start label);
+MPRINT(M_TNFCONV):   set footnotes (where=(fnn^=' ') rename=(fntext=label));
+MPRINT(M_TNFCONV):   retain fmtname 'footfmt' type 'c';
+MPRINT(M_TNFCONV):   start = compress(fnn);
+MPRINT(M_TNFCONV):   run;
+
+                                                                    The SAS System
+
+NOTE: There were 29 observations read from the data set WORK.FOOTNOTES.
+      WHERE fnn not = ' ';
+NOTE: The data set WORK.FOOTNOTES has 29 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   ** Create a temporary format $FOOTFMT. from the footnotes dataset *;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   proc format cntlin=footnotes;
+NOTE: Format $FOOTFMT has been output.
+MPRINT(M_TNFCONV):   run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+NOTE: There were 29 observations read from the data set WORK.FOOTNOTES.
+
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   ** Loop through the &in worksheets *;
+MPRINT(M_TNFCONV):   ** - read them, combine, process *;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   proc import datafile="../docs/tnf.xlsx" out=tnf dbms=xlsx replace;
+MPRINT(M_TNFCONV):   RXLX;
+MPRINT(M_TNFCONV):   sheet = 'tfl';
+MPRINT(M_TNFCONV):   getnames = no;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable A has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable B has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable C has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable D has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable E has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable F has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable G has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable H has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable I has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable J has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable K has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable L has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable M has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable N has been converted to CHAR data type.
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable O has been converted to CHAR data type.
+                                                                    The SAS System
+
+NOTE: VARCHAR data type is not supported by the V9 engine. Variable P has been converted to CHAR data type.
+NOTE: The import data set has 9 observations and 16 variables.
+NOTE: WORK.TNF data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   set tnf (obs=1);
+MPRINT(M_TNFCONV):   array vars {*} _char_;
+MPRINT(M_TNFCONV):   format rnrn $4000.;
+MPRINT(M_TNFCONV):   do _i = 1 to hbound(vars);
+MPRINT(M_TNFCONV):   if (vars[_i]>' ') then rnrn = trim(rnrn)||' '||byte(64+_i)||'='||translate(strip(vars[_i]),'____','- (),;');
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   rnrn = 'rename=('||strip(rnrn)||')';
+MPRINT(M_TNFCONV):   call symput( '__rnrn', trim(rnrn));
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 1 observations read from the data set WORK.TNF.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data tnf (rename=(A=TitleKey B=TFLT C=TFLN D=Title1 E=Title2 F=Title3 G=FN1 H=FN2 I=FN3 J=FN4 K=FN5 L=FN6 M=FN7 N=FN8 O=FN9 
+P=Note));
+MPRINT(M_TNFCONV):   set tnf (firstobs=2);
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TNF.
+NOTE: The data set WORK.TNF has 8 observations and 16 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   ** remove any blank lines from tnf dataset **;
+MPRINT(M_TNFCONV):   data tnf;
+MPRINT(M_TNFCONV):   set tnf;
+MPRINT(M_TNFCONV):   if titlekey='' and tfln='' and tflt='' and title1='' then delete;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TNF.
+NOTE: The data set WORK.TNF has 8 observations and 16 variables.
+NOTE: DATA statement used (Total process time):
+                                                                    The SAS System
+
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   data TtlAndFt;
+MPRINT(M_TNFCONV):   length filename titlekey tflt title1-title3 $ 200 prefix1-prefix7 $ 12;
+MPRINT(M_TNFCONV):   retain filename "../docs/tnf.xlsx / tfl";
+MPRINT(M_TNFCONV):   set tnf;
+MPRINT(M_TNFCONV):   prefix1 = " ";
+MPRINT(M_TNFCONV):   prefix2 = " ";
+MPRINT(M_TNFCONV):   prefix3 = " ";
+MPRINT(M_TNFCONV):   prefix4 = " ";
+MPRINT(M_TNFCONV):   prefix5 = " ";
+MPRINT(M_TNFCONV):   prefix6 = " ";
+MPRINT(M_TNFCONV):   prefix7 = " ";
+MPRINT(M_TNFCONV):   _obsnum = _n_;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TNF.
+NOTE: The data set WORK.TTLANDFT has 8 observations and 25 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Clean up titles and footnotes *;
+MPRINT(M_TNFCONV):   ** - translate selected known unprintable characters *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data ttlandft (keep=tflidnum titlekey tfl tflt tfln title1-title3 fn1-fn7);
+MPRINT(M_TNFCONV):   length titlekey title1-title3 fn1-fn7 $ 200 temptxt $ 1500;
+MPRINT(M_TNFCONV):   set TtlAndFt;
+MPRINT(M_TNFCONV):   array ttl {*} $ 200 title1 - title3;
+MPRINT(M_TNFCONV):   array fnl {*} $ 200 fn1 - fn7;
+MPRINT(M_TNFCONV):   array prefix {*} $ 200 prefix1 - prefix7;
+MPRINT(M_TNFCONV):   array tmptxt {*} $ 1500 tmptxt1 - tmptxt7;
+MPRINT(M_TNFCONV):   tflidnum + 1;
+MPRINT(M_TNFCONV):   tfl = trim(tflt) || " " || left(tfln);
+MPRINT(M_TNFCONV):   if (title1 ne " ") then title1 = trim(tfl) || ": " || title1;
+MPRINT(M_TNFCONV):   else title1 = tfl;
+MPRINT(M_TNFCONV):   do i=1 to dim(ttl);
+MPRINT(M_TNFCONV):   temptxt = ttl{i};
+MPRINT(M_TNFCONV):   link fixtext;
+MPRINT(M_TNFCONV):   tmptxt{i} = temptxt;
+MPRINT(M_TNFCONV):   ttl{i} = " ";
+MPRINT(M_TNFCONV):   end;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   j = 0;
+MPRINT(M_TNFCONV):   do i=1 to dim(ttl);
+MPRINT(M_TNFCONV):   if tmptxt{i} ne " " then do;
+MPRINT(M_TNFCONV):   j + 1;
+MPRINT(M_TNFCONV):   ttl{i} = tmptxt{i};
+MPRINT(M_TNFCONV):   tmptxt{i} = " ";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   do i=1 to dim(fnl);
+MPRINT(M_TNFCONV):   temptxt = put(fnl{i},$footfmt.);
+MPRINT(M_TNFCONV):   if prefix{i} ne " " then temptxt = trim(prefix{i})||" "||temptxt;
+MPRINT(M_TNFCONV):   if temptxt ne " " then do;
+MPRINT(M_TNFCONV):   if temptxt = fnl{i} then temptxt = "Unmapped footnote ID " || temptxt;
+MPRINT(M_TNFCONV):   link fixtext;
+MPRINT(M_TNFCONV):   fnl{i} = temptxt;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   j = 0;
+MPRINT(M_TNFCONV):   do i=1 to dim(fnl);
+MPRINT(M_TNFCONV):   if lowcase(fnl{i}) in: ("<cont>","(cont)","[cont]","{cont}") then do;
+MPRINT(M_TNFCONV):   if j = 0 then j = 1;
+MPRINT(M_TNFCONV):   tmptxt{j} = trim(tmptxt{j}) || " " || left(substr(fnl{i},7));
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else do;
+MPRINT(M_TNFCONV):   j + 1;
+MPRINT(M_TNFCONV):   tmptxt{j} = fnl{i};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   fnl{i} = " ";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   i = 0;
+MPRINT(M_TNFCONV):   do j=1 to dim(tmptxt);
+MPRINT(M_TNFCONV):   temptxt = tmptxt{j};
+MPRINT(M_TNFCONV):   done = 0;
+MPRINT(M_TNFCONV):   do until(done);
+MPRINT(M_TNFCONV):   do k=151 to 1 by -1;
+MPRINT(M_TNFCONV):   if substr(temptxt,k,1) = " " then do;
+MPRINT(M_TNFCONV):   i + 1;
+MPRINT(M_TNFCONV):   if i le 7 then do;
+MPRINT(M_TNFCONV):   fnl{i} = substr(temptxt,1,k);
+MPRINT(M_TNFCONV):   temptxt = "      " || left(substr(temptxt,k+1));
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else temptxt = " ";
+MPRINT(M_TNFCONV):   k = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if temptxt = " " then done = 1;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   return;
+MPRINT(M_TNFCONV):   fixtext: temptxt = scan(temptxt,1,"00"x);
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,'b1'x,'+/-');
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,'85'x,'...');
+MPRINT(M_TNFCONV):   return;
+MPRINT(M_TNFCONV):   format titlekey title1-title3 fn1-fn7 temptxt;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: The data set WORK.TTLANDFT has 8 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sort data=TtlAndFt(keep=titlekey tfl tflidnum) out =chk4dup;
+MPRINT(M_TNFCONV):   by tfl;
+MPRINT(M_TNFCONV):   where (tfl ne " ");
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+      WHERE tfl not = ' ';
+NOTE: SAS sort was used.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   data duptransp(keep=tfl duptfl);
+MPRINT(M_TNFCONV):   set chk4dup;
+MPRINT(M_TNFCONV):   by tfl;
+MPRINT(M_TNFCONV):   retain duptfl;
+MPRINT(M_TNFCONV):   length duptfl $ 150;
+MPRINT(M_TNFCONV):   if first.tfl then do;
+MPRINT(M_TNFCONV):   if last.tfl then delete;
+MPRINT(M_TNFCONV):   duptfl = " ";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if duptfl = " " then duptfl = "Titlekey="||quote(trim(titlekey));
+MPRINT(M_TNFCONV):   else duptfl = trim(duptfl) || ', ' || quote(trim(titlekey));
+MPRINT(M_TNFCONV):   if last.tfl;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+                                                                    The SAS System
+
+NOTE: The data set WORK.DUPTRANSP has 0 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data chk4dup;
+MPRINT(M_TNFCONV):   merge chk4dup duptransp;
+MPRINT(M_TNFCONV):   by tfl;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: There were 0 observations read from the data set WORK.DUPTRANSP.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sort data=chk4dup;
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data TtlAndFt (drop=m_key m_tfl);
+MPRINT(M_TNFCONV):   merge TtlAndFt chk4dup(in=fromdup rename=(titlekey=m_key tfl=m_tfl));
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   if (titlekey=' ') then titlekey = m_key;
+MPRINT(M_TNFCONV):   if (tfl=' ') then tfl = m_tfl;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: The data set WORK.TTLANDFT has 8 observations and 16 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   proc sort data=TtlAndFt(keep=titlekey tfl tflidnum where=(titlekey> ' ')) out =chk4dup;
+MPRINT(M_TNFCONV):   by titlekey;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+      WHERE titlekey>' ';
+NOTE: SAS sort was used.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data duptransp(keep=titlekey duptitlekey);
+MPRINT(M_TNFCONV):   set chk4dup;
+MPRINT(M_TNFCONV):   by titlekey;
+MPRINT(M_TNFCONV):   retain duptitlekey;
+MPRINT(M_TNFCONV):   length duptitlekey $ 150;
+MPRINT(M_TNFCONV):   if first.titlekey then do;
+MPRINT(M_TNFCONV):   if last.titlekey then delete;
+MPRINT(M_TNFCONV):   duptitlekey = " ";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if duptitlekey = " " then duptitlekey = "TFL="||quote(trim(tfl));
+MPRINT(M_TNFCONV):   else duptitlekey = trim(duptitlekey) || ', ' || quote(trim(tfl));
+MPRINT(M_TNFCONV):   if last.titlekey;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: The data set WORK.DUPTRANSP has 0 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   data chk4dup;
+MPRINT(M_TNFCONV):   merge chk4dup duptransp;
+MPRINT(M_TNFCONV):   by titlekey;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: There were 0 observations read from the data set WORK.DUPTRANSP.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+                                                                    The SAS System
+
+
+MPRINT(M_TNFCONV):   proc sort data=chk4dup;
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.CHK4DUP has 8 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data TtlAndFt (drop=m_key m_tfl);
+MPRINT(M_TNFCONV):   merge TtlAndFt chk4dup(in=fromdup rename=(titlekey=m_key tfl=m_tfl));
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   if (titlekey=' ') then titlekey = m_key;
+MPRINT(M_TNFCONV):   if (tfl=' ') then tfl = m_tfl;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: There were 8 observations read from the data set WORK.CHK4DUP.
+NOTE: The data set WORK.TTLANDFT has 8 observations and 17 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Save report information dataset - one obs per report row *;
+MPRINT(M_TNFCONV):   ** Save potential problems noted in second dataset *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data reportinfo(keep=tflidnum tfl titlekey obstype obstypenum errinfo tfnum text) errinfo (keep=tflidnum tfl titlekey obstype 
+text);
+MPRINT(M_TNFCONV):   length text $ 500 obstype $ 20 duptfl $ 150 duptitlekey $ 150;
+MPRINT(M_TNFCONV):   duptfl = " ";
+MPRINT(M_TNFCONV):   duptitlekey = " ";
+MPRINT(M_TNFCONV):   array ttl {*} $ 200 title1 - title3;
+MPRINT(M_TNFCONV):   array fnl {*} $ 200 fn1 - fn7;
+MPRINT(M_TNFCONV):   set TtlAndFt;
+MPRINT(M_TNFCONV):   obstype = "TFL:";
+MPRINT(M_TNFCONV):   obstypenum = 1;
+MPRINT(M_TNFCONV):   if tfl ne " " then text = tfl;
+MPRINT(M_TNFCONV):   else do;
+MPRINT(M_TNFCONV):   text = "***ERR" || "OR: TFL IDENTIFIER MISSING***";
+MPRINT(M_TNFCONV):   output errinfo;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   if duptfl ne " " then do;
+MPRINT(M_TNFCONV):   text = "***ERR"||"OR: MULTIPLE TFLS USING TFL IDENTIFIER="||quote(trim(tfl))||"***";
+MPRINT(M_TNFCONV):   errinfo = 1;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   text = "*** DUPS: " || duptfl;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   errinfo = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   obstype = "Titlekey:";
+MPRINT(M_TNFCONV):   obstypenum = 2;
+MPRINT(M_TNFCONV):   if titlekey ne " " then text = titlekey;
+MPRINT(M_TNFCONV):   else do;
+MPRINT(M_TNFCONV):   text = "***ERR" || "OR: TITLEKEY MISSING***";
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   if duptitlekey ne " " then do;
+MPRINT(M_TNFCONV):   text = "***ERR"||"OR: MULTIPLE TFLS USING TITLEKEY="||quote(trim(titlekey))||"***";
+MPRINT(M_TNFCONV):   errinfo = 1;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   text = "*** DUPS: " || duptitlekey;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   errinfo = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   obstype = "Title:";
+MPRINT(M_TNFCONV):   obstypenum = 3;
+MPRINT(M_TNFCONV):   ntitles = 0;
+MPRINT(M_TNFCONV):   do i=1 to dim(ttl);
+MPRINT(M_TNFCONV):   if ttl{i} ne " " then ntitles = i;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if ntitles = 0 then do;
+MPRINT(M_TNFCONV):   text = "***WAR"||"NING: NO TITLES DEFINED***";
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else do;
+MPRINT(M_TNFCONV):   nerrs = 0;
+MPRINT(M_TNFCONV):   do i=1 to ntitles;
+MPRINT(M_TNFCONV):   tfnum = put(i,1.);
+MPRINT(M_TNFCONV):   if length(ttl{i}) gt 150 then do;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   nerrs + 1;
+MPRINT(M_TNFCONV):   text = "***ERR"||"OR: TITLE "||tfnum||" IS MORE THAN 150 CHARACTERS LONG***";
+MPRINT(M_TNFCONV):   errinfo = 1;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   errinfo = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   do i=1 to ntitles;
+MPRINT(M_TNFCONV):   tfnum = put(i,1.);
+MPRINT(M_TNFCONV):   text = ttl{i};
+MPRINT(M_TNFCONV):   if text ne " " then output reportinfo;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   obstype = "Footnote:";
+MPRINT(M_TNFCONV):   obstypenum = 4;
+MPRINT(M_TNFCONV):   nfoots = 0;
+MPRINT(M_TNFCONV):   do i=1 to dim(fnl);
+MPRINT(M_TNFCONV):   if fnl{i} ne " " then nfoots = i;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if nfoots = 0 then do;
+MPRINT(M_TNFCONV):   text = "(No footnotes defined)";
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else do;
+MPRINT(M_TNFCONV):   nerrs = 0;
+MPRINT(M_TNFCONV):   do i=1 to nfoots;
+MPRINT(M_TNFCONV):   tfnum = put(i,1.);
+MPRINT(M_TNFCONV):   if length(fnl{i}) gt 150 then do;
+MPRINT(M_TNFCONV):   nerrs + 1;
+MPRINT(M_TNFCONV):   text = "***ERR"||"OR: FOOTNOTE "||tfnum||" IS MORE THAN 150 CHARACTERS LONG***";
+MPRINT(M_TNFCONV):   errinfo = 1;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   errinfo = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if fnl{i} eq: "Unmapped footnote ID" then do;
+MPRINT(M_TNFCONV):   nerrs + 1;
+MPRINT(M_TNFCONV):   text = "***ERR"||"OR: FOOTNOTE "||tfnum||" REFERENCES UNMAPPED FOOTNOTE ID="|| scan(fnl{i},4)||"***";
+MPRINT(M_TNFCONV):   errinfo = 1;
+MPRINT(M_TNFCONV):   output errinfo;
+MPRINT(M_TNFCONV):   output reportinfo;
+MPRINT(M_TNFCONV):   errinfo = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   do i=1 to nfoots;
+MPRINT(M_TNFCONV):   tfnum = put(i,1.);
+MPRINT(M_TNFCONV):   text = fnl{i};
+MPRINT(M_TNFCONV):   if text ne " " then output reportinfo;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: The data set WORK.REPORTINFO has 75 observations and 8 variables.
+NOTE: The data set WORK.ERRINFO has 0 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data obspertfl(keep=tflidnum obspertfl);
+MPRINT(M_TNFCONV):   set reportinfo;
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   if first.tflidnum then obspertfl = 0;
+MPRINT(M_TNFCONV):   obspertfl + ceil(length(text)/(150-13));
+MPRINT(M_TNFCONV):   if last.tflidnum;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 75 observations read from the data set WORK.REPORTINFO.
+NOTE: The data set WORK.OBSPERTFL has 8 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data reportinfo;
+MPRINT(M_TNFCONV):   merge reportinfo obspertfl;
+MPRINT(M_TNFCONV):   by tflidnum;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 75 observations read from the data set WORK.REPORTINFO.
+NOTE: There were 8 observations read from the data set WORK.OBSPERTFL.
+NOTE: The data set WORK.REPORTINFO has 75 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Print setup *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+                                                                    The SAS System
+
+MPRINT(PRINTSET):   data _null_;
+MPRINT(PRINTSET):   if index("tnfconvert",'-')>0 then hyund="-";
+MPRINT(PRINTSET):   else hyund="_";
+MPRINT(PRINTSET):   call symput("hyund",compress(hyund));
+MPRINT(PRINTSET):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PRINTSET):   data _null_;
+MPRINT(PRINTSET):   formchar='|----|+|----+=|-/\<>*™';
+MPRINT(PRINTSET):   substr(formchar,2,1)='_';
+MPRINT(PRINTSET):   call symput('formchar',formchar);
+MPRINT(PRINTSET):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PRINTSET):   options orientation = LANDSCAPE papersize = letter topmargin = "1 in" bottommargin = "1 in" leftmargin = "1 in" rightmargin = "1 
+in" formchar="|_---|+|----+=|-/\<>*™";
+MPRINT(PRINTSET):   options pagesize = 48 linesize = 150 nodate nonumber;
+MPRINT(TNFSET):   filename _tnftmp temp;
+MPRINT(TNFSET):   data _null_;
+MPRINT(TNFSET):   file _tnftmp lrecl=1000 recfm=v;
+MPRINT(TNFSET):   infile "../tools/tnf.inc" lrecl=1000 pad;
+MPRINT(TNFSET):   length testtext $ 40;
+MPRINT(TNFSET):   input @1 text $1000.;
+MPRINT(TNFSET):   testtext = scan(text,1," ");
+MPRINT(TNFSET):   if testtext = "/*";
+MPRINT(TNFSET):   testtext = scan(text,2," ");
+MPRINT(TNFSET):   if upcase(testtext) in ("TNFCONVERT" , "DEFAULT");
+MPRINT(TNFSET):   testtext = scan(text,3," ");
+MPRINT(TNFSET):   if testtext =: "*/";
+MPRINT(TNFSET):   put text;
+MPRINT(TNFSET):   run;
+
+NOTE: The file _TNFTMP is:
+      Filename=/saswork/SAS_work14800032C9D4_sjgsasappprdg14/#LN00078,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rw--w-rw-,
+      Last Modified=30Aug2026:15:39:33
+                                                                    The SAS System
+
+
+NOTE: The infile "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:13:34:18,
+      File Size (bytes)=10396
+
+NOTE: 1 record was written to the file _TNFTMP.
+      The minimum record length was 68.
+      The maximum record length was 68.
+NOTE: 109 records were read from the infile "../tools/tnf.inc".
+      The minimum record length was 0.
+      The maximum record length was 187.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: %INCLUDE (level 2) file _TNFTMP is file /saswork/SAS_work14800032C9D4_sjgsasappprdg14/#LN00078.
+999       +/* default       */ %let ttl1 = NO ASSIGNED TITLE FOR JOB &titlekey;
+NOTE: %INCLUDE (level 2) ending.
+NOTE: %INCLUDE (level 1) resuming.
+MPRINT(TNFSET):   filename _tnftmp clear;
+NOTE: Fileref _TNFTMP has been deassigned.
+MPRINT(TNFSET):   title1 j=r "                                                                                                                        
+         Gilead Sciences, Inc.";
+MPRINT(TNFSET):   title2 j=r "                                                                                                                        
+          Study GS-US-000-0000";
+MPRINT(TNFSET):   title3 j=c "                                                         NO ASSIGNED TITLE FOR JOB tnfconvert                           
+                              ";
+MPRINT(TNFSET):   footnote1 j=l "Data Extracted: ddmmmyyyy                                                                                            
+                                 ";
+MPRINT(TNFSET):   footnote2 j=l "Source: .../final/draft1/tools/tnfconvert.sas v9.4  Output file: tnfconvert.pdf 30AUG2026:15:39                      
+                  PAGE XX OF YYY ";
+MPRINT(PRINTSET):  ;
+MPRINT(PRINTSET):   proc printto print = "tnfconvert.out" new ;
+MPRINT(PRINTSET):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   ** Write report of problems encountered in the source file *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   title3 "Titles and Footnotes Spreadsheet Summary ERR" "OR and WAR" "NING Report";
+MPRINT(M_TNFCONV):   title4 "Source Workbook File: ../docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   title5 "Titles Worksheet: tfl";
+MPRINT(M_TNFCONV):   title6 "Footnotes Worksheet: fn";
+MPRINT(M_TNFCONV):   data errinfo;
+MPRINT(M_TNFCONV):   retain titlekeylen 16 nobs 0 nerrs 0;
+MPRINT(M_TNFCONV):   do until(eof);
+MPRINT(M_TNFCONV):   set errinfo end=eof;
+MPRINT(M_TNFCONV):   nobs + 1;
+MPRINT(M_TNFCONV):   nerrs + index(text,"ER"||"ROR");
+MPRINT(M_TNFCONV):   titlekeylen = max(length(titlekey),titlekeylen);
+MPRINT(M_TNFCONV):   if tfl = " " then tfl = "<none>";
+MPRINT(M_TNFCONV):   if titlekey = " " then titlekey = "<none>";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   call symput("_nobs",compress(put(nobs,8.)));
+MPRINT(M_TNFCONV):   call symput("_nerrs",compress(put(nerrs,8.)));
+MPRINT(M_TNFCONV):   call symput("_titlekeylen",compress(put(titlekeylen,8.)));
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 0 observations read from the data set WORK.ERRINFO.
+NOTE: The data set WORK.ERRINFO has 0 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data errinfo;
+MPRINT(M_TNFCONV):   text = "NOTE: NO ER"||"RORS OR WAR"||"NINGS REGARDING CONTENTS OF "|| "TFL SPREADSHEET";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   text = " ";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   text = "Source File: ../docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The data set WORK.ERRINFO has 3 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   proc report data=errinfo ls=150 headline spacing=1 missing nowindows formchar(2)="-" split="ff"x;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   column text;
+MPRINT(M_TNFCONV):   define text / display flow " ";
+MPRINT(M_TNFCONV):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 3 observations read from the data set WORK.ERRINFO.
+NOTE: The PROCEDURE REPORT printed page 1.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write report of information - tfls defined in the source file and *;
+MPRINT(M_TNFCONV):   ** potential problems found *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   title3 "Titles and Footnotes Spreadsheet Report";
+MPRINT(M_TNFCONV):   title4 "Source Workbook File: ../docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   title5 "Titles Worksheet: tfl";
+MPRINT(M_TNFCONV):   proc report data=reportinfo ls=150 headline spacing=1 missing nowindows formchar(2)="-" split="ff"x;
+MPRINT(M_TNFCONV):   column tflidnum obstypenum obstype tfnum text;
+MPRINT(M_TNFCONV):   define tflidnum / order noprint;
+MPRINT(M_TNFCONV):   define obstypenum / order noprint;
+MPRINT(M_TNFCONV):   define obstype / group width=9 "Variable";
+MPRINT(M_TNFCONV):   define tfnum / display width=1 "#";
+MPRINT(M_TNFCONV):   define text / display width=137 flow "Title / Footnote";
+MPRINT(M_TNFCONV):   break after tflidnum / skip;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: Groups are not created because the usage of TFNUM is DISPLAY. To avoid this note, change all GROUP variables to ORDER variables.
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 75 observations read from the data set WORK.REPORTINFO.
+NOTE: The PROCEDURE REPORT printed pages 2-4.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write report of footnotes *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   title3 "Footnotes Report";
+MPRINT(M_TNFCONV):   title4 "Source Workbook File: ../docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   title5 "Footnotes Worksheet: fn";
+MPRINT(M_TNFCONV):   proc report data=footnotes ls=150 headline spacing=1 missing nowindows formchar(2)="-" split="ff"x;
+MPRINT(M_TNFCONV):   column start label;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   define start / display width=7 "Number";
+MPRINT(M_TNFCONV):   define label / display width=142 flow "Footnote Text";
+MPRINT(M_TNFCONV):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 29 observations read from the data set WORK.FOOTNOTES.
+NOTE: The PROCEDURE REPORT printed page 5.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Print wrapup *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(PAGESET):   proc printto print=print;
+MPRINT(PAGESET):   run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PAGESET):   *** count pages and save text to temporary file ***;
+MPRINT(PAGESET):   filename _outfil_ "tnfconvert.out";
+MPRINT(PAGESET):   data pagesettext(compress=yes keep=text obsnum) pagesetnums(keep=obsnum_u);
+MPRINT(PAGESET):   infile _outfil_ lrecl=200 pad eof=eof;
+MPRINT(PAGESET):   input text $char200.;
+MPRINT(PAGESET):   obsnum + 1;
+MPRINT(PAGESET):   output pagesettext;
+MPRINT(PAGESET):   if( index(text,"PAGE XX OF YYY ") ) then do;
+MPRINT(PAGESET):   obsnum_u = obsnum-2;
+MPRINT(PAGESET):   totpages + 1;
+MPRINT(PAGESET):   output pagesetnums;
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   return;
+MPRINT(PAGESET):   eof: call symput("totpages",compress(put(totpages,best.)));
+MPRINT(PAGESET):   run;
+
+NOTE: The infile _OUTFIL_ is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnfconvert.out,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33,
+      File Size (bytes)=24701
+                                                                    The SAS System
+
+
+NOTE: 240 records were read from the infile _OUTFIL_.
+      The minimum record length was 0.
+      The maximum record length was 151.
+NOTE: The data set WORK.PAGESETTEXT has 240 observations and 2 variables.
+NOTE: Compressing data set WORK.PAGESETTEXT increased size by 100.00 percent. 
+      Compressed is 2 pages; un-compressed would require 1 pages.
+NOTE: The data set WORK.PAGESETNUMS has 5 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(PAGESET):   *** Insert page numbering ***;
+MPRINT(PAGESET):   data pagesettext;
+MPRINT(PAGESET):   merge pagesettext(in=_txt_) pagesetnums(in=_num_ rename=(obsnum_u=obsnum));
+MPRINT(PAGESET):   by obsnum;
+MPRINT(PAGESET):   *** insert underline above footnotes ***;
+MPRINT(PAGESET):   if _txt_ and _num_ then if text = " " then text = repeat("_",149);
+MPRINT(PAGESET):   length pagenumtxt $ 20;
+MPRINT(PAGESET):   retain totpages 5;
+MPRINT(PAGESET):   file _outfil_ linesize = 200 recfm=v noprint;
+MPRINT(PAGESET):   if text = ' ' then put;
+MPRINT(PAGESET):   else do;
+MPRINT(PAGESET):   if _n_ le 2 and substr(text,1,1) = "0c"x then text=substr(text,2);
+MPRINT(PAGESET):   if length(left(text)) > 1 then if substr(left(text),1,2)='zf' then text=substr(left(text),3);
+MPRINT(PAGESET):   *** process page numbering ***;
+MPRINT(PAGESET):   pnumpos = index(text, "PAGE XX OF YYY ");
+MPRINT(PAGESET):   if pnumpos > 0 then do;
+MPRINT(PAGESET):   page + 1;
+MPRINT(PAGESET):   pagenumtxt = 'Page ' || trim(left(put(page, 6.))) || ' of ' || trim(left(put(totpages, 6.)));
+MPRINT(PAGESET):   pagenumlen = length(pagenumtxt);
+MPRINT(PAGESET):   text = substr(text, 1, pnumpos-1);
+MPRINT(PAGESET):   substr(text, 1+150-pagenumlen) = trim(pagenumtxt);
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   outlen = length(text);
+MPRINT(PAGESET):   put text $varying200. outlen;
+MPRINT(PAGESET):   end;
+MPRINT(PAGESET):   delete;
+MPRINT(PAGESET):   run;
+
+NOTE: The file _OUTFIL_ is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnfconvert.out,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+                                                                    The SAS System
+
+      Last Modified=30Aug2026:15:39:33
+
+NOTE: 240 records were written to the file _OUTFIL_.
+      The minimum record length was 0.
+      The maximum record length was 151.
+NOTE: There were 240 observations read from the data set WORK.PAGESETTEXT.
+NOTE: There were 5 observations read from the data set WORK.PAGESETNUMS.
+NOTE: The data set WORK.PAGESETTEXT has 0 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Read in previous &tnf to try to save work done outside spreadsheet *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data prevtnf(keep=text);
+MPRINT(M_TNFCONV):   infile "../tools/tnf.inc" lrecl=2000 pad;
+MPRINT(M_TNFCONV):   input text $char2000.;
+MPRINT(M_TNFCONV):   retain saveextra 0;
+MPRINT(M_TNFCONV):   if saveextra eq 0 then do;
+MPRINT(M_TNFCONV):   if index(upcase(text),"END OF GENERATED TNF CODE - DO NOT MODIFY CODE ABOVE THIS LINE") then do;
+MPRINT(M_TNFCONV):   saveextra = 1;
+MPRINT(M_TNFCONV):   delete;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if saveextra;
+MPRINT(M_TNFCONV):   text = compress(text,"0d"x);
+MPRINT(M_TNFCONV):   call symput("saveextra","1");
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The infile "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:13:34:18,
+      File Size (bytes)=10396
+
+NOTE: 109 records were read from the infile "../tools/tnf.inc".
+      The minimum record length was 0.
+      The maximum record length was 187.
+NOTE: The data set WORK.PREVTNF has 1 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+                                                                    The SAS System
+
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write &tnf - create tnf.inc (or equivalent) *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data toc(keep=titlekey tfl temptxt);
+MPRINT(M_TNFCONV):   length temptxt $ 2000;
+MPRINT(M_TNFCONV):   array ttl {*} $ 200 title1-title3;
+MPRINT(M_TNFCONV):   array fnl {*} $ 200 fn1-fn7;
+MPRINT(M_TNFCONV):   file "../tools/tnf.inc" lrecl=2000 recfm=v;
+MPRINT(M_TNFCONV):   temptxt = scan("../tools/tnf.inc",-1,"/\");
+MPRINT(M_TNFCONV):   put "/****************************************************************************\";
+MPRINT(M_TNFCONV):   put "***  SAVED AS:        " temptxt @78 "*";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  GENERATED ON:    30AUG2026:15:39 by Macro " '%' "M_TNFCONV Version v4.19.01" @78 "*";
+MPRINT(M_TNFCONV):   put "***       BY USER:    cpearson1" @78 "*";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  TOOLS VERSION:   v4.19.01                                               *";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  EXECUTED UNDER:  LIN X64 SAS Version 9.4 at Gilead Sciences" @78 "*";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  DESCRIPTION:     Titles and Footnote file                               *";
+MPRINT(M_TNFCONV):   put "***                   for Study GS-US-000-0000" @78 "*";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  INPUT  DATA SET: (none)                                                 *";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  OUTPUT DATA SET: (none)                                                 *";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  OUTPUT REPORT:   (none)                                                 *";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "***  LAST REVISED:                                                           *";
+MPRINT(M_TNFCONV):   put "***   ddmonyyyy (initials) (description of change)                           *";
+MPRINT(M_TNFCONV):   put "***                                                                          *";
+MPRINT(M_TNFCONV):   put "\****************************************************************************/";
+MPRINT(M_TNFCONV):   put;
+MPRINT(M_TNFCONV):   put "/*** ******************************************************************** ***/";
+MPRINT(M_TNFCONV):   put "/***     BEGIN GENERATED TNF CODE: 30AUG2026:15:39                        ***/";
+MPRINT(M_TNFCONV):   put "/*** ******************************************************************** ***/";
+MPRINT(M_TNFCONV):   put "/* ------------------------------------------------------------------------ */";
+MPRINT(M_TNFCONV):   put '/* default       */ %let ttl1 = NO ASSIGNED TITLE FOR JOB &titlekey;';
+MPRINT(M_TNFCONV):   put "/* ------------------------------------------------------------------------ */";
+MPRINT(M_TNFCONV):   do until(eof);
+MPRINT(M_TNFCONV):   set TtlAndFt end=eof;
+MPRINT(M_TNFCONV):   if (titlekey eq " ") then titlekey = "????????";
+MPRINT(M_TNFCONV):   temptxt = " ";
+MPRINT(M_TNFCONV):   do i=1 to dim(ttl);
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   if ttl{i} ne " " then do;
+MPRINT(M_TNFCONV):   if temptxt = " " then temptxt = ttl{i};
+MPRINT(M_TNFCONV):   else temptxt = trim(temptxt) || ", " || ttl{i};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   put "/* " titlekey temptxt "*/";
+MPRINT(M_TNFCONV):   temptxt = substr(temptxt,length(tfl)+2);
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   j = 0;
+MPRINT(M_TNFCONV):   do i=1 to dim(ttl);
+MPRINT(M_TNFCONV):   if ttl{i} ne " " then do;
+MPRINT(M_TNFCONV):   temptxt = ttl{i};
+MPRINT(M_TNFCONV):   link quottext;
+MPRINT(M_TNFCONV):   j + 1;
+MPRINT(M_TNFCONV):   put '/* ' titlekey '*/ %let ttl' j temptxt;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   do i=1 to dim(fnl);
+MPRINT(M_TNFCONV):   if fnl{i} ne " " then do;
+MPRINT(M_TNFCONV):   temptxt = fnl{i};
+MPRINT(M_TNFCONV):   link quottext;
+MPRINT(M_TNFCONV):   put '/* ' titlekey '*/ %let fnl' i temptxt;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   put "/* ------------------------------------------------------------------------ */";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   put;
+MPRINT(M_TNFCONV):   put "/*** ******************************************************************** ***/";
+MPRINT(M_TNFCONV):   put "/***    END OF GENERATED TNF CODE - DO NOT MODIFY CODE ABOVE THIS LINE    ***/";
+MPRINT(M_TNFCONV):   put "/*** ******************************************************************** ***/";
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   quottext: temptxt = tranwrd(temptxt,'%','%%');
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,"'","%'");
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,'"','%"');
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,"(",'%(');
+MPRINT(M_TNFCONV):   temptxt = tranwrd(temptxt,")",'%)');
+MPRINT(M_TNFCONV):   temptxt = '= %str(' || trim(temptxt) || ');';
+MPRINT(M_TNFCONV):   return;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The file "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33
+                                                                    The SAS System
+
+
+NOTE: 109 records were written to the file "../tools/tnf.inc".
+      The minimum record length was 0.
+      The maximum record length was 187.
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: The data set WORK.TOC has 8 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write back to previous &tnf to save work done outside spreadsheet *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   file "../tools/tnf.inc" lrecl=2000 recfm=v mod;
+MPRINT(M_TNFCONV):   set prevtnf;
+MPRINT(M_TNFCONV):   if _n_ = 1 and text = "/*** ******************************************************************** ***/" then delete;
+MPRINT(M_TNFCONV):   textlen = length(text);
+MPRINT(M_TNFCONV):   put text $varying2000. textlen;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The file "../tools/tnf.inc" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/tnf.inc,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33,
+      File Size (bytes)=10383
+
+NOTE: 0 records were written to the file "../tools/tnf.inc".
+NOTE: There were 1 observations read from the data set WORK.PREVTNF.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write standalone intranet table of contents file *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   titlekeylen = 0;
+MPRINT(M_TNFCONV):   tfllen = 0;
+MPRINT(M_TNFCONV):   textlen = 0;
+MPRINT(M_TNFCONV):   do until(eof);
+MPRINT(M_TNFCONV):   set toc end=eof;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   titlekeylen = max(titlekeylen,length(titlekey));
+MPRINT(M_TNFCONV):   tfllen = max(tfllen, length(tfl));
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   titlekeylen = 5 * ceil((titlekeylen+10)/5);
+MPRINT(M_TNFCONV):   call symput("titlekeylen",left(put(titlekeylen,4.)));
+MPRINT(M_TNFCONV):   tfllen = 5 * ceil((tfllen+10)/5);
+MPRINT(M_TNFCONV):   call symput("tfllen" ,left(put(tfllen,4.)));
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TOC.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   file "../tools/metadata.txt" lrecl=2000 recfm=v;
+MPRINT(M_TNFCONV):   put "# File:    metadata.txt" / "# Date:    30AUG2026 15:39" / "# Desc:    Metadata for Table of Contents for Study 
+GS-US-000-0000 TFLs" / "# Gen by:  Macro %M_TNFCONV" / "# Run by:  cpearson1" // "Filename   1" / "TFL        25  " / "Desc       55" /;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The file "../tools/metadata.txt" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/metadata.txt,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33
+
+NOTE: 10 records were written to the file "../tools/metadata.txt".
+      The minimum record length was 0.
+      The maximum record length was 71.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   file "../tools/toc.txt" lrecl=2000 recfm=v;
+MPRINT(M_TNFCONV):   put "# File:    toc.txt" / "# Date:    30AUG2026 15:39" / "# Desc:    Table of Contents for Study GS-US-000-0000 TFLs" / "# Gen 
+by:  Macro %M_TNFCONV" / "# Run by:  cpearson1" // "# Rule to check column alignment" / 
+"#---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8";
+MPRINT(M_TNFCONV):   do until(eof);
+MPRINT(M_TNFCONV):   set toc end=eof;
+MPRINT(M_TNFCONV):   put @1 titlekey +(-1) ".pdf" @25 tfl @55 temptxt;
+MPRINT(M_TNFCONV):   end;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   put;
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The file "../tools/toc.txt" is:
+      Filename=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/tools/toc.txt,
+      Owner Name=cpearson1,
+      Group Name=NA\domain^users,
+      Access Permission=-rwxrwxrwx,
+      Last Modified=30Aug2026:15:39:33
+
+NOTE: 17 records were written to the file "../tools/toc.txt".
+      The minimum record length was 0.
+      The maximum record length was 178.
+NOTE: There were 8 observations read from the data set WORK.TOC.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Write table of contents RTF file for use in SAP 12Feb2007 ghi *;
+MPRINT(M_TNFCONV):   **************************************************************************;
+MPRINT(M_TNFCONV):   ** Add ".rtf" to &saptoc if it does not already have the .rtf extension **;
+MPRINT(M_TNFCONV):   ** split up pathname and filename so can determine if has extension or not **;
+_flnm=s0000000_final_saptoc.rtf
+MPRINT(M_TNFCONV):   * find start of extension *;
+MPRINT(M_TNFCONV):   * find file extension *;
+iw=4 exts=.rtf
+_saptoc=../docs/s0000000_final_saptoc.rtf
+MPRINT(M_TNFCONV):   data saptoc(keep=tfl uptflt tfln title1-title3);
+MPRINT(M_TNFCONV):   set TtlAndFt;
+MPRINT(M_TNFCONV):   split = index(title1,":");
+MPRINT(M_TNFCONV):   title1 = substr(title1,split+1);
+MPRINT(M_TNFCONV):   uptflt = upcase(tflt);
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TTLANDFT.
+NOTE: The data set WORK.SAPTOC has 8 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data saptoc;
+MPRINT(M_TNFCONV):   set saptoc;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   by uptflt notsorted;
+MPRINT(M_TNFCONV):   retain firsttable firstfigure firstlisting 0;
+MPRINT(M_TNFCONV):   length col1 col2 col3 $ 200;
+MPRINT(M_TNFCONV):   if first.uptflt then do;
+MPRINT(M_TNFCONV):   select(uptflt);
+MPRINT(M_TNFCONV):   when("TABLE") do;
+MPRINT(M_TNFCONV):   if firsttable = 0 then do;
+MPRINT(M_TNFCONV):   firsttable = 1;
+MPRINT(M_TNFCONV):   col1 = "Tables";
+MPRINT(M_TNFCONV):   col2 = " ";
+MPRINT(M_TNFCONV):   col3 = " ";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   when("FIGURE") do;
+MPRINT(M_TNFCONV):   if firstfigure = 0 then do;
+MPRINT(M_TNFCONV):   firstfigure = 1;
+MPRINT(M_TNFCONV):   col1 = "Figures";
+MPRINT(M_TNFCONV):   col2 = " ";
+MPRINT(M_TNFCONV):   col3 = " ";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   when("LISTING") do;
+MPRINT(M_TNFCONV):   if firstlisting = 0 then do;
+MPRINT(M_TNFCONV):   firstlisting = 1;
+MPRINT(M_TNFCONV):   col1 = "Listings";
+MPRINT(M_TNFCONV):   col2 = " ";
+MPRINT(M_TNFCONV):   col3 = " ";
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   otherwise;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   array ttl {*} $ title1 - title3;
+MPRINT(M_TNFCONV):   col1 = tfln;
+MPRINT(M_TNFCONV):   do _i=1 to 2;
+MPRINT(M_TNFCONV):   if ttl{_i} ne " " then do;
+MPRINT(M_TNFCONV):   if col2 = " " then col2 = ttl{_i};
+MPRINT(M_TNFCONV):   else col2 = trim(col2)||", "||ttl{_i};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   col3 = title3;
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   run;
+                                                                    The SAS System
+
+
+NOTE: There were 8 observations read from the data set WORK.SAPTOC.
+NOTE: The data set WORK.SAPTOC has 9 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   ods path work.templtz(update) sashelp.tmplmst(read);
+MPRINT(M_TNFCONV):   proc template;
+MPRINT(M_TNFCONV):   define style saptocstyle;
+MPRINT(M_TNFCONV):   parent = styles.rtf;
+MPRINT(M_TNFCONV):   replace Body from Document / bottommargin = 1in topmargin = 1in rightmargin = 1in leftmargin = 1in;
+MPRINT(M_TNFCONV):   replace fonts / "TitleFont" = ("Times New Roman, Times",12pt) "TitleFont2" = ("Times New Roman, Times",12pt) "StrongFont" = 
+("Times New Roman, Times",10pt,Bold) "EmphasisFont" = ("Times New Roman, Times",10pt,Bold) "FixedEmphasisFont" = ("Courier",9pt,Italic) 
+"FixedStrongFont" = ("Courier",9pt,Bold) "FixedHeadingFont" = ("Courier",9pt,Bold) "BatchFixedFont" = ("Courier",9pt) "FixedFont" = ("Courier",9pt) 
+"headingEmphasisFont" = ("Times New Roman, Times",10pt,Bold) "headingFont" = ("Times New Roman, Times",10pt,Bold) "docFont" = ("Times New Roman, 
+Times",10pt) ;
+MPRINT(M_TNFCONV):   replace HeadersAndFooters from cell / background = white;
+MPRINT(M_TNFCONV):   end;
+NOTE: STYLE 'Saptocstyle' has been saved to: WORK.TEMPLTZ
+MPRINT(M_TNFCONV):   define table datastep.rtfout;
+MPRINT(M_TNFCONV):   column col1 col2 col3;
+MPRINT(M_TNFCONV):   define col1;
+MPRINT(M_TNFCONV):   header = "Number";
+MPRINT(M_TNFCONV):   vjust = top;
+MPRINT(M_TNFCONV):   just = left;
+MPRINT(M_TNFCONV):   style = {cellwidth=0.75in font_face=times font_size=10pt font_weight=medium};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   define col2;
+MPRINT(M_TNFCONV):   header = "Title";
+MPRINT(M_TNFCONV):   vjust = top;
+MPRINT(M_TNFCONV):   just = left;
+MPRINT(M_TNFCONV):   style = {cellwidth=6.00in font_face=times font_size=10pt font_weight=medium};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   define col3;
+MPRINT(M_TNFCONV):   header = "Analysis Set";
+MPRINT(M_TNFCONV):   vjust = top;
+MPRINT(M_TNFCONV):   just = left;
+MPRINT(M_TNFCONV):   style = {cellwidth=2.25in font_face=times font_size=10pt font_weight=medium};
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+NOTE: TABLE 'Datastep.Rtfout' has been saved to: WORK.TEMPLTZ
+NOTE: PROCEDURE TEMPLATE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+                                                                    The SAS System
+
+      
+
+MPRINT(M_TNFCONV):   run;
+MPRINT(M_TNFCONV):   ods listing close;
+MPRINT(M_TNFCONV):   options nodate nonumber orientation=landscape;
+MPRINT(M_TNFCONV):   title;
+MPRINT(M_TNFCONV):   footnote;
+MPRINT(M_TNFCONV):   ods rtf file="../docs/s0000000_final_saptoc.rtf" style=saptocstyle;
+NOTE: Writing RTF Body file: ../docs/s0000000_final_saptoc.rtf
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   do until(eof);
+MPRINT(M_TNFCONV):   set saptoc end=eof;
+MPRINT(M_TNFCONV):   file print ods = (template="datastep.rtfout" columns=(col1 col2 col3));
+MPRINT(M_TNFCONV):   put _ods_;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The FILE ODS Object Name is 'FilePrint1'.
+NOTE: The FILE ODS Object Label is 'FilePrint1'.
+NOTE: 9 lines were written to file PRINT.
+NOTE: There were 9 observations read from the data set WORK.SAPTOC.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(M_TNFCONV):   ods rtf close;
+MPRINT(M_TNFCONV):   ods listing;
+MPRINT(M_TNFCONV):   data _null_;
+MPRINT(M_TNFCONV):   length lp sp $ 200;
+MPRINT(M_TNFCONV):   lp = "../docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   ls = find(lp, '/', -200);
+MPRINT(M_TNFCONV):   sp = substr(lp, 1, (ls - 1));
+MPRINT(M_TNFCONV):   rc = libname('floc', sp);
+MPRINT(M_TNFCONV):   __docnom = substr(lp, ls);
+MPRINT(M_TNFCONV):   call symputX('__docnom', __docnom, 'L');
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data _null_;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   set sashelp.vlibnam;
+MPRINT(M_TNFCONV):   if (libname eq 'FLOC') then do;
+MPRINT(M_TNFCONV):   call symputX('__spath', path, 'L');
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 7 observations read from the data set SASHELP.VLIBNAM.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data m_stfldnm;
+MPRINT(M_TNFCONV):   set tnf(drop = fn:) end = finis;
+MPRINT(M_TNFCONV):   if (_N_ eq 1) then do;
+MPRINT(M_TNFCONV):   attrib Protocol length = $ 20 label = 'Protocol Number';
+MPRINT(M_TNFCONV):   protocol = "";
+MPRINT(M_TNFCONV):   attrib Study length = $ 20 label = 'Study';
+MPRINT(M_TNFCONV):   study = "s0000000";
+MPRINT(M_TNFCONV):   attrib Task length = $ 20;
+MPRINT(M_TNFCONV):   task = "final";
+MPRINT(M_TNFCONV):   attrib Version length = $ 40 label = 'Version';
+MPRINT(M_TNFCONV):   version = "draft1";
+MPRINT(M_TNFCONV):   attrib UserID length = $ 40 label = 'User ID';
+MPRINT(M_TNFCONV):   userid = "cpearson1";
+MPRINT(M_TNFCONV):   attrib DateTime length = $ 25 label = 'Date/Time';
+MPRINT(M_TNFCONV):   dtn = dhms(input("30AUG26", date.), 0, 0, input("15:39", time.));
+MPRINT(M_TNFCONV):   datetime = put(dtn, e8601dt.);
+MPRINT(M_TNFCONV):   attrib FilePath length = $ 200 label = 'Input File';
+MPRINT(M_TNFCONV):   filepath = "/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/docs/tnf.xlsx";
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   tflt = upcase(tflt);
+MPRINT(M_TNFCONV):   tflt1 = substr(tflt, 1, 1);
+MPRINT(M_TNFCONV):   if (tflt1 eq 'A') then do;
+MPRINT(M_TNFCONV):   **********************************************************************;
+MPRINT(M_TNFCONV):   * Study cold be an ADHOC study, so need to skip to 2nd word *;
+MPRINT(M_TNFCONV):   **********************************************************************;
+MPRINT(M_TNFCONV):   if (upcase(scan(tflt, 1)) eq 'ADHOC') then tflt1 = upcase(substr(scan(tflt, 2), 1, 1));
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   attrib TFL_Count length = 8 format = 5. label = 'Total TFL Count';
+MPRINT(M_TNFCONV):   TFL_Count + 1;
+MPRINT(M_TNFCONV):   attrib T_Count length = 8 format = 5. label = 'Total Table Count';
+MPRINT(M_TNFCONV):   attrib L_Count length = 8 format = 5. label = 'Total Listing Count';
+MPRINT(M_TNFCONV):   attrib F_Count length = 8 format = 5. label = 'Total Figure Count';
+MPRINT(M_TNFCONV):   select(tflt1);
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   when ('T') T_Count + 1;
+MPRINT(M_TNFCONV):   when ('L') L_Count + 1;
+MPRINT(M_TNFCONV):   when ('F') F_Count + 1;
+MPRINT(M_TNFCONV):   otherwise do;
+MPRINT(M_TNFCONV):   if (find(tflt, 'TABLE')) then T_Count + 1;
+MPRINT(M_TNFCONV):   if (find(tflt, 'LISTING')) then L_Count + 1;
+MPRINT(M_TNFCONV):   if (find(tflt, 'FIGURE')) then F_Count + 1;
+MPRINT(M_TNFCONV):   if (find(tflt, 'GRAPH')) then F_Count + 1;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   attrib STARS_T length = 8 format = 5. label = 'Tables Produced by STARS';
+MPRINT(M_TNFCONV):   attrib STARS_L length = 8 format = 5. label = 'Listings Produced by STARS';
+MPRINT(M_TNFCONV):   if (find(titlekey, '-s-') ne 0) then do;
+MPRINT(M_TNFCONV):   select(tflt1);
+MPRINT(M_TNFCONV):   when ('T') STARS_T + 1;
+MPRINT(M_TNFCONV):   when ('L') STARS_L + 1;
+MPRINT(M_TNFCONV):   *********************************************************************;
+MPRINT(M_TNFCONV):   * n.b. STARS have no Graph/ Figure templates as of yet. *;
+MPRINT(M_TNFCONV):   * 2023-04-03 Add NOP clause below *;
+MPRINT(M_TNFCONV):   *********************************************************************;
+MPRINT(M_TNFCONV):   otherwise;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if (finis) then do;
+MPRINT(M_TNFCONV):   tfl_count = sum(t_count, l_count, f_count);
+MPRINT(M_TNFCONV):   output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   retain protocol study task version userid DateTime FilePath;
+MPRINT(M_TNFCONV):   keep PROTOCOL STUDY TASK VERSION USERID DATETIME FILEPATH TFL_COUNT T_COUNT L_COUNT F_COUNT STARS_T STARS_L;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TNF.
+NOTE: The data set WORK.M_STFLDNM has 1 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   filename stemp clear;
+NOTE: Fileref STEMP has been deassigned.
+MPRINT(M_TNFCONV):   ***************************************************************************;
+MPRINT(M_TNFCONV):   * Pull STARS templates from macro table into Dataset *;
+MPRINT(M_TNFCONV):   ***************************************************************************;
+MPRINT(M_TNFCONV):   data __tmplt;
+MPRINT(M_TNFCONV):   length tfl $ 1 thistm $ 10 tmplate $ 100;
+MPRINT(M_TNFCONV):   do i = 1 to 40;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   thistm = 'm_dnom' || put(i, z2.);
+MPRINT(M_TNFCONV):   tmplate = symget(thistm);
+MPRINT(M_TNFCONV):   if (tmplate =: 'std') then delete;
+MPRINT(M_TNFCONV):   tfl = upcase(substr(tmplate, 1, 1));
+MPRINT(M_TNFCONV):   stub = scan(tmplate, 3, '-');
+MPRINT(M_TNFCONV):   **********************************************************************;
+MPRINT(M_TNFCONV):   * Do NOT include STARS BIMO templates *;
+MPRINT(M_TNFCONV):   **********************************************************************;
+MPRINT(M_TNFCONV):   if (find(tmplate, '-sb-') eq 0) then output;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   stop;
+MPRINT(M_TNFCONV):   label tmplate = "STARS V_1_2 Name";
+MPRINT(M_TNFCONV):   keep tfl tmplate stub;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: The data set WORK.__TMPLT has 0 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sort data = __tmplt out = __starstmplt;
+MPRINT(M_TNFCONV):   by descending tfl tmplate;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: Input data set is empty.
+NOTE: The data set WORK.__STARSTMPLT has 0 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sql noprint;
+MPRINT(M_TNFCONV):   select count(*) into :__TN trimmed from __starstmplt where (tfl eq 'T');
+MPRINT(M_TNFCONV):   select count(*) into :__LN trimmed from __starstmplt where (tfl eq 'L');
+MPRINT(M_TNFCONV):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data __cbs(label = "All TL in s0000000 final") __SNS(label = 'Could be STARS, ~Match to Template') __DST(label = 'Def. STARS 
+Template');
+MPRINT(M_TNFCONV):   if (0) then set __starstmplt(keep = tfl) nobs = nt;
+MPRINT(M_TNFCONV):   if (_N_ eq 1) then do;
+MPRINT(M_TNFCONV):   numT = 0;
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   numL = 0;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   set tnf(keep = titlekey tfln);
+MPRINT(M_TNFCONV):   if (find(titlekey, '-s-') ne 0) then do;
+MPRINT(M_TNFCONV):   output __dst;
+MPRINT(M_TNFCONV):   delete;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   tfl = upcase(substr(titlekey, 1, 1));
+MPRINT(M_TNFCONV):   titlestub = titlekey;
+MPRINT(M_TNFCONV):   if (find(titlestub, '-s-') eq 0) then titlestub = substr(titlestub, 3);
+MPRINT(M_TNFCONV):   else titlestub = substr(titlestub, 5);
+MPRINT(M_TNFCONV):   *************************************************************************;
+MPRINT(M_TNFCONV):   * No STARS templates for Figures | Graphs *;
+MPRINT(M_TNFCONV):   *************************************************************************;
+MPRINT(M_TNFCONV):   if (tfl eq 'F') or (tfl eq 'G') then delete;
+MPRINT(M_TNFCONV):   output __cbs;
+MPRINT(M_TNFCONV):   attrib stars_PT length = $ 30 label = 'Possible STARS Template';
+MPRINT(M_TNFCONV):   if (tfl eq 'T') then do;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   * Look for possible STARS stubs for Tables *;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   dsid = open('work.__starstmplt(where = (tfl eq "T"))');
+MPRINT(M_TNFCONV):   do i = 1 to numT;
+MPRINT(M_TNFCONV):   rc = fetchObs(dsid, i);
+MPRINT(M_TNFCONV):   stars_PT = getVarC(dsid, 3);
+MPRINT(M_TNFCONV):   templ = length(stars_PT);
+MPRINT(M_TNFCONV):   if (stars_PT eq titleStub) then do;
+MPRINT(M_TNFCONV):   mtype = 'Exact';
+MPRINT(M_TNFCONV):   output __SNS;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else if (titlestub =: stars_PT) then do;
+MPRINT(M_TNFCONV):   mtype = 'Fuzzy';
+MPRINT(M_TNFCONV):   output __SNS;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   rc = close(dsid);
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   if (tfl eq 'L') then do;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   * Look for possible STARS stubs for Listings *;
+MPRINT(M_TNFCONV):   ***********************************************************************;
+MPRINT(M_TNFCONV):   dsid = open('work.__starstmplt(where = (tfl eq "L"))');
+MPRINT(M_TNFCONV):   do i = 1 to numL;
+MPRINT(M_TNFCONV):   rc = fetchObs(dsid, i);
+MPRINT(M_TNFCONV):   stars_PT = getVarC(dsid, 3);
+MPRINT(M_TNFCONV):   templ = length(stars_PT);
+                                                                    The SAS System
+
+MPRINT(M_TNFCONV):   if (stars_PT eq titleStub) then do;
+MPRINT(M_TNFCONV):   mtype = 'Exact';
+MPRINT(M_TNFCONV):   output __SNS;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   else if (titlestub =: stars_PT) then do;
+MPRINT(M_TNFCONV):   mtype = 'Fuzzy';
+MPRINT(M_TNFCONV):   output __SNS;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   rc = close(dsid);
+MPRINT(M_TNFCONV):   end;
+MPRINT(M_TNFCONV):   label titlestub = 'Title Core';
+MPRINT(M_TNFCONV):   format numt numl 4.;
+MPRINT(M_TNFCONV):   retain numt numl stars_pt;
+MPRINT(M_TNFCONV):   drop dsid i rc numT numL templ;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 8 observations read from the data set WORK.TNF.
+NOTE: The data set WORK.__CBS has 5 observations and 6 variables.
+NOTE: The data set WORK.__SNS has 0 observations and 6 variables.
+NOTE: The data set WORK.__DST has 3 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sort data = __cbs;
+MPRINT(M_TNFCONV):   by descending tfl titlestub;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 5 observations read from the data set WORK.__CBS.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.__CBS has 5 observations and 6 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(M_TNFCONV):   proc sort data = __SNS;
+MPRINT(M_TNFCONV):   by descending tfl tfln;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: Input data set is empty.
+NOTE: The data set WORK.__SNS has 0 observations and 6 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+                                                                    The SAS System
+
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   * Count # possible Table and Listing by Match Type *;
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   proc freq data = __sns;
+MPRINT(M_TNFCONV):   table tfl / noprint out = __chbs(drop = percent);
+MPRINT(M_TNFCONV):   run;
+
+NOTE: No observations in data set WORK.__SNS.
+NOTE: The data set WORK.__CHBS has 0 observations and 2 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data __maybe;
+MPRINT(M_TNFCONV):   set __chbs end = finis;
+MPRINT(M_TNFCONV):   attrib T_CBPS length = 8 format = 5. label = 'Tables Which Could Have Been STARS But Were Not';
+MPRINT(M_TNFCONV):   if (tfl eq 'T') then T_CBPS = count;
+MPRINT(M_TNFCONV):   attrib L_CBPS length = 8 format = 5. label = 'Listing Which Could Have Been STARS But Were Not';
+MPRINT(M_TNFCONV):   if (tfl eq 'L') then L_CBPS = count;
+MPRINT(M_TNFCONV):   if (finis) then output;
+MPRINT(M_TNFCONV):   keep T_CBPS L_CBPS;
+MPRINT(M_TNFCONV):   retain T_CBPS L_CBPS;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 0 observations read from the data set WORK.__CHBS.
+NOTE: The data set WORK.__MAYBE has 0 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   data m_stfldnm;
+MPRINT(M_TNFCONV):   retain PROTOCOL STUDY TASK VERSION USERID DATETIME FILEPATH TFL_COUNT T_COUNT L_COUNT F_COUNT STARS_T STARS_L T_CBPS L_CBPS;
+MPRINT(M_TNFCONV):   merge m_stfldnm __maybe;
+MPRINT(M_TNFCONV):   if (t_cbps eq .) then t_cbps = 0;
+MPRINT(M_TNFCONV):   if (l_cbps eq .) then l_cbps = 0;
+MPRINT(M_TNFCONV):   keep PROTOCOL STUDY TASK VERSION USERID DATETIME FILEPATH TFL_COUNT T_COUNT L_COUNT F_COUNT STARS_T STARS_L T_CBPS L_CBPS;
+MPRINT(M_TNFCONV):   run;
+
+NOTE: There were 1 observations read from the data set WORK.M_STFLDNM.
+NOTE: There were 0 observations read from the data set WORK.__MAYBE.
+NOTE: The data set WORK.M_STFLDNM has 1 observations and 15 variables.
+                                                                    The SAS System
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   * Send to SQL Server for later analysis *;
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   ** setup m_dbname according to g_testing=1 or not **;
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_TNFCONV):   * create or update table m_tnfconv *;
+MPRINT(M_TNFCONV):   ****************************************************************************;
+MPRINT(M_PASSW):   option nomprint;
+
+NOTE: There were 1 observations read from the data set MGARDATA.PWENCODE.
+      WHERE name='MACROSQL';
+NOTE: The data set WORK.__PWORD has 1 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 1 observations read from the data set WORK.__PWORD.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + libname macrosql sqlsvr readbuff=32767 insertbuff=32767 schema=dbo user=macro dsn=MacroCP_DEV 
+password=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+NOTE: Libref MACROSQL was successfully assigned as follows: 
+      Engine:        SQLSVR 
+      Physical Name: MacroCP_DEV
+MPRINT(M_TNFCONV):  ;
+MPRINT(M_TNFCONV):   proc sql noprint;
+MPRINT(M_TNFCONV):   insert into macrosql.m_tnfconv select * from m_stfldnm;
+NOTE: 1 row was inserted into MACROSQL.m_tnfconv.
+
+MPRINT(M_TNFCONV):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.04 seconds
+      
+                                                                    The SAS System
+
+
+1000      +
+1001      +
+1002      +
+1003      +/* End of tnfconvert.sas             */
+1004      +
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.56 seconds
+      cpu time            1.56 seconds
+      
+
+Grid Job Id: 214363

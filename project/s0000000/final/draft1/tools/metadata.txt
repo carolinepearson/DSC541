@@ -1,0 +1,10 @@
+# File:    metadata.txt
+# Date:    30AUG2026 15:39
+# Desc:    Metadata for Table of Contents for Study GS-US-000-0000 TFLs
+# Gen by:  Macro %M_TNFCONV
+# Run by:  cpearson1
+
+Filename   1
+TFL        25  
+Desc       55
+

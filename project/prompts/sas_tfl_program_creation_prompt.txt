@@ -1,0 +1,140 @@
+Comprehensive Prompt: SAS TFL Program Creation (Study GS-US-000-0000 / DSS)
+============================================================================
+
+OBJECTIVE
+---------
+Write 5 standalone SAS 9.4 programs in prog/ - t-disp.sas, t-demog.sas, t-os.sas,
+t-aebrief.sas, t-pkpc.sas - each producing exactly one PDF (matching its titlekey),
+using the global macro library G:\global\bpgl\v4.19.01 directly (not the
+STARS-generated wrapper style). Do not modify t-demog.sas beyond the initial build
+once confirmed.
+
+SOURCE OF TRUTH (in priority order)
+------------------------------------
+1. docs/DSS TFL Shells_Tables.json (top-level "Shells", matched by .TitleKey) - the
+   literal table shell. Use .Result[].Label for row text, and
+   .Result[].CompoundExpressions[] (variable.data_structure.name /
+   analysis_variable.name / comparator / value) for the real filter logic - NOT
+   .AnalysisData, which is often stale. Category labels/values for nested rows live
+   in .SubLevel[].StatList[].Label/.Value, not .SubLevel[].Label (often blank).
+2. tools/tnf.inc - authoritative titles/footnotes. Never hardcode title/footnote
+   text in a program; it must always resolve from tnf.inc via the macros.
+3. DSS TFL Shells.json (ARS analysis-results metadata) - secondary, useful for
+   population/statistic taxonomy only.
+4. When CDISC controlled terminology in the shell JSON conflicts with the actual
+   data values (e.g., shell says 'BLACK', real ADSL has
+   'BLACK OR AFRICAN AMERICAN'), trust the shared catalog format
+   (tools/formats.sas7bcat) over the JSON's raw Value field.
+
+ENVIRONMENT CONSTRAINTS
+------------------------
+- No live SAS session is available - all fixes must be reasoned from .log/.out
+  files, macro source reads, and syntax-only lint checks. State this limitation and
+  validate logic by reading macro source code directly rather than guessing.
+- grep/file search tools only work inside the active workspace folder; for files
+  elsewhere (e.g. G:\gsi_stds\..., G:\global\...), read files directly or use
+  terminal Select-String.
+- Reference programs exist on this machine and must be consulted before
+  reverse-engineering any macro from scratch:G:\projects\p200\s2006718\final\
+  version1\prog\t-pkconc-*.sas (PK concentration) and G:\projects\p627\s21\ia01\
+  version1\prog\t-os-a.sas (OS survival) - both real, validated production
+  programs using the same bpgl v4.19.01 library. Whenever a statistical model or
+  macro-call pattern is uncertain, diff against these first, not the macro's
+  header comments alone.
+
+DATA ASSUMPTIONS (confirm before coding, don't guess)
+------------------------------------------------------
+- ADSL: subjid, usubjid, trt01pn/trt01an, ittfl/saffl/pkfl/scrnfl (single F - not
+  scrnffl), comt01fl, comsfl, dct01rs, dcsreas are all CHARACTER Y/N flags, not
+  numeric. trt01pn format trtfmt. (1=Drug A, 2=Drug B).
+- ADAE: no AOCCIFL in this study - derive max-severity flags manually from
+  atoxgrn.
+- ADTTE/ADPC variable names are NOT confirmed by any existing working program -
+  treat as an assumption, add defensive %m_chkvar existence checks, and log
+  WARNING/ERROR rows to tools.val_report if unconfirmed.
+- Standard ADaM direction: CNSR = 0 (event) / 1 (censored). AVAL is in days.
+
+PROGRAM STRUCTURE REQUIREMENTS
+--------------------------------
+- Wrap the entire executable body (from the first %m_req_check call through the
+  final %put) inside %macro main; ... %mend main; %main; - a bare %goto label;/
+  %label: pair in OPEN CODE is invalid SAS and only surfaces as a confusing error
+  at the very end of the log.
+- %let titlekey = t-os; (hyphenated) is fine for display/macro-call arguments, but
+  NEVER use it directly as a macro-variable-name suffix (&titlekey._status) - SAS
+  macro variable names cannot contain '-'. Derive a separate
+  %let statvar = %sysfunc(translate(&titlekey,'_','-')); and use &statvar._status
+  for all internal status tracking.
+- For informational/diagnostic log messages (not required in
+  tools.val_report.out), use plain %put, not a custom keyword-parameter logging
+  macro - free-text arguments to keyword-parameter macros are fragile and prone
+  to "positional parameters must precede keyword parameters" errors that are hard
+  to root-cause.
+
+BPGL MACRO GOTCHAS (check every parameter's default before omitting it)
+--------------------------------------------------------------------------
+- Several macro parameters (day=, concn=, hour=) default to the LITERAL STRING OF
+  THEIR OWN NAME, not blank - omitting them does not disable the feature, it
+  creates a broken self-referential variable. Pass param=, explicitly when your
+  data doesn't have that column.
+- %m_pkconc_new (not the older %pkconc) is required for >1/3 BLQ / % BLQ rows.
+  Its internal SQL join hardcodes the literal column name "hour" - the caller's
+  hour variable must literally be named hour (create it via hour = atptn;), not
+  passed as a differently-named variable.
+- %m_pkconc_new's internal m_pk_header callback blanks the "Participant ID"
+  header on any page where no line matches /\d+-\d+/ - build a dash-formatted ID
+  (ptid = strip(siteid)||'-'||strip(subjid);) if ptvar values are plain numeric.
+- %tabcount always prepends ptclabel text to its auto-generated label - pass
+  ptclabel=%str() to suppress, and blank the variable's label to avoid a spurious
+  header line above the n (%) row; then restore the real label text in a combine
+  post-process step, explicitly setting level=0 where flush-left is wanted
+  (TABPREP indents by level*3, and missing/. level is NOT the same as 0).
+- Any 0/1 flag must be coded 1/MISSING (never 0) or %tabcount will show duplicate
+  rows for both categories.
+- %tabdesc's ocprint= controls the overall Total column (default Y) - set
+  ocprint=N per-table if a Total column isn't wanted.
+- For categories that must always render even at n=0 across a 100%-missing
+  variable, don't rely on %tabcount showall=Y - use a plain PROC SQL COUNT built
+  directly into the combine structure instead.
+
+CUSTOM STATISTICAL ROWS (KM/Cox, or anything not covered by tabcount/tabdcat)
+--------------------------------------------------------------------------------
+- Build custom rows DIRECTLY in combine's own field structure (linlabel $250,
+  sortord numeric, statord $40, value1-value&_maxcol $40, level numeric) and
+  union them in via data combine; set combine <custom_rows>; run; - this mirrors
+  the proven production pattern (t-os-a.sas's "set combine t odd pval;"). Do NOT
+  build a separate hand-rolled PROC REPORT dataset; it won't integrate with
+  %tabprep/%tabdrpt's rendering.
+- A header row and its sub-rows must share the EXACT SAME sortord (distinguish
+  only via statord) - %tabdrpt's "break before sortord / skip;" inserts a blank
+  line whenever sortord changes between rows.
+- A blank "spacer" row must share sortord with the preceding real row and use a
+  high statord (e.g. '9') to sort last - %tabprep deletes a blank-linlabel row
+  only when it's the FIRST record of its sortord group.
+- For PROC LIFETEST landmark survival rates with CIs, use
+  OUTSURV=dataset TIMELIST=... REDUCEOUT (confirmed against t-os-a.sas) - NOT
+  ODS OUTPUT ProductLimitEstimates combined with TIMELIST=/ATRISK, which collapses
+  the table and drops the CI.
+- PROC PHREG needs the /rl model option or HRLowerCL/HRUpperCL never populate.
+- The KM median is only estimable once >=50% of participants in an arm have the
+  event - "NEst" at lower event rates is a correct statistical result, not a bug.
+
+VALUE-STRING FORMATTING (decimal/digit alignment)
+----------------------------------------------------
+- Never use CATS() when building "n (%)"/"estimate (CI)" strings - it strips
+  leading/trailing blanks from EVERY argument, including literal delimiter text
+  like ' (', silently deleting the space. Use CAT() for the outer join, STRIP()
+  on each individual formatted number.
+- Plain PUT() fixed-width right-justification (regular ASCII leading blanks) does
+  NOT survive PDF/RTF rendering through this pipeline - it gets collapsed/
+  trimmed. To achieve true digit-level right-justification/decimal alignment
+  within a stacked section (e.g., landmark rates, duration categories), left-pad
+  the stripped value with byte(160) (non-breaking space) up to a fixed width
+  instead of a regular space.
+
+VALIDATION LOGGING
+--------------------
+Each program appends rows to a permanent tools.val_report dataset (via
+PROC APPEND, safe for concurrent runs) for dataset/variable existence checks and
+any material assumption; a separate tools/val_report.sas regenerates
+tools/val_report.out from it.

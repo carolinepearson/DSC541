@@ -1,0 +1,190 @@
+1                                                          The SAS System                              15:38 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:38 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adtte.sas;
+21         %let gsas_orig_pgm_name = adtte.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/adtte.sas_1788129510.8530734@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=3327228
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adtte.sas
+      * Run by:         cpearson1 on sjgsasappprdg14
+      * On Date:        30AUG2026:15:38
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/adtte.sas_1788129510.8530734@sjgsasappprdg09/original_adtte.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/adtte.sas_1788129510.8530734@sjgsasappprdg09/original_adtte.sas is file 
+      /gridwork/gsubwork/cpearson1/adtte.sas_1788129510.8530734@sjgsasappprdg09/original_adtte.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      adtte.sas
+991       +Program Author:    Caroline Pearson (cpearson)
+992       +Program Purpose:   Create ADTTE dummy records for 100 participants
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +data adamdata.adtte;
+997       +    set adamdata.adsl;
+998       +
+999       +    length
+1000      +        PARAMCD $8
+1001      +        PARAM $40
+1002      +        AVALU $20
+1003      +        EVNTDESC $40
+1004      +        SRCDOM $8
+1005      +        SRCVAR $32;
+1006      +
+1007      +    format STARTDT ADT date9.;
+1008      +
+1009      +    PARAMCD = "OS";
+1010      +    PARAM = "Overall Survival";
+1011      +    AVALU = "DAYS";
+1012      +    STARTDT = RANDDT;
+1013      +    SRCDOM = "ADSL";
+1014      +
+1015      +    if not missing(DTHDT) then do;
+1016      +        ADT = DTHDT;
+1017      +        CNSR = 0;
+1018      +        EVNTDESC = "DEATH";
+1019      +        SRCVAR = "DTHDT";
+1020      +    end;
+1021      +    else do;
+1022      +        ADT = LSTALVDT;
+1023      +        CNSR = 1;
+1024      +        EVNTDESC = "CENSORED";
+1025      +        SRCVAR = "LSTALVDT";
+1026      +    end;
+1027      +
+1028      +    if not missing(STARTDT) and not missing(ADT) then do;
+1029      +        AVAL = ADT - STARTDT + 1;
+1030      +        ADY = ADT - STARTDT + 1;
+1031      +    end;
+                                                                    The SAS System
+
+1032      +    else do;
+1033      +        AVAL = .;
+1034      +        ADY = .;
+1035      +    end;
+1036      +
+1037      +    SRCSEQ = .;
+1038      +run;
+
+NOTE: There were 100 observations read from the data set ADAMDATA.ADSL.
+NOTE: The data set ADAMDATA.ADTTE has 100 observations and 51 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.01 seconds
+      
+
+1039      +/*
+1040      +proc contents data=adamdata.adtte;
+1041      +run;
+1042      +
+1043      +proc print data=adamdata.adtte(obs=10);
+1044      +    var STUDYID USUBJID PARAMCD PARAM STARTDT ADT AVAL AVALU CNSR
+1045      +        EVNTDESC SRCDOM SRCVAR;
+1046      +run;
+1047      +*/
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.36 seconds
+      cpu time            2.16 seconds
+      
+
+Grid Job Id: 214362

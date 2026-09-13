@@ -1,0 +1,434 @@
+1                                                          The SAS System                              15:37 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.14 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:37 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adae.sas;
+21         %let gsas_orig_pgm_name = adae.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/adae.sas_1788129438.6300166@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=2087879
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adae.sas
+      * Run by:         cpearson1 on sjgsasappprdg07
+      * On Date:        30AUG2026:15:37
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/adae.sas_1788129438.6300166@sjgsasappprdg09/original_adae.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/adae.sas_1788129438.6300166@sjgsasappprdg09/original_adae.sas is file 
+      /gridwork/gsubwork/cpearson1/adae.sas_1788129438.6300166@sjgsasappprdg09/original_adae.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      adae.sas
+991       +Program Author:    Caroline Pearson (cpearson)
+992       +Program Purpose:   Create ADAE dummy records for 100 participants
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +
+997       +data adamdata.adae;
+998       +    set adamdata.adsl;
+999       +
+1000      +    if _N_ = 1 then call streaminit(20260824);
+1001      +
+1002      +    length
+1003      +        AETERM AESOC AEBODSYS AEDECOD AESTDTC AEENDTC AETOXGR ATOXGR
+1004      +        AEREL AREL AESER AEACN AACN1 AEOUT AEPATT EPOCH
+1005      +        AEACNOTH TRTEMFL AESCONG AESDISAB AESDTH AESHOSP
+1006      +        AESLIFE AESMIE SRCDOM SRCVAR $100;
+1007      +
+1008      +    length
+1009      +        AESEQ AESTDY ASTDY AEENDY AENDY AETOXGRN ATOXGRN ARELN
+1010      +        AEOUTN 8;
+1011      +
+1012      +    format AESTDT AEENDT date9.;
+1013      +
+1014      +    SubjectNumber = input(Subjid, best.);
+1015      +    RecordCount = 1 + mod(SubjectNumber - 1, 10);
+1016      +    EventStart = rand("integer", 1, 11);
+1017      +
+1018      +    do AESEQ = 1 to RecordCount;
+1019      +        if not missing(DTHDT) and AESEQ = 1 then
+1020      +            EventCode = 12;
+1021      +        else
+1022      +            EventCode = mod(EventStart + AESEQ - 2, 11) + 1;
+1023      +
+1024      +        select (EventCode);
+1025      +            when (1) do;
+1026      +                AETERM = "Headache";
+1027      +                AEDECOD = "Headache";
+1028      +                AESOC = "Nervous system disorders";
+1029      +                AEBODSYS = "Nervous system disorders";
+1030      +                AETOXGR = "1";
+1031      +                AETOXGRN = 1;
+                                                                    The SAS System
+
+1032      +                AEREL = "RELATED";
+1033      +                AREL = "RELATED";
+1034      +                ARELN = 1;
+1035      +                AESER = "N";
+1036      +                AEACN = "DOSE NOT CHANGED";
+1037      +                AEOUT = "RECOVERED/RESOLVED";
+1038      +                AEOUTN = 1;
+1039      +            end;
+1040      +            when (2) do;
+1041      +                AETERM = "Nausea";
+1042      +                AEDECOD = "Nausea";
+1043      +                AESOC = "Gastrointestinal disorders";
+1044      +                AEBODSYS = "Gastrointestinal disorders";
+1045      +                AETOXGR = "2";
+1046      +                AETOXGRN = 2;
+1047      +                AEREL = "RELATED";
+1048      +                AREL = "RELATED";
+1049      +                ARELN = 1;
+1050      +                AESER = "N";
+1051      +                AEACN = "NONE";
+1052      +                AEOUT = "RECOVERED/RESOLVED";
+1053      +                AEOUTN = 1;
+1054      +            end;
+1055      +            when (3) do;
+1056      +                AETERM = "Rash";
+1057      +                AEDECOD = "Rash";
+1058      +                AESOC = "Skin and subcutaneous tissue disorders";
+1059      +                AEBODSYS = "Skin and subcutaneous tissue disorders";
+1060      +                AETOXGR = "2";
+1061      +                AETOXGRN = 2;
+1062      +                AEREL = "NOT RELATED";
+1063      +                AREL = "NOT RELATED";
+1064      +                ARELN = 2;
+1065      +                AESER = "N";
+1066      +                AEACN = "DOSE NOT CHANGED";
+1067      +                AEOUT = "RECOVERED/RESOLVED";
+1068      +                AEOUTN = 1;
+1069      +            end;
+1070      +            when (4) do;
+1071      +                AETERM = "Cough";
+1072      +                AEDECOD = "Cough";
+1073      +                AESOC = "Respiratory, thoracic and mediastinal disorders";
+1074      +                AEBODSYS = "Respiratory disorders";
+1075      +                AETOXGR = "1";
+1076      +                AETOXGRN = 1;
+1077      +                AEREL = "NOT RELATED";
+                                                                    The SAS System
+
+1078      +                AREL = "NOT RELATED";
+1079      +                ARELN = 2;
+1080      +                AESER = "N";
+1081      +                AEACN = "NONE";
+1082      +                AEOUT = "RECOVERED/RESOLVED";
+1083      +                AEOUTN = 1;
+1084      +            end;
+1085      +            when (5) do;
+1086      +                AETERM = "Back pain";
+1087      +                AEDECOD = "Back pain";
+1088      +                AESOC = "Musculoskeletal and connective tissue disorders";
+1089      +                AEBODSYS = "Musculoskeletal disorders";
+1090      +                AETOXGR = "2";
+1091      +                AETOXGRN = 2;
+1092      +                AEREL = "RELATED";
+1093      +                AREL = "RELATED";
+1094      +                ARELN = 1;
+1095      +                AESER = "N";
+1096      +                AEACN = "DOSE NOT CHANGED";
+1097      +                AEOUT = "RECOVERED/RESOLVED";
+1098      +                AEOUTN = 1;
+1099      +            end;
+1100      +            when (6) do;
+1101      +                AETERM = "Fatigue";
+1102      +                AEDECOD = "Fatigue";
+1103      +                AESOC = "General disorders and administration site conditions";
+1104      +                AEBODSYS = "General disorders";
+1105      +                AETOXGR = "1";
+1106      +                AETOXGRN = 1;
+1107      +                AEREL = "RELATED";
+1108      +                AREL = "RELATED";
+1109      +                ARELN = 1;
+1110      +                AESER = "N";
+1111      +                AEACN = "NONE";
+1112      +                AEOUT = "RECOVERED/RESOLVED";
+1113      +                AEOUTN = 1;
+1114      +            end;
+1115      +            when (7) do;
+1116      +                AETERM = "Elevated liver enzymes";
+1117      +                AEDECOD = "Alanine aminotransferase increased";
+1118      +                AESOC = "Investigations";
+1119      +                AEBODSYS = "Investigations";
+1120      +                AETOXGR = "3";
+1121      +                AETOXGRN = 3;
+1122      +                AEREL = "RELATED";
+1123      +                AREL = "RELATED";
+                                                                    The SAS System
+
+1124      +                ARELN = 1;
+1125      +                AESER = "Y";
+1126      +                AEACN = "DRUG INTERRUPTED";
+1127      +                AEOUT = "RECOVERING/RESOLVING";
+1128      +                AEOUTN = 2;
+1129      +            end;
+1130      +            when (8) do;
+1131      +                AETERM = "Dizziness";
+1132      +                AEDECOD = "Dizziness";
+1133      +                AESOC = "Nervous system disorders";
+1134      +                AEBODSYS = "Nervous system disorders";
+1135      +                AETOXGR = "2";
+1136      +                AETOXGRN = 2;
+1137      +                AEREL = "RELATED";
+1138      +                AREL = "RELATED";
+1139      +                ARELN = 1;
+1140      +                AESER = "N";
+1141      +                AEACN = "DOSE NOT CHANGED";
+1142      +                AEOUT = "RECOVERED/RESOLVED";
+1143      +                AEOUTN = 1;
+1144      +            end;
+1145      +            when (9) do;
+1146      +                AETERM = "Diarrhea";
+1147      +                AEDECOD = "Diarrhoea";
+1148      +                AESOC = "Gastrointestinal disorders";
+1149      +                AEBODSYS = "Gastrointestinal disorders";
+1150      +                AETOXGR = "3";
+1151      +                AETOXGRN = 3;
+1152      +                AEREL = "RELATED";
+1153      +                AREL = "RELATED";
+1154      +                ARELN = 1;
+1155      +                AESER = "N";
+1156      +                AEACN = "DRUG INTERRUPTED";
+1157      +                AEOUT = "RECOVERED/RESOLVED";
+1158      +                AEOUTN = 1;
+1159      +            end;
+1160      +            when (10) do;
+1161      +                AETERM = "Injection site reaction";
+1162      +                AEDECOD = "Injection site reaction";
+1163      +                AESOC = "General disorders and administration site conditions";
+1164      +                AEBODSYS = "General disorders";
+1165      +                AETOXGR = "4";
+1166      +                AETOXGRN = 4;
+1167      +                AEREL = "RELATED";
+1168      +                AREL = "RELATED";
+1169      +                ARELN = 1;
+                                                                    The SAS System
+
+1170      +                AESER = "N";
+1171      +                AEACN = "DOSE REDUCED";
+1172      +                AEOUT = "RECOVERED/RESOLVED";
+1173      +                AEOUTN = 1;
+1174      +            end;
+1175      +            when (11) do;
+1176      +                AETERM = "Increased blood pressure";
+1177      +                AEDECOD = "Hypertension";
+1178      +                AESOC = "Vascular disorders";
+1179      +                AEBODSYS = "Vascular disorders";
+1180      +                AETOXGR = "3";
+1181      +                AETOXGRN = 3;
+1182      +                AEREL = "NOT RELATED";
+1183      +                AREL = "NOT RELATED";
+1184      +                ARELN = 2;
+1185      +                AESER = "N";
+1186      +                AEACN = "NONE";
+1187      +                AEOUT = "RECOVERED/RESOLVED";
+1188      +                AEOUTN = 1;
+1189      +            end;
+1190      +            otherwise do;
+1191      +                select (DTHCAUS);
+1192      +                    when ("Cardiac event") do;
+1193      +                        AETERM = "Fatal cardiac event";
+1194      +                        AEDECOD = "Cardiac arrest";
+1195      +                        AESOC = "Cardiac disorders";
+1196      +                        AEBODSYS = "Cardiac disorders";
+1197      +                    end;
+1198      +                    when ("Respiratory failure") do;
+1199      +                        AETERM = "Fatal respiratory failure";
+1200      +                        AEDECOD = "Respiratory failure";
+1201      +                        AESOC = "Respiratory, thoracic and mediastinal disorders";
+1202      +                        AEBODSYS = "Respiratory disorders";
+1203      +                    end;
+1204      +                    otherwise do;
+1205      +                        AETERM = "Fatal underlying disease";
+1206      +                        AEDECOD = "Disease progression";
+1207      +                        AESOC = "General disorders and administration site conditions";
+1208      +                        AEBODSYS = "General disorders";
+1209      +                    end;
+1210      +                end;
+1211      +                AETOXGR = "5";
+1212      +                AETOXGRN = 5;
+1213      +                AEREL = "NOT RELATED";
+1214      +                AREL = "NOT RELATED";
+1215      +                ARELN = 1;
+                                                                    The SAS System
+
+1216      +                AESER= "Y";
+1217      +                AEACN = "DRUG WITHDRAWN";
+1218      +                AEOUT = "FATAL";
+1219      +                AEOUTN = 3;
+1220      +            end;
+1221      +        end;
+1222      +		ATOXGR = strip(AETOXGR);
+1223      +		ATOXGRN =AETOXGRN;
+1224      +		AACN1 = strip(AEACN);
+1225      +        AESTDT = TRTSDT + mod(SubjectNumber + AESEQ + EventCode, 8) + 1;
+1226      +        AEENDT = AESTDT + mod(SubjectNumber + EventCode, 5) + 1;
+1227      +
+1228      +        if EventCode = 12 then do;
+1229      +            AESTDT = DTHDT;
+1230      +            AEENDT = TRTEDT;
+1231      +        end;
+1232      +
+1233      +        if not missing(DTHDT) and AEENDT > DTHDT then
+1234      +            AEENDT = DTHDT;
+1235      +
+1236      +        if not missing(AEENDT) and AEENDT < AESTDT then
+1237      +            AEENDT = AESTDT;
+1238      +
+1239      +        AESTDTC = put(AESTDT, e8601da10.);
+1240      +        if missing(AEENDT) then
+1241      +            AEENDTC = "";
+1242      +        else
+1243      +            AEENDTC = put(AEENDT, e8601da10.);
+1244      +        AESTDY = AESTDT - TRTSDT + 1;
+1245      +        ASTDY = AESTDY;
+1246      +        AEENDY = AEENDT - TRTSDT + 1;
+1247      +        AENDY = AEENDY;
+1248      +        TRTEMFL = "Y";
+1249      +        EPOCH = "TREATMENT";
+1250      +        AEPATT = "CONTINUOUS";
+1251      +        AESCONG = "N";
+1252      +        AESDISAB = "N";
+1253      +        if EventCode = 12 then
+1254      +            AESDTH = "Y";
+1255      +        else
+1256      +            AESDTH = "N";
+1257      +        AESHOSP = "N";
+1258      +        AESLIFE = "N";
+1259      +        AESMIE = "N";
+1260      +        if index(upcase(DCSREAS), "WITHDRAW") > 0 then
+1261      +            AEACNOTH = "STUDY DISCONTINUATION";
+                                                                    The SAS System
+
+1262      +        else
+1263      +            AEACNOTH = "";
+1264      +        SRCDOM = "ADSL";
+1265      +        SRCVAR = "TRTSDT";
+1266      +        SRCSEQ = AESEQ;
+1267      +        output;
+1268      +    end;
+1269      +
+1270      +    drop SubjectNumber RecordCount EventStart EventCode;
+1271      +run;
+
+NOTE: There were 100 observations read from the data set ADAMDATA.ADSL.
+NOTE: The data set ADAMDATA.ADAE has 550 observations and 77 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.02 seconds
+      
+
+1272      +/*
+1273      +proc contents data=adamdata.adae;
+1274      +run;
+1275      +
+1276      +proc print data=adamdata.adae(obs=12);
+1277      +    var STUDYID USUBJID AESEQ AETERM AESOC AEBODSYS AEDECOD TRTEMFL
+1278      +        AESTDT AESTDTC AEENDT AEENDTC AESTDY ASTDY AEENDY AENDY
+1279      +        AETOXGR AETOXGRN AEREL AREL ARELN AESER;
+1280      +run;
+1281      +*/
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.43 seconds
+      cpu time            0.99 seconds
+      
+
+Grid Job Id: 214360

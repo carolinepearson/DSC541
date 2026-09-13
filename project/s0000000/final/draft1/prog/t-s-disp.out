@@ -1,0 +1,48 @@
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                                     Table 15.8.1.3.1.2: Participant Disposition
+                                                              All Screened Participants
+                                                                STARS Generated Output
+
+                           _______________________________________________________________________________________________
+                                                                                   Drug A         Drug B         Total
+                           _______________________________________________________________________________________________
+
+                           Screened                                                                           100
+
+                           ITT Analysis Set                                      50             50            100
+
+                           Safety Analysis Set                                   50             50            100
+
+                           Pharmacokinetic Analysis Set                          50             50            100
+
+                           Study Drug Completion Status
+                              Completed Study Drug                               15 ( 30.0%)    18 ( 36.0%)    33 ( 33.0%)
+                              Prematurely Discontinued Study Drug                35 ( 70.0%)    32 ( 64.0%)    67 ( 67.0%)
+
+                           Reason for Premature Discontinuation of Study Drug
+                              ADVERSE EVENT                                      26 ( 52.0%)    25 ( 50.0%)    51 ( 51.0%)
+                              LACK OF EFFICACY                                    9 ( 18.0%)     7 ( 14.0%)    16 ( 16.0%)
+
+                           Study Completion Status
+                              Completed Study                                    20 ( 40.0%)    22 ( 44.0%)    42 ( 42.0%)
+                              Prematurely Discontinued Study                     30 ( 60.0%)    28 ( 56.0%)    58 ( 58.0%)
+
+                           Reason for Premature Discontinuation of Study
+                              DEATH                                              26 ( 52.0%)    25 ( 50.0%)    51 ( 51.0%)
+                              WITHDRAWAL BY SUBJECT                               4 (  8.0%)     3 (  6.0%)     7 (  7.0%)
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+Percentages for completion status were calculated based on the number of participants in the Safety Analysis Set.
+Source: Listing 16.2.1.3.1
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-s-disp.sas v9.4  Output file: t-s-disp.pdf 30AUG2026:15:40                                                 Page 1 of 1

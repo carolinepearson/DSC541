@@ -1,0 +1,149 @@
+%PDF-1.4
+1 0 obj
+<<
+/Creator (cpearson1)
+/CreationDate (D:2026083015544400)
+/Producer (%TXT2PDF Version v4.19.01 at Gilead Sciences, Inc.)
+/Title (PDF Conversion of file t-aebrief.out)
+>>
+endobj
+2 0 obj << /Type /Catalog /Pages 6 0 R /Outlines 3 0 R >> endobj
+3 0 obj << /Type /Outlines /Count 0 >> endobj
+4 0 obj << /Type /Font /Subtype /Type1 /Name /F1
+/BaseFont /CourierNew,Bold /Encoding /WinAnsiEncoding >> endobj
+5 0 obj [ /PDF /Text ] endobj
+6 0 obj << /Type /Pages /Count 2 /Kids [
+7 0 R
+9 0 R
+] >> endobj
+7 0 obj << /Type /Page /Parent 6 0 R /Resources
+<< /Font << /F1 4 0 R >> /ProcSet 5 0 R >>
+/MediaBox [ 0 0 792 612 ] /Contents 8 0 R >> endobj
+8 0 obj << /Length 4082 >>
+stream
+BT /F1 7 Tf 10 TL 72 540 Td
+(                                                                                                                                 Gilead Sciences, Inc.)'
+(                                                                                                                                  Study GS-US-000-0000)'
+(                                       Table 15.11.2.1.1.1: Treatment-Emergent Adverse Events: Overall Summary)'
+(                                                                 Safety Analysis Set)'
+( )'
+(         ___________________________________________________________________________________________________________________________________)'
+(                                                                             Drug A                     Drug B                     Total)'
+(         Number \(%\) of Participants with                                     \(N=50\)                     \(N=50\)                    \(N=100\))'
+(         ___________________________________________________________________________________________________________________________________)'
+( )'
+(            Any TEAE                                                       50 \(100.0%\)                50 \(100.0%\)               100 \(100.0%\))'
+( )'
+(            TEAE with Grade 3 or Higher                                    43 \( 86.0%\)                42 \( 84.0%\)                85 \( 85.0%\))'
+( )'
+(            TEAE with Grade 2 or Higher                                    50 \(100.0%\)                49 \( 98.0%\)                99 \( 99.0%\))'
+( )'
+(            TEAE Related to Study Drug                                     49 \( 98.0%\)                42 \( 84.0%\)                91 \( 91.0%\))'
+( )'
+(            TEAE Related to Study Drug with Grade 3 or                     33 \( 66.0%\)                27 \( 54.0%\)                60 \( 60.0%\))'
+(              Higher)'
+( )'
+(            TEAE Related to Study Drug with Grade 2 or                     49 \( 98.0%\)                41 \( 82.0%\)                90 \( 90.0%\))'
+(              Higher)'
+( )'
+(            TE Serious AE                                                  39 \( 78.0%\)                34 \( 68.0%\)                73 \( 73.0%\))'
+( )'
+(            TE Serious AE Related to Study Drug                            27 \( 54.0%\)                17 \( 34.0%\)                44 \( 44.0%\))'
+( )'
+(            TEAE Leading to Discontinuation of Study Drug                  26 \( 52.0%\)                25 \( 50.0%\)                51 \( 51.0%\))'
+( )'
+(            TEAE Leading to Dose Interruption of Study Drug                31 \( 62.0%\)                25 \( 50.0%\)                56 \( 56.0%\))'
+( )'
+(            TEAE Leading to Dose Reduction of Study Drug                   25 \( 50.0%\)                24 \( 48.0%\)                49 \( 49.0%\))'
+( )'
+( )'
+( )'
+( )'
+(______________________________________________________________________________________________________________________________________________________)'
+(TE = treatment-emergent; TEAE = treatment-emergent adverse event.)'
+(Adverse events were coded according to MedDRA Version {XX.X}.)'
+(Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the date of the)'
+( last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].)'
+(Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The DAIDS)'
+(Version XX]. [Participants were counted only one based on their highest grade for each summary row.])'
+(Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of)'
+( )'
+(Data Extracted: ddmmmyyyy)'
+(Source: .../final/draft1/prog/t-aebrief.sas v9.4  Output file: t-aebrief.pdf 30AUG2026:15:54                                               Page 1 of 2)'
+ET
+endstream
+endobj
+9 0 obj << /Type /Page /Parent 6 0 R /Resources
+<< /Font << /F1 4 0 R >> /ProcSet 5 0 R >>
+/MediaBox [ 0 0 792 612 ] /Contents 10 0 R >> endobj
+10 0 obj << /Length 2739 >>
+stream
+BT /F1 7 Tf 10 TL 72 540 Td
+(                                                                                                                                 Gilead Sciences, Inc.)'
+(                                                                                                                                  Study GS-US-000-0000)'
+(                                       Table 15.11.2.1.1.1: Treatment-Emergent Adverse Events: Overall Summary)'
+(                                                                 Safety Analysis Set)'
+( )'
+(         ___________________________________________________________________________________________________________________________________)'
+(                                                                             Drug A                     Drug B                     Total)'
+(         Number \(%\) of Participants with                                     \(N=50\)                     \(N=50\)                    \(N=100\))'
+(         ___________________________________________________________________________________________________________________________________)'
+( )'
+(            TEAE Leading to Discontinuation of Study                        4 \(  8.0%\)                 3 \(  6.0%\)                 7 \(  7.0%\))'
+( )'
+(            TEAE Leading to Death                                          26 \( 52.0%\)                25 \( 50.0%\)                51 \( 51.0%\))'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+( )'
+(______________________________________________________________________________________________________________________________________________________)'
+(TE = treatment-emergent; TEAE = treatment-emergent adverse event.)'
+(Adverse events were coded according to MedDRA Version {XX.X}.)'
+(Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the date of the)'
+( last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].)'
+(Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The DAIDS)'
+(Version XX]. [Participants were counted only one based on their highest grade for each summary row.])'
+(Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of)'
+( )'
+(Data Extracted: ddmmmyyyy)'
+(Source: .../final/draft1/prog/t-aebrief.sas v9.4  Output file: t-aebrief.pdf 30AUG2026:15:54                                               Page 2 of 2)'
+ET
+endstream
+endobj
+xref
+0 11
+0000000000 65535 f
+0000000010 00000 n
+0000000204 00000 n
+0000000270 00000 n
+0000000317 00000 n
+0000000432 00000 n
+0000000463 00000 n
+0000000532 00000 n
+0000000678 00000 n
+0000004817 00000 n
+0000004964 00000 n
+trailer << /Size 11 /Info 1 0 R /Root 2 0 R >>
+startxref
+7761
+%%EOF

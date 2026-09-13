@@ -1,0 +1,282 @@
+1                                                          The SAS System                              15:37 Sunday, August 30, 2026
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to GILEAD SCIENCES - CONTROL NODE 1, Site 70173328.
+NOTE: This session is executing on the Linux 4.18.0-553.58.1.el8_10.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 4.18.0-553.58.1.el8_10.x86_64 #1 SMP Thu Jun 12 14:27:07 EDT 2025 x86_64 Red Hat Enterprise Linux release 8.10 
+      (Ootpa) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.13 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref STPSAMP successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sas/sas94/m3/Config_GCS/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /******************************************************************************
+2           * Description: This code ensures that a SAS program, submitted to the SAS    *
+3           *              GRID using 'gsub', is run in a SAS session whose current      *
+4           *              working directory matches the directory from which the 'gsub' *
+5           *              command was issued or directory identified by the argument    *
+6           *              associated with the 'gsub' 'cwd' option                       *
+7           *                                                                            *
+8           * Note:        GSUB reserves the prefix 'gsub_' for the naming of macro      *
+9           *              variables. In order to prevent naming collisions please       *
+10          *              refrain from using the prefix 'gsub_' when naming macros      *
+2                                                          The SAS System                              15:37 Sunday, August 30, 2026
+
+11          *              in any program that will be submitted to the GSUB GS2         *
+12          *              environment                                                   *
+13          *                                                                            *
+14          * Author:      Gilead Sciences, Inc.                                         *
+15          *                                                                            *
+16          * Date:        01 September 2016                                             *
+17          *****************************************************************************/
+18         
+19         %*** Remember the original program ***;
+20         %let gsas_orig_abs_pgm_name = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adpc.sas;
+21         %let gsas_orig_pgm_name = adpc.sas;
+22         
+23         %*** Remember the log path ***;
+24         %let gsub_log_path = /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+25         
+26         %*** Set the current working directory ***;
+27         %sysexec cd /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+28         
+29         %*** Update UNIX PWD environment variable to reflect the current working directory ***;
+30         %sysexec setenv PWD /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog;
+31         
+32         %*** Precode ***;
+33         %include "/gridwork/gsubwork/cpearson1/adpc.sas_1788129471.9495435@sjgsasappprdg09/init_sys.sas";
+G_SYSVER=v9.4
+G_SYSUSERID_SHORT=cpearson1
+G_SYSUSERID_LONG=_NULL_
+G_SYSJOBID=3326323
+   Got toolver from &progpath/../tools/init.inc : v4.19.01;				/*
+ 
+      *******************************************************************************
+      * SAS Program:    /biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog/adpc.sas
+      * Run by:         cpearson1 on sjgsasappprdg14
+      * On Date:        30AUG2026:15:37
+      * Tools Version:  v4.19.01 (from init_sys.sas)
+      * SAS Version:    LIN X64 v9.4
+      *******************************************************************************
+ 
+CURRPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+PROGPATH=/biometrics/gsi_stds/dss_2026/s0000000/final/draft1/adamprog
+G_SYSPROG=0
+G_DEV=0
+G_QUAL=0
+NOTE: %INCLUDE (level 1) ending.
+985        
+986        *** Include the original SAS program ***;
+987        %include "/gridwork/gsubwork/cpearson1/adpc.sas_1788129471.9495435@sjgsasappprdg09/original_adpc.sas" / source2;
+                                                                    The SAS System
+
+NOTE: %INCLUDE (level 1) file /gridwork/gsubwork/cpearson1/adpc.sas_1788129471.9495435@sjgsasappprdg09/original_adpc.sas is file 
+      /gridwork/gsubwork/cpearson1/adpc.sas_1788129471.9495435@sjgsasappprdg09/original_adpc.sas.
+988       +/* start of header *********************************************************************************
+989       +
+990       +Program Name:      adpc.sas
+991       +Program Author:    Caroline Pearson (cpearson)
+992       +Program Purpose:   Create ADPC dummy records for 100 participants
+993       +
+994       +*********************************************************************************** end of header */
+995       +
+996       +
+997       +data adamdata.adpc;
+998       +    set adamdata.adsl;
+999       +
+1000      +    if _N_ = 1 then call streaminit(20260823);
+1001      +
+1002      +    length
+1003      +        PARAMCD $8
+1004      +        PARAM $60
+1005      +        AVALU $20
+1006      +        ATPT AVISIT $40
+1007      +        ATPTREF $20
+1008      +        ATMU $20
+1009      +        PCELTM PCELTMU $20
+1010      +        PCTESTCD $8
+1011      +        PCTEST $60
+1012      +        PCORRES PCORRESU $20
+1013      +        PCSTRESC PCSTRESU AVALC ASTRESC $20
+1014      +        PCDTC $25
+1015      +        ANL01FL $1;
+1016      +
+1017      +    format ADT date9. ADTM datetime20. AVAL ATTM 8.2;
+1018      +
+1019      +    PARAMCD = "PC";
+1020      +    PARAM = "Plasma Drug Concentration";
+1021      +    AVALU = "ng/mL";
+1022      +    PCTESTCD = "DRUGCONC";
+1023      +    PCTEST = "Drug Concentration";
+1024      +    PCORRESU = "ng/mL";
+1025      +    PCSTRESU = "ng/mL";
+1026      +    PCELTMU = "hours";
+1027      +    ATMU = "hours";
+1028      +    ATPTREF = "TRTSDT";
+1029      +    AVALU = "ng/mL";
+1030      +    ANL01FL = "Y";
+1031      +
+                                                                    The SAS System
+
+1032      +    do RecordNumber = 1 to 9;
+1033      +        select (RecordNumber);
+1034      +            when (1) do;
+1035      +                ATPT = "Pre-dose";
+1036      +                ATPTN = 0;
+1037      +                PCELTM = "PT0H";
+1038      +                PCELTMN = 0;
+1039      +            end;
+1040      +            when (2) do;
+1041      +                ATPT = "1 Hour";
+1042      +                ATPTN = 1;
+1043      +                PCELTM = "PT1H";
+1044      +                PCELTMN = 1;
+1045      +            end;
+1046      +            when (3) do;
+1047      +                ATPT = "2 Hours";
+1048      +                ATPTN = 2;
+1049      +                PCELTM = "PT2H";
+1050      +                PCELTMN = 2;
+1051      +            end;
+1052      +            when (4) do;
+1053      +                ATPT = "4 Hours";
+1054      +                ATPTN = 4;
+1055      +                PCELTM = "PT4H";
+1056      +                PCELTMN = 4;
+1057      +            end;
+1058      +            when (5) do;
+1059      +                ATPT = "8 Hours";
+1060      +                ATPTN = 8;
+1061      +                PCELTM = "PT8H";
+1062      +                PCELTMN = 8;
+1063      +            end;
+1064      +            when (6) do;
+1065      +                ATPT = "12 Hours";
+1066      +                ATPTN = 12;
+1067      +                PCELTM = "PT12H";
+1068      +                PCELTMN = 12;
+1069      +            end;
+1070      +            when (7) do;
+1071      +                ATPT = "16 Hours";
+1072      +                ATPTN = 16;
+1073      +                PCELTM = "PT16H";
+1074      +                PCELTMN = 16;
+1075      +            end;
+1076      +            when (8) do;
+1077      +                ATPT = "18 Hours";
+                                                                    The SAS System
+
+1078      +                ATPTN = 18;
+1079      +                PCELTM = "PT18H";
+1080      +                PCELTMN = 18;
+1081      +            end;
+1082      +            otherwise do;
+1083      +                ATPT = "24 Hours";
+1084      +                ATPTN = 24;
+1085      +                PCELTM = "PT24H";
+1086      +                PCELTMN = 24;
+1087      +            end;
+1088      +        end;
+1089      +
+1090      +        if PCELTMN = 0 then
+1091      +            PCSTRESN = round(5.01 + rand("uniform") * 2, 0.01);
+1092      +        else
+1093      +            PCSTRESN = round(120 * exp(-0.08 * PCELTMN) *
+1094      +                             (0.75 + rand("uniform") * 0.5), 0.01);
+1095      +        if rand("uniform") < 0.10 then do;
+1096      +            PCORRES = "BLQ";
+1097      +            PCSTRESC = "BLQ";
+1098      +            PCSTRESN = .;
+1099      +        end;
+1100      +        else do;
+1101      +            PCORRES = strip(put(PCSTRESN, 8.2));
+1102      +            PCSTRESC = PCORRES;
+1103      +        end;
+1104      +        AVAL = PCSTRESN;
+1105      +        AVALC = PCSTRESC;
+1106      +        ASTRESC = PCSTRESC;
+1107      +        ATTM = PCELTMN;
+1108      +        ADTM = dhms(TRTSDT, PCELTMN, 0, 0);
+1109      +        ADT = datepart(ADTM);
+1110      +        if PCELTMN < 24 then do;
+1111      +            AVISIT = "Day 1";
+1112      +            AVISITN = 1;
+1113      +        end;
+1114      +        else do;
+1115      +            AVISIT = "Day 2";
+1116      +            AVISITN = 2;
+1117      +        end;
+1118      +        PCDTC = put(ADTM, e8601dt25.);
+1119      +        PCDY = ADT - TRTSDT + 1;
+1120      +        output;
+1121      +    end;
+1122      +
+1123      +    drop RecordNumber;
+                                                                    The SAS System
+
+1124      +run;
+
+NOTE: There were 100 observations read from the data set ADAMDATA.ADSL.
+NOTE: The data set ADAMDATA.ADPC has 900 observations and 67 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.02 seconds
+      
+
+1125      +/*
+1126      +proc contents data=adamdata.adpc;
+1127      +run;
+1128      +
+1129      +proc print data=adamdata.adpc(obs=12);
+1130      +    var STUDYID USUBJID PARAMCD PARAM ATPT ATPTN AVISIT AVISITN
+1131      +        ATPTREF ATTM ATMU PCORRES PCORRESU PCSTRESN PCSTRESU
+1132      +        PCSTRESC AVAL AVALC ASTRESC AVALU ADT ADTM PCDTC
+1133      +        PCELTM PCELTMN ANL01FL;
+1134      +run;
+1135      +*/
+NOTE: %INCLUDE (level 1) ending.
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.73 seconds
+      cpu time            0.40 seconds
+      
+
+Grid Job Id: 214361

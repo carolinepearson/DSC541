@@ -1,0 +1,96 @@
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                       Table 15.11.2.1.1.2: Treatment-Emergent Adverse Events: Overall Summary
+                                                                 Safety Analysis Set
+                                                                STARS Generated Output
+
+                        _____________________________________________________________________________________________________
+                                                                                 Drug A           Drug B           Total
+                        Number (%) of Participants with                          (N=50)           (N=50)          (N=100)
+                        _____________________________________________________________________________________________________
+
+                        Any TEAE                                              50 (100.0%)      50 (100.0%)     100 (100.0%)
+
+                        TEAE with Grade 3 or Higher                           43 ( 86.0%)      42 ( 84.0%)      85 ( 85.0%)
+
+                        TEAE with Grade 2 or Higher                           50 (100.0%)      49 ( 98.0%)      99 ( 99.0%)
+
+                        TEAE Related to Study Drug                            49 ( 98.0%)      42 ( 84.0%)      91 ( 91.0%)
+
+                        TEAE Related to Study Drug with Grade 3 or Higher     33 ( 66.0%)      27 ( 54.0%)      60 ( 60.0%)
+
+                        TEAE Related to Study Drug with Grade 2 or Higher     49 ( 98.0%)      41 ( 82.0%)      90 ( 90.0%)
+
+                        TE Serious AE                                         39 ( 78.0%)      34 ( 68.0%)      73 ( 73.0%)
+
+                        TE Serious AE Related to Study Drug                   27 ( 54.0%)      17 ( 34.0%)      44 ( 44.0%)
+
+                        TEAE Leading to Premature Discontinuation of          26 ( 52.0%)      25 ( 50.0%)      51 ( 51.0%)
+                        Study Drug
+
+                        TEAE Leading to Dose Interruption of Study Drug       31 ( 62.0%)      25 ( 50.0%)      56 ( 56.0%)
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+TE = treatment-emergent; TEAE = treatment-emergent adverse event.
+Adverse events were coded according to MedDRA Version {XX.X}.
+Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the date of the
+ last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].
+Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The DAIDS
+Version XX]. [Participants were counted only one based on their highest grade for each summary row.]
+Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-s-aebrief.sas v9.4  Output file: t-s-aebrief.pdf 30AUG2026:15:40                                           Page 1 of 2
+                                                                                                                                 Gilead Sciences, Inc.
+                                                                                                                                  Study GS-US-000-0000
+                                       Table 15.11.2.1.1.2: Treatment-Emergent Adverse Events: Overall Summary
+                                                                 Safety Analysis Set
+                                                                STARS Generated Output
+
+                        _____________________________________________________________________________________________________
+                                                                                 Drug A           Drug B           Total
+                        Number (%) of Participants with                          (N=50)           (N=50)          (N=100)
+                        _____________________________________________________________________________________________________
+
+                        TEAE Leading to Dose Reduction of Study Drug          25 ( 50.0%)      24 ( 48.0%)      49 ( 49.0%)
+
+                        TEAE Leading to Premature Discontinuation of Study     4 (  8.0%)       3 (  6.0%)       7 (  7.0%)
+
+                        TEAE Leading to Death                                 26 ( 52.0%)      25 ( 50.0%)      51 ( 51.0%)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________________________________________________________________________________
+TE = treatment-emergent; TEAE = treatment-emergent adverse event.
+Adverse events were coded according to MedDRA Version {XX.X}.
+Treatment-emergent events began on or after the study drug start date up to {XX} days {or study drug-specific therapeutic reach} after the date of the
+ last dose of study drug [and prior to the day of initiation of subsequent anticancer/antiviral/etc therapy].
+Severity grades were defined by [Gilead Grading Scale for Severity of Adverse Events and Laboratory Abnormalities][The CTCAE Version X][The DAIDS
+Version XX]. [Participants were counted only one based on their highest grade for each summary row.]
+Death includes any death that occurred during the study. Percentages for TEAE Dose Limiting Toxicity was calculated based on the number of
+
+Data Extracted: ddmmmyyyy
+Source: .../final/draft1/prog/t-s-aebrief.sas v9.4  Output file: t-s-aebrief.pdf 30AUG2026:15:40                                           Page 2 of 2
