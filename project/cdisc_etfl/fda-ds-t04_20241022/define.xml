@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="define2-1-0.xsl"?>
+<ODM
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="http://www.cdisc.org/ns/odm/v1.3"
+     xmlns:def="http://www.cdisc.org/ns/def/v2.1"
+     xmlns:arm="http://www.cdisc.org/ns/arm/v1.0"
+     ODMVersion="1.3.2"
+     FileType="Snapshot"
+     FileOID="CDISC---eTFL-Portal.ADaMIG.1.3"
+     CreationDateTime="2024-10-08T23:45:51-04:00"
+     SourceSystem="Pinnacle 21 Community"
+     SourceSystemVersion="4.1.0"
+     def:Context="Submission">
+   <Study OID="CDISC---eTFL-Portal.ADaMIG.1.3">
+      <GlobalVariables>
+         <StudyName>CDISC - eTFL Portal</StudyName>
+         <StudyDescription>Test datasets created by updating existing CDISCPILOT ADaM datasets for eTFL Portal</StudyDescription>
+         <ProtocolName>eTFL Portal</ProtocolName>
+      </GlobalVariables>
+      <MetaDataVersion OID="MDV.CDISC---eTFL-Portal.ADaMIG.1.3"
+                       Name="Study CDISC - eTFL Portal Data Definitions"
+                       def:DefineVersion="2.1.0">
+         <def:Standards>
+            <def:Standard OID="STD.ADaMIG 1.3" Name="ADaMIG" Type="IG" Version="1.3" Status="FINAL"/>
+            <def:Standard OID="STD.SDTM 2020-12-18" Name="CDISC/NCI" Type="CT" Version="2020-12-18"
+                          PublishingSet="SDTM"
+                          Status="FINAL"/>
+         </def:Standards>
+         <ItemGroupDef OID="IG.ADSL" Name="ADSL" Repeating="Yes" IsReferenceData="No"
+                       SASDatasetName="ADSL"
+                       Purpose="Analysis"
+                       def:Structure="One record per subject"
+                       def:ArchiveLocationID="LF.ADSL"
+                       def:StandardOID="STD.ADaMIG 1.3"
+                       def:CommentOID="COM.ADSL">
+            <Description>
+               <TranslatedText>Subject-Level Analysis</TranslatedText>
+            </Description>
+            <ItemRef ItemOID="IT.ADSL.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+            <ItemRef ItemOID="IT.ADSL.USUBJID" Mandatory="Yes" OrderNumber="2" KeySequence="2"/>
+            <ItemRef ItemOID="IT.ADSL.SUBJID" Mandatory="Yes" OrderNumber="3"/>
+            <ItemRef ItemOID="IT.ADSL.SITEID" Mandatory="Yes" OrderNumber="4"/>
+            <ItemRef ItemOID="IT.ADSL.SAFFL" Mandatory="No" OrderNumber="5"
+                     MethodOID="MT.ADSL.SAFFL"/>
+            <ItemRef ItemOID="IT.ADSL.ITTFL" Mandatory="No" OrderNumber="6"
+                     MethodOID="MT.ADSL.ITTFL"/>
+            <ItemRef ItemOID="IT.ADSL.RANDFL" Mandatory="No" OrderNumber="7"
+                     MethodOID="MT.ADSL.RANDFL"/>
+            <ItemRef ItemOID="IT.ADSL.PPROTFL" Mandatory="No" OrderNumber="8"
+                     MethodOID="MT.ADSL.PPROTFL"/>
+            <ItemRef ItemOID="IT.ADSL.ARM" Mandatory="Yes" OrderNumber="9"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01P" Mandatory="Yes" OrderNumber="10"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01PN" Mandatory="No" OrderNumber="11"
+                     MethodOID="MT.ADSL.TRT01PN"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01A" Mandatory="No" OrderNumber="12"
+                     MethodOID="MT.ADSL.TRT01A"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01AN" Mandatory="No" OrderNumber="13"
+                     MethodOID="MT.ADSL.TRT01AN"/>
+            <ItemRef ItemOID="IT.ADSL.DCSREAS" Mandatory="No" OrderNumber="14"
+                     MethodOID="MT.ADSL.DCSREAS"/>
+            <ItemRef ItemOID="IT.ADSL.DCSREASN" Mandatory="No" OrderNumber="15"
+                     MethodOID="MT.ADSL.DCSREASN"/>
+            <ItemRef ItemOID="IT.ADSL.DCTREAS" Mandatory="No" OrderNumber="16"
+                     MethodOID="MT.ADSL.DCTREAS"/>
+            <ItemRef ItemOID="IT.ADSL.DCTREASN" Mandatory="No" OrderNumber="17"
+                     MethodOID="MT.ADSL.DCTREASN"/>
+            <def:Class Name="SUBJECT LEVEL ANALYSIS DATASET"/>
+            <def:leaf ID="LF.ADSL" xlink:href="adsl.xpt">
+               <def:title>adsl.xpt</def:title>
+            </def:leaf>
+         </ItemGroupDef>
+         <ItemDef OID="IT.ADSL.STUDYID" Name="STUDYID" DataType="text" Length="12"
+                  SASFieldName="STUDYID">
+            <Description>
+               <TranslatedText>Study Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.STUDYID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.USUBJID" Name="USUBJID" DataType="text" Length="11"
+                  SASFieldName="USUBJID">
+            <Description>
+               <TranslatedText>Unique Subject Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.USUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.SUBJID" Name="SUBJID" DataType="text" Length="4"
+                  SASFieldName="SUBJID">
+            <Description>
+               <TranslatedText>Subject Identifier for the Study</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.SUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.SITEID" Name="SITEID" DataType="text" Length="3"
+                  SASFieldName="SITEID">
+            <Description>
+               <TranslatedText>Study Site Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.SITEID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.SAFFL" Name="SAFFL" DataType="text" Length="1"
+                  SASFieldName="SAFFL">
+            <Description>
+               <TranslatedText>Safety Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.ITTFL" Name="ITTFL" DataType="text" Length="1"
+                  SASFieldName="ITTFL">
+            <Description>
+               <TranslatedText>Intent-To-Treat Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.RANDFL" Name="RANDFL" DataType="text" Length="1"
+                  SASFieldName="RANDFL">
+            <Description>
+               <TranslatedText>Randomized Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.PPROTFL" Name="PPROTFL" DataType="text" Length="1"
+                  SASFieldName="PPROTFL">
+            <Description>
+               <TranslatedText>Per-Protocol Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.ARM" Name="ARM" DataType="text" Length="20" SASFieldName="ARM">
+            <Description>
+               <TranslatedText>Description of Planned Arm</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.ARM</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01P" Name="TRT01P" DataType="text" Length="20"
+                  SASFieldName="TRT01P">
+            <Description>
+               <TranslatedText>Planned Treatment for Period 01</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.ARM</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01PN" Name="TRT01PN" DataType="integer" Length="8"
+                  SASFieldName="TRT01PN">
+            <Description>
+               <TranslatedText>Planned Treatment for Period 01 (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01A" Name="TRT01A" DataType="text" Length="20"
+                  SASFieldName="TRT01A">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01AN" Name="TRT01AN" DataType="integer" Length="8"
+                  SASFieldName="TRT01AN">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01 (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.DCSREAS" Name="DCSREAS" DataType="text" Length="22"
+                  SASFieldName="DCSREAS">
+            <Description>
+               <TranslatedText>Reason for Discontinuation from Study</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.DCSREAS"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.DCSREASN" Name="DCSREASN" DataType="integer" Length="8"
+                  SASFieldName="DCSREASN">
+            <Description>
+               <TranslatedText>Reason for Discon from Study (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.DCSREASN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.DCTREAS" Name="DCTREAS" DataType="text" Length="22"
+                  SASFieldName="DCTREAS">
+            <Description>
+               <TranslatedText>Reason for Discontinuation of Treatment</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.DCTREAS"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.DCTREASN" Name="DCTREASN" DataType="integer" Length="8"
+                  SASFieldName="DCTREASN">
+            <Description>
+               <TranslatedText>Reason for Discon of Treatment (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.DCTREASN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <CodeList OID="CL.ARM" Name="Planned Arm" DataType="text" def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Xanomeline Low Dose" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Xanomeline High Dose" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Placebo" OrderNumber="3"/>
+         </CodeList>
+         <CodeList OID="CL.ARMN" Name="Planned Arm (N)" DataType="integer" def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Xanomeline Low Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Xanomeline High Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Placebo</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.DCSREAS" Name="Reason for Discontinuation from Study" DataType="text"
+                   def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Adverse Event" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Death" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Lost to Follow-up" OrderNumber="3"/>
+            <EnumeratedItem CodedValue="Withdrawal by Subject" OrderNumber="4"/>
+            <EnumeratedItem CodedValue="Physician Decision" OrderNumber="5"/>
+            <EnumeratedItem CodedValue="Protocol Deviation" OrderNumber="6"/>
+            <EnumeratedItem CodedValue="Other" OrderNumber="7"/>
+         </CodeList>
+         <CodeList OID="CL.DCSREASN" Name="Reason for Discon from Study (N)" DataType="integer"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Adverse Event</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Death</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Lost to Follow-up</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="4" OrderNumber="4">
+               <Decode>
+                  <TranslatedText>Withdrawal by Subject</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="5" OrderNumber="5">
+               <Decode>
+                  <TranslatedText>Physician Decision</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="6" OrderNumber="6">
+               <Decode>
+                  <TranslatedText>Protocol Deviation</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="7" OrderNumber="7">
+               <Decode>
+                  <TranslatedText>Other</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.DCTREAS" Name="Reason for Discon from Treatment" DataType="text"
+                   def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Adverse Event" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Lack of Efficacy" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Protocol Deviation" OrderNumber="3"/>
+            <EnumeratedItem CodedValue="Death" OrderNumber="4"/>
+            <EnumeratedItem CodedValue="Withdrawal by Subject" OrderNumber="5"/>
+            <EnumeratedItem CodedValue="Other" OrderNumber="6"/>
+         </CodeList>
+         <CodeList OID="CL.DCTREASN" Name="Reason for Discon from Treatment (N)"
+                   DataType="integer"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Adverse Event</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Lack of Efficacy</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Protocol Deviation</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="4" OrderNumber="4">
+               <Decode>
+                  <TranslatedText>Death</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="5" OrderNumber="5">
+               <Decode>
+                  <TranslatedText>Withdrawal by Subject</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="6" OrderNumber="6">
+               <Decode>
+                  <TranslatedText>Other</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.YN" Name="No Yes Response" DataType="text"
+                   def:StandardOID="STD.SDTM 2020-12-18">
+            <CodeListItem CodedValue="N" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>No</TranslatedText>
+               </Decode>
+               <Alias Name="C49487" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <CodeListItem CodedValue="Y" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Yes</TranslatedText>
+               </Decode>
+               <Alias Name="C49488" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <Alias Name="C66742" Context="nci:ExtCodeID"/>
+         </CodeList>
+         <MethodDef OID="MT.ADSL.SAFFL" Name="Algorithm to derive ADSL.SAFFL" Type="Computation">
+            <Description>
+               <TranslatedText>Y if ITTFL='Y' and TRTSDT ne missing. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.ITTFL" Name="Algorithm to derive ADSL.ITTFL" Type="Computation">
+            <Description>
+               <TranslatedText>Y if ARMCD ne ' '. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.RANDFL" Name="Algorithm to derive ADSL.RANDFL" Type="Computation">
+            <Description>
+               <TranslatedText>Y if ARMCD ne ' '. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.PPROTFL" Name="Algorithm to derive ADSL.PPROTFL"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Y if SAFFL='Y' and subject met all protocol defined criterias. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01PN" Name="Algorithm to derive ADSL.TRT01PN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for TRT01P which corresponds to the randomized dose</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01A" Name="Algorithm to derive ADSL.TRT01A" Type="Computation">
+            <Description>
+               <TranslatedText>TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01AN" Name="Algorithm to derive ADSL.TRT01AN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for TRT01A which corresponds to the randomized dose</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.DCSREAS" Name="Algorithm to derive ADSL.DCSREASN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Grouping of DCDECOD values to support summarizing study completion status and reason for study discontinuation</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.DCSREASN" Name="Algorithm to derive ADSL.DCSREASN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for DCSREAS which corresponds to the study completion status and reason for study discontinuation</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.DCTREAS" Name="Algorithm to derive ADSL.DCTREASN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Grouping of DCDECOD values to support summarizing treatment completion status and reason for treatment discontinuation</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.DCTREASN" Name="Algorithm to derive ADSL.DCTREASN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for DCTREAS which corresponds to the treatment completion status and reason for treatment discontinuation</TranslatedText>
+            </Description>
+         </MethodDef>
+      </MetaDataVersion>
+   </Study>
+</ODM>

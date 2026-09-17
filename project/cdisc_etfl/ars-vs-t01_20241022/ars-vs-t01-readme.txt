@@ -1,0 +1,11 @@
+The ARS-VS-T01 package contains the following files:
+- adsl.xpt, advs.xpt: ADaM datasets in SAS XPORT format
+- define.xml: Define-XML description of the ADaM dataset(s)
+- define2-1-0.xsl:Stylesheet to view define.xml
+- ars-vs-t01-shell.pdf: The table shell in PDF format
+- ars-vs-t01-shell.rtf: The table shell in RTF format
+- ars-vs-t01.rtf: The table containing results in RTF format
+- ars-vs-t01-ard.json: The ARD containing results in Dataset-JSON format
+- ars-vs-t01-ars.xlsx: The ARS metadata in Excel format
+- ars-vs-t01-ars.json: The ARS metadata in JSON format
+- ars-vs-t01-readme.txt: This file

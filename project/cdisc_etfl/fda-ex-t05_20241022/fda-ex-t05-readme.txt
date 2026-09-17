@@ -1,0 +1,11 @@
+The FDA-EX-T05 package contains the following files:
+- adsl.xpt: ADaM dataset in SAS XPORT format
+- define.xml: Define-XML description of the ADaM dataset(s)
+- define2-1-0.xsl:Stylesheet to view define.xml
+- fda-ex-t05-shell.pdf: The table shell in PDF format
+- fda-ex-t05-shell.rtf: The table shell in RTF format
+- fda-ex-t05.rtf: The table containing results in RTF format
+- fda-ex-t05-ard.json: The ARD containing results in Dataset-JSON format
+- fda-ex-t05-ars.xlsx: The ARS metadata in Excel format
+- fda-ex-t05-ars.json: The ARS metadata in JSON format
+- fda-ex-t05-readme.txt: This file

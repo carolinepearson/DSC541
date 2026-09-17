@@ -1,0 +1,11 @@
+The FDA-AE-T09 package contains the following files:
+- adsl.xpt, adae.xpt: ADaM datasets in SAS XPORT format
+- define.xml: Define-XML description of the ADaM dataset(s)
+- define2-1-0.xsl:Stylesheet to view define.xml
+- fda-ae-t09-shell.pdf: The table shell in PDF format
+- fda-ae-t09-shell.rtf: The table shell in RTF format
+- fda-ae-t09.rtf: The table containing results in RTF format
+- fda-ae-t09-ard.json: The ARD containing results in Dataset-JSON format
+- fda-ae-t09-ars.xlsx: The ARS metadata in Excel format
+- fda-ae-t09-ars.json: The ARS metadata in JSON format
+- fda-ae-t09-readme.txt: This file

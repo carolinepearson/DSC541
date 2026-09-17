@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="define2-1-0.xsl"?>
+<ODM
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="http://www.cdisc.org/ns/odm/v1.3"
+     xmlns:def="http://www.cdisc.org/ns/def/v2.1"
+     xmlns:arm="http://www.cdisc.org/ns/arm/v1.0"
+     ODMVersion="1.3.2"
+     FileType="Snapshot"
+     FileOID="CDISC---eTFL-Portal.ADaMIG.1.3"
+     CreationDateTime="2024-10-08T23:53:25-04:00"
+     SourceSystem="Pinnacle 21 Community"
+     SourceSystemVersion="4.1.0"
+     def:Context="Submission">
+   <Study OID="CDISC---eTFL-Portal.ADaMIG.1.3">
+      <GlobalVariables>
+         <StudyName>CDISC - eTFL Portal</StudyName>
+         <StudyDescription>Test datasets created by updating existing CDISCPILOT ADaM datasets for eTFL Portal</StudyDescription>
+         <ProtocolName>eTFL Portal</ProtocolName>
+      </GlobalVariables>
+      <MetaDataVersion OID="MDV.CDISC---eTFL-Portal.ADaMIG.1.3"
+                       Name="Study CDISC - eTFL Portal Data Definitions"
+                       def:DefineVersion="2.1.0">
+         <def:Standards>
+            <def:Standard OID="STD.ADaMIG 1.1" Name="ADaMIG" Type="IG" Version="1.1" Status="FINAL"/>
+            <def:Standard OID="STD.ADaMIG 1.3" Name="ADaMIG" Type="IG" Version="1.3" Status="FINAL"/>
+            <def:Standard OID="STD.SDTM 2020-12-18" Name="CDISC/NCI" Type="CT" Version="2020-12-18"
+                          PublishingSet="SDTM"
+                          Status="FINAL"/>
+         </def:Standards>
+         <ItemGroupDef OID="IG.ADSL" Name="ADSL" Repeating="Yes" IsReferenceData="No"
+                       SASDatasetName="ADSL"
+                       Purpose="Analysis"
+                       def:Structure="One record per subject"
+                       def:ArchiveLocationID="LF.ADSL"
+                       def:StandardOID="STD.ADaMIG 1.3"
+                       def:CommentOID="COM.ADSL">
+            <Description>
+               <TranslatedText>Subject-Level Analysis</TranslatedText>
+            </Description>
+            <ItemRef ItemOID="IT.ADSL.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+            <ItemRef ItemOID="IT.ADSL.USUBJID" Mandatory="Yes" OrderNumber="2" KeySequence="2"/>
+            <ItemRef ItemOID="IT.ADSL.SAFFL" Mandatory="No" OrderNumber="3"
+                     MethodOID="MT.ADSL.SAFFL"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01A" Mandatory="No" OrderNumber="4"
+                     MethodOID="MT.ADSL.TRT01A"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01AN" Mandatory="No" OrderNumber="5"
+                     MethodOID="MT.ADSL.TRT01AN"/>
+            <def:Class Name="SUBJECT LEVEL ANALYSIS DATASET"/>
+            <def:leaf ID="LF.ADSL" xlink:href="adsl.xpt">
+               <def:title>adsl.xpt</def:title>
+            </def:leaf>
+         </ItemGroupDef>
+         <ItemGroupDef OID="IG.ADAE" Name="ADAE" Repeating="Yes" IsReferenceData="No"
+                       SASDatasetName="ADAE"
+                       Purpose="Analysis"
+                       def:Structure="one record per subject per adverse event"
+                       def:ArchiveLocationID="LF.ADAE"
+                       def:StandardOID="STD.ADaMIG 1.1"
+                       def:CommentOID="COM.ADAE">
+            <Description>
+               <TranslatedText>Adverse Events Analysis Dataset</TranslatedText>
+            </Description>
+            <ItemRef ItemOID="IT.ADAE.STUDYID" Mandatory="No" OrderNumber="1"/>
+            <ItemRef ItemOID="IT.ADAE.USUBJID" Mandatory="No" OrderNumber="2" KeySequence="1"/>
+            <ItemRef ItemOID="IT.ADAE.SITEID" Mandatory="No" OrderNumber="3"/>
+            <ItemRef ItemOID="IT.ADAE.TRTA" Mandatory="No" OrderNumber="4"/>
+            <ItemRef ItemOID="IT.ADAE.TRTAN" Mandatory="No" OrderNumber="5"/>
+            <ItemRef ItemOID="IT.ADAE.AEDECOD" Mandatory="No" OrderNumber="6"/>
+            <ItemRef ItemOID="IT.ADAE.TRTEMFL" Mandatory="No" OrderNumber="7"
+                     MethodOID="MT.ADAE.TRTEMFL"/>
+            <ItemRef ItemOID="IT.ADAE.AOCCPFL" Mandatory="No" OrderNumber="8"
+                     MethodOID="MT.ADAE.AOCCPFL"/>
+            <def:Class Name="OCCURRENCE DATA STRUCTURE">
+               <def:SubClass Name="ADVERSE EVENT"/>
+            </def:Class>
+            <def:leaf ID="LF.ADAE" xlink:href="adae.xpt">
+               <def:title>adae.xpt</def:title>
+            </def:leaf>
+         </ItemGroupDef>
+         <ItemDef OID="IT.ADSL.STUDYID" Name="STUDYID" DataType="text" Length="12"
+                  SASFieldName="STUDYID">
+            <Description>
+               <TranslatedText>Study Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.STUDYID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.USUBJID" Name="USUBJID" DataType="text" Length="11"
+                  SASFieldName="USUBJID">
+            <Description>
+               <TranslatedText>Unique Subject Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.USUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.SAFFL" Name="SAFFL" DataType="text" Length="1"
+                  SASFieldName="SAFFL">
+            <Description>
+               <TranslatedText>Safety Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01A" Name="TRT01A" DataType="text" Length="20"
+                  SASFieldName="TRT01A">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01AN" Name="TRT01AN" DataType="integer" Length="8"
+                  SASFieldName="TRT01AN">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01 (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.STUDYID" Name="STUDYID" DataType="text" Length="12"
+                  SASFieldName="STUDYID">
+            <Description>
+               <TranslatedText>Study Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.STUDYID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.USUBJID" Name="USUBJID" DataType="text" Length="11"
+                  SASFieldName="USUBJID">
+            <Description>
+               <TranslatedText>Unique Subject Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>AE.USUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.SITEID" Name="SITEID" DataType="text" Length="3"
+                  SASFieldName="SITEID">
+            <Description>
+               <TranslatedText>Study Site Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.SITEID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.TRTA" Name="TRTA" DataType="text" Length="20" SASFieldName="TRTA">
+            <Description>
+               <TranslatedText>Actual Treatment</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01A</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.TRTAN" Name="TRTAN" DataType="integer" Length="8"
+                  SASFieldName="TRTAN">
+            <Description>
+               <TranslatedText>Actual Treatment (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01AN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.AEDECOD" Name="AEDECOD" DataType="text" Length="46"
+                  SASFieldName="AEDECOD">
+            <Description>
+               <TranslatedText>Dictionary-Derived Term</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.MedDRA"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>AE.AEDECOD</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.TRTEMFL" Name="TRTEMFL" DataType="text" Length="1"
+                  SASFieldName="TRTEMFL">
+            <Description>
+               <TranslatedText>Treatment Emergent Analysis Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.Y_BLANK"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADAE.AOCCPFL" Name="AOCCPFL" DataType="text" Length="1"
+                  SASFieldName="AOCCPFL">
+            <Description>
+               <TranslatedText>1st Occurrence of Preferred Term Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.Y_BLANK"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <CodeList OID="CL.ARM" Name="Planned Arm" DataType="text" def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Xanomeline Low Dose" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Xanomeline High Dose" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Placebo" OrderNumber="3"/>
+         </CodeList>
+         <CodeList OID="CL.ARMN" Name="Planned Arm (N)" DataType="integer" def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Xanomeline Low Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Xanomeline High Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Placebo</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.Y_BLANK" Name="Y Only" DataType="text"
+                   def:StandardOID="STD.SDTM 2020-12-18">
+            <CodeListItem CodedValue="Y" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Yes</TranslatedText>
+               </Decode>
+               <Alias Name="C49488" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <Alias Name="C66742" Context="nci:ExtCodeID"/>
+         </CodeList>
+         <CodeList OID="CL.YN" Name="No Yes Response" DataType="text"
+                   def:StandardOID="STD.SDTM 2020-12-18">
+            <CodeListItem CodedValue="N" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>No</TranslatedText>
+               </Decode>
+               <Alias Name="C49487" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <CodeListItem CodedValue="Y" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Yes</TranslatedText>
+               </Decode>
+               <Alias Name="C49488" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <Alias Name="C66742" Context="nci:ExtCodeID"/>
+         </CodeList>
+         <CodeList OID="CL.MedDRA" Name="MedDRA Dictionary" DataType="text">
+            <ExternalCodeList Dictionary="MedDRA" Version="8.0"/>
+         </CodeList>
+         <MethodDef OID="MT.ADAE.TRTEMFL" Name="Algorithm to derive ADAE.TRTEMFL"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>If ASTDT &gt;= TRTSDT &gt; . then TRTEMFL='Y'. Otherwise TRTEMFL='N'</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADAE.AOCCPFL" Name="Algorithm to derive ADAE.AOCCPFL"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Subset to TRTEMFL='Y' and sort by Subject (USUBJID), System Organ Class (AEBODSYS), Preferred Term (AEDECOD), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCCPFL=?Y?) within each Subject, SOC, and PT</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.SAFFL" Name="Algorithm to derive ADSL.SAFFL" Type="Computation">
+            <Description>
+               <TranslatedText>Y if ITTFL='Y' and TRTSDT ne missing. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01A" Name="Algorithm to derive ADSL.TRT01A" Type="Computation">
+            <Description>
+               <TranslatedText>TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01AN" Name="Algorithm to derive ADSL.TRT01AN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for TRT01A which corresponds to the randomized dose</TranslatedText>
+            </Description>
+         </MethodDef>
+      </MetaDataVersion>
+   </Study>
+</ODM>

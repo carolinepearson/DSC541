@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="define2-1-0.xsl"?>
+<ODM
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="http://www.cdisc.org/ns/odm/v1.3"
+     xmlns:def="http://www.cdisc.org/ns/def/v2.1"
+     xmlns:arm="http://www.cdisc.org/ns/arm/v1.0"
+     ODMVersion="1.3.2"
+     FileType="Snapshot"
+     FileOID="CDISC---eTFL-Portal.ADaMIG.1.3"
+     CreationDateTime="2024-10-08T23:55:44-04:00"
+     SourceSystem="Pinnacle 21 Community"
+     SourceSystemVersion="4.1.0"
+     def:Context="Submission">
+   <Study OID="CDISC---eTFL-Portal.ADaMIG.1.3">
+      <GlobalVariables>
+         <StudyName>CDISC - eTFL Portal</StudyName>
+         <StudyDescription>Test datasets created by updating existing CDISCPILOT ADaM datasets for eTFL Portal</StudyDescription>
+         <ProtocolName>eTFL Portal</ProtocolName>
+      </GlobalVariables>
+      <MetaDataVersion OID="MDV.CDISC---eTFL-Portal.ADaMIG.1.3"
+                       Name="Study CDISC - eTFL Portal Data Definitions"
+                       def:DefineVersion="2.1.0">
+         <def:Standards>
+            <def:Standard OID="STD.ADaMIG 1.3" Name="ADaMIG" Type="IG" Version="1.3" Status="FINAL"/>
+            <def:Standard OID="STD.SDTM 2020-12-18" Name="CDISC/NCI" Type="CT" Version="2020-12-18"
+                          PublishingSet="SDTM"
+                          Status="FINAL"/>
+         </def:Standards>
+         <def:ValueListDef OID="VL.ADVS.AVAL">
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.DIABP" OrderNumber="1" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.DIABP"/>
+            </ItemRef>
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.HEIGHT" OrderNumber="2" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.HEIGHT"/>
+            </ItemRef>
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.PULSE" OrderNumber="3" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.PULSE"/>
+            </ItemRef>
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.SYSBP" OrderNumber="4" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.SYSBP"/>
+            </ItemRef>
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.TEMP" OrderNumber="5" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.TEMP"/>
+            </ItemRef>
+            <ItemRef ItemOID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.WEIGHT" OrderNumber="6" Mandatory="No">
+               <def:WhereClauseRef WhereClauseOID="WC.ADVS.PARAMCD.EQ.WEIGHT"/>
+            </ItemRef>
+         </def:ValueListDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.DIABP">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>DIABP</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.HEIGHT">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>HEIGHT</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.PULSE">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>PULSE</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.SYSBP">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>SYSBP</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.TEMP">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>TEMP</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <def:WhereClauseDef OID="WC.ADVS.PARAMCD.EQ.WEIGHT">
+            <RangeCheck SoftHard="Soft" def:ItemOID="IT.ADVS.PARAMCD" Comparator="EQ">
+               <CheckValue>WEIGHT</CheckValue>
+            </RangeCheck>
+         </def:WhereClauseDef>
+         <ItemGroupDef OID="IG.ADSL" Name="ADSL" Repeating="Yes" IsReferenceData="No"
+                       SASDatasetName="ADSL"
+                       Purpose="Analysis"
+                       def:Structure="One record per subject"
+                       def:ArchiveLocationID="LF.ADSL"
+                       def:StandardOID="STD.ADaMIG 1.3">
+            <Description>
+               <TranslatedText>Subject-Level Analysis</TranslatedText>
+            </Description>
+            <ItemRef ItemOID="IT.ADSL.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+            <ItemRef ItemOID="IT.ADSL.USUBJID" Mandatory="Yes" OrderNumber="2" KeySequence="2"/>
+            <ItemRef ItemOID="IT.ADSL.SAFFL" Mandatory="No" OrderNumber="3"
+                     MethodOID="MT.ADSL.SAFFL"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01A" Mandatory="No" OrderNumber="4"
+                     MethodOID="MT.ADSL.TRT01A"/>
+            <ItemRef ItemOID="IT.ADSL.TRT01AN" Mandatory="No" OrderNumber="5"
+                     MethodOID="MT.ADSL.TRT01AN"/>
+            <def:Class Name="SUBJECT LEVEL ANALYSIS DATASET"/>
+            <def:leaf ID="LF.ADSL" xlink:href="adsl.xpt">
+               <def:title>adsl.xpt</def:title>
+            </def:leaf>
+         </ItemGroupDef>
+         <ItemGroupDef OID="IG.ADVS" Name="ADVS" Repeating="Yes" IsReferenceData="No"
+                       SASDatasetName="ADVS"
+                       Purpose="Analysis"
+                       def:Structure="One or more records per subject per analysis parameter per analysis timepoint"
+                       def:ArchiveLocationID="LF.ADVS"
+                       def:StandardOID="STD.ADaMIG 1.3">
+            <Description>
+               <TranslatedText>Vital Signs Analysis Dataset</TranslatedText>
+            </Description>
+            <ItemRef ItemOID="IT.ADVS.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+            <ItemRef ItemOID="IT.ADVS.USUBJID" Mandatory="Yes" OrderNumber="2" KeySequence="2"/>
+            <ItemRef ItemOID="IT.ADVS.TRTP" Mandatory="No" OrderNumber="3"/>
+            <ItemRef ItemOID="IT.ADVS.TRTPN" Mandatory="No" OrderNumber="4"/>
+            <ItemRef ItemOID="IT.ADVS.TRTA" Mandatory="No" OrderNumber="5"/>
+            <ItemRef ItemOID="IT.ADVS.TRTAN" Mandatory="No" OrderNumber="6"/>
+            <ItemRef ItemOID="IT.ADVS.PARAM" Mandatory="Yes" OrderNumber="7" KeySequence="3"/>
+            <ItemRef ItemOID="IT.ADVS.PARAMCD" Mandatory="Yes" OrderNumber="8" KeySequence="4"/>
+            <ItemRef ItemOID="IT.ADVS.AVISIT" Mandatory="No" OrderNumber="9"
+                     MethodOID="MT.ADVS.AVISIT"/>
+            <ItemRef ItemOID="IT.ADVS.AVISITN" Mandatory="No" OrderNumber="10"/>
+            <ItemRef ItemOID="IT.ADVS.VISIT" Mandatory="No" OrderNumber="11"/>
+            <ItemRef ItemOID="IT.ADVS.VISITNUM" Mandatory="No" OrderNumber="12"/>
+            <ItemRef ItemOID="IT.ADVS.PARAMN" Mandatory="No" OrderNumber="13"/>
+            <ItemRef ItemOID="IT.ADVS.AVAL" Mandatory="No" OrderNumber="14" KeySequence="5"/>
+            <ItemRef ItemOID="IT.ADVS.BASE" Mandatory="No" OrderNumber="15" MethodOID="MT.ADVS.BASE"/>
+            <ItemRef ItemOID="IT.ADVS.BASETYPE" Mandatory="No" OrderNumber="16"/>
+            <ItemRef ItemOID="IT.ADVS.CHG" Mandatory="No" OrderNumber="17" MethodOID="MT.CHG"/>
+            <def:Class Name="BASIC DATA STRUCTURE"/>
+            <def:leaf ID="LF.ADVS" xlink:href="advs.xpt">
+               <def:title>advs.xpt</def:title>
+            </def:leaf>
+         </ItemGroupDef>
+         <ItemDef OID="IT.ADSL.STUDYID" Name="STUDYID" DataType="text" Length="12"
+                  SASFieldName="STUDYID">
+            <Description>
+               <TranslatedText>Study Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.STUDYID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.USUBJID" Name="USUBJID" DataType="text" Length="11"
+                  SASFieldName="USUBJID">
+            <Description>
+               <TranslatedText>Unique Subject Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>DM.USUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.SAFFL" Name="SAFFL" DataType="text" Length="1"
+                  SASFieldName="SAFFL">
+            <Description>
+               <TranslatedText>Safety Population Flag</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.YN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01A" Name="TRT01A" DataType="text" Length="20"
+                  SASFieldName="TRT01A">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADSL.TRT01AN" Name="TRT01AN" DataType="integer" Length="8"
+                  SASFieldName="TRT01AN">
+            <Description>
+               <TranslatedText>Actual Treatment for Period 01 (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.STUDYID" Name="STUDYID" DataType="text" Length="12"
+                  SASFieldName="STUDYID">
+            <Description>
+               <TranslatedText>Study Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.STUDYID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.USUBJID" Name="USUBJID" DataType="text" Length="11"
+                  SASFieldName="USUBJID">
+            <Description>
+               <TranslatedText>Unique Subject Identifier</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.USUBJID</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.TRTP" Name="TRTP" DataType="text" Length="20" SASFieldName="TRTP">
+            <Description>
+               <TranslatedText>Planned Treatment</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01P</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.TRTPN" Name="TRTPN" DataType="integer" Length="8"
+                  SASFieldName="TRTPN">
+            <Description>
+               <TranslatedText>Planned Treatment (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01PN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.TRTA" Name="TRTA" DataType="text" Length="20" SASFieldName="TRTA">
+            <Description>
+               <TranslatedText>Actual Treatment</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01A</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.TRTAN" Name="TRTAN" DataType="integer" Length="8"
+                  SASFieldName="TRTAN">
+            <Description>
+               <TranslatedText>Actual Treatment (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ARMN"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>ADSL.TRT01AN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.PARAM" Name="PARAM" DataType="text" Length="100"
+                  SASFieldName="PARAM">
+            <Description>
+               <TranslatedText>Parameter</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.PARAM_ADVS"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSTEST</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.PARAMCD" Name="PARAMCD" DataType="text" Length="8"
+                  SASFieldName="PARAMCD">
+            <Description>
+               <TranslatedText>Parameter Code</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.PARAMCD_ADVS"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSTESTCD</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVISIT" Name="AVISIT" DataType="text" Length="16"
+                  SASFieldName="AVISIT">
+            <Description>
+               <TranslatedText>Analysis Visit</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ADVS.AVISIT"/>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVISITN" Name="AVISITN" DataType="integer" Length="8"
+                  SASFieldName="AVISITN"
+                  def:CommentOID="COM.AVISITN">
+            <Description>
+               <TranslatedText>Analysis Visit (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ADVS.AVISITN"/>
+            <def:Origin Type="Assigned" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.VISIT" Name="VISIT" DataType="text" Length="19"
+                  SASFieldName="VISIT">
+            <Description>
+               <TranslatedText>Visit Name</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ADVS.VISIT"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VISIT</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.VISITNUM" Name="VISITNUM" DataType="float" Length="4"
+                  SignificantDigits="1"
+                  SASFieldName="VISITNUM">
+            <Description>
+               <TranslatedText>Visit Number</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.ADVS.VISITNUM"/>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VISITNUM</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.PARAMN" Name="PARAMN" DataType="integer" Length="8"
+                  SASFieldName="PARAMN"
+                  def:CommentOID="COM.PARAMN">
+            <Description>
+               <TranslatedText>Parameter (N)</TranslatedText>
+            </Description>
+            <CodeListRef CodeListOID="CL.PARAMN_ADVS"/>
+            <def:Origin Type="Assigned" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL" Name="AVAL" DataType="float" Length="5"
+                  SignificantDigits="2"
+                  SASFieldName="AVAL"
+                  def:CommentOID="COM.VLM">
+            <Description>
+               <TranslatedText>Analysis Value</TranslatedText>
+            </Description>
+            <def:Origin Type="Assigned"/>
+            <def:ValueListRef ValueListOID="VL.ADVS.AVAL"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.BASE" Name="BASE" DataType="float" Length="5"
+                  SignificantDigits="2"
+                  SASFieldName="BASE">
+            <Description>
+               <TranslatedText>Baseline Value</TranslatedText>
+            </Description>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.BASETYPE" Name="BASETYPE" DataType="text" Length="30"
+                  SASFieldName="BASETYPE">
+            <Description>
+               <TranslatedText>Baseline Type</TranslatedText>
+            </Description>
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSTPT</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.CHG" Name="CHG" DataType="float" Length="5" SignificantDigits="2"
+                  SASFieldName="CHG">
+            <Description>
+               <TranslatedText>Change from Baseline</TranslatedText>
+            </Description>
+            <def:Origin Type="Derived" Source="Sponsor"/>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.DIABP" Name="AVAL.ADVS.PARAMCD.EQ.DIABP"
+                  DataType="integer"
+                  Length="3"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.HEIGHT" Name="AVAL.ADVS.PARAMCD.EQ.HEIGHT"
+                  DataType="float"
+                  Length="6"
+                  SignificantDigits="2"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.PULSE" Name="AVAL.ADVS.PARAMCD.EQ.PULSE"
+                  DataType="integer"
+                  Length="3"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.SYSBP" Name="AVAL.ADVS.PARAMCD.EQ.SYSBP"
+                  DataType="integer"
+                  Length="3"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.TEMP" Name="AVAL.ADVS.PARAMCD.EQ.TEMP"
+                  DataType="float"
+                  Length="5"
+                  SignificantDigits="2"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <ItemDef OID="IT.ADVS.AVAL.ADVS.PARAMCD.EQ.WEIGHT" Name="AVAL.ADVS.PARAMCD.EQ.WEIGHT"
+                  DataType="float"
+                  Length="6"
+                  SignificantDigits="2"
+                  SASFieldName="AVAL">
+            <def:Origin Type="Predecessor">
+               <Description>
+                  <TranslatedText>VS.VSSTRESN</TranslatedText>
+               </Description>
+            </def:Origin>
+         </ItemDef>
+         <CodeList OID="CL.ADVS.ATPT" Name="Analysis Timepoint (ADVS)" DataType="text"
+                   def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="AFTER LYING DOWN FOR 5 MINUTES" OrderNumber="815"/>
+            <EnumeratedItem CodedValue="AFTER STANDING FOR 1 MINUTE" OrderNumber="816"/>
+            <EnumeratedItem CodedValue="AFTER STANDING FOR 3 MINUTES" OrderNumber="817"/>
+         </CodeList>
+         <CodeList OID="CL.ADVS.ATPTN" Name="Analysis Timepoint (N) (ADVS)" DataType="integer"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="815">
+               <Decode>
+                  <TranslatedText>AFTER LYING DOWN FOR 5 MINUTES</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="816">
+               <Decode>
+                  <TranslatedText>AFTER STANDING FOR 1 MINUTE</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="817">
+               <Decode>
+                  <TranslatedText>AFTER STANDING FOR 3 MINUTES</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.ADVS.AVISIT" Name="Analysis Visit (ADVS)" DataType="text"
+                   def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Baseline" OrderNumber="0"/>
+            <EnumeratedItem CodedValue="Week 2" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Week 4" OrderNumber="4"/>
+            <EnumeratedItem CodedValue="Week 6" OrderNumber="6"/>
+            <EnumeratedItem CodedValue="Week 8" OrderNumber="8"/>
+            <EnumeratedItem CodedValue="Week 12" OrderNumber="12"/>
+            <EnumeratedItem CodedValue="Week 16" OrderNumber="16"/>
+            <EnumeratedItem CodedValue="Week 20" OrderNumber="20"/>
+            <EnumeratedItem CodedValue="Week 24" OrderNumber="24"/>
+            <EnumeratedItem CodedValue="Week 26" OrderNumber="26"/>
+            <EnumeratedItem CodedValue="End of Treatment" OrderNumber="99"/>
+         </CodeList>
+         <CodeList OID="CL.ADVS.AVISITN" Name="Analysis Visit (N) (ADVS)" DataType="integer"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="0">
+               <Decode>
+                  <TranslatedText>Baseline</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2">
+               <Decode>
+                  <TranslatedText>Week 2</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="4">
+               <Decode>
+                  <TranslatedText>Week 4</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="6">
+               <Decode>
+                  <TranslatedText>Week 6</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="8">
+               <Decode>
+                  <TranslatedText>Week 8</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="12">
+               <Decode>
+                  <TranslatedText>Week 12</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="16">
+               <Decode>
+                  <TranslatedText>Week 16</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="20">
+               <Decode>
+                  <TranslatedText>Week 20</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="24">
+               <Decode>
+                  <TranslatedText>Week 24</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="26">
+               <Decode>
+                  <TranslatedText>Week 26</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="99">
+               <Decode>
+                  <TranslatedText>End of Treatment</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.ADVS.VISIT" Name="Visit (ADVS)" DataType="text" def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="SCREENING 1" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="SCREENING 2" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="BASELINE" OrderNumber="3"/>
+            <EnumeratedItem CodedValue="UNSCHEDULED 3.1" OrderNumber="4"/>
+            <EnumeratedItem CodedValue="AMBUL ECG PLACEMENT" OrderNumber="5"/>
+            <EnumeratedItem CodedValue="WEEK 2" OrderNumber="6"/>
+            <EnumeratedItem CodedValue="WEEK 4" OrderNumber="7"/>
+            <EnumeratedItem CodedValue="AMBUL ECG REMOVAL" OrderNumber="8"/>
+            <EnumeratedItem CodedValue="WEEK 6" OrderNumber="9"/>
+            <EnumeratedItem CodedValue="WEEK 8" OrderNumber="10"/>
+            <EnumeratedItem CodedValue="WEEK 12" OrderNumber="11"/>
+            <EnumeratedItem CodedValue="WEEK 16" OrderNumber="12"/>
+            <EnumeratedItem CodedValue="WEEK 20" OrderNumber="13"/>
+            <EnumeratedItem CodedValue="WEEK 24" OrderNumber="14"/>
+            <EnumeratedItem CodedValue="WEEK 26" OrderNumber="15"/>
+            <EnumeratedItem CodedValue="RETRIEVAL" OrderNumber="16"/>
+         </CodeList>
+         <CodeList OID="CL.ADVS.VISITNUM" Name="Visit (N) (ADVS)" DataType="float"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1">
+               <Decode>
+                  <TranslatedText>SCREENING 1</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2">
+               <Decode>
+                  <TranslatedText>SCREENING 2</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3">
+               <Decode>
+                  <TranslatedText>BASELINE</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3.1">
+               <Decode>
+                  <TranslatedText>UNSCHEDULED 3.1</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3.5">
+               <Decode>
+                  <TranslatedText>AMBUL ECG PLACEMENT</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="4">
+               <Decode>
+                  <TranslatedText>WEEK 2</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="5">
+               <Decode>
+                  <TranslatedText>WEEK 4</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="6">
+               <Decode>
+                  <TranslatedText>AMBUL ECG REMOVAL</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="7">
+               <Decode>
+                  <TranslatedText>WEEK 6</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="8">
+               <Decode>
+                  <TranslatedText>WEEK 8</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="9">
+               <Decode>
+                  <TranslatedText>WEEK 12</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="10">
+               <Decode>
+                  <TranslatedText>WEEK 16</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="11">
+               <Decode>
+                  <TranslatedText>WEEK 20</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="12">
+               <Decode>
+                  <TranslatedText>WEEK 24</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="13">
+               <Decode>
+                  <TranslatedText>WEEK 26</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="201">
+               <Decode>
+                  <TranslatedText>RETRIEVAL</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.ARM" Name="Planned Arm" DataType="text" def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Xanomeline Low Dose" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Xanomeline High Dose" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Placebo" OrderNumber="3"/>
+         </CodeList>
+         <CodeList OID="CL.ARMN" Name="Planned Arm (N)" DataType="integer" def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Xanomeline Low Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Xanomeline High Dose</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Placebo</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.PARAM_ADVS" Name="PARAM_ADVS" DataType="text" def:IsNonStandard="Yes">
+            <EnumeratedItem CodedValue="Systolic Blood Pressure (mmHg)" OrderNumber="1"/>
+            <EnumeratedItem CodedValue="Diastolic Blood Pressure (mmHg)" OrderNumber="2"/>
+            <EnumeratedItem CodedValue="Pulse Rate (beats/min)" OrderNumber="3"/>
+            <EnumeratedItem CodedValue="Weight (kg)" OrderNumber="4"/>
+            <EnumeratedItem CodedValue="Height (cm)" OrderNumber="5"/>
+            <EnumeratedItem CodedValue="Temperature (C)" OrderNumber="6"/>
+         </CodeList>
+         <CodeList OID="CL.PARAMCD_ADVS" Name="PARAMCD_ADVS" DataType="text"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="SYSBP" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Systolic Blood Pressure (mmHg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="DIABP" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Diastolic Blood Pressure (mmHg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="PULSE" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Pulse Rate (beats/min)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="WEIGHT" OrderNumber="4">
+               <Decode>
+                  <TranslatedText>Weight (kg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="HEIGHT" OrderNumber="5">
+               <Decode>
+                  <TranslatedText>Height (cm)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="TEMP" OrderNumber="6">
+               <Decode>
+                  <TranslatedText>Temperature (C)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.PARAMN_ADVS" Name="PARAMN_ADVS" DataType="integer"
+                   def:IsNonStandard="Yes">
+            <CodeListItem CodedValue="1" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>Systolic Blood Pressure (mmHg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="2" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Diastolic Blood Pressure (mmHg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="3" OrderNumber="3">
+               <Decode>
+                  <TranslatedText>Pulse Rate (beats/min)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="4" OrderNumber="4">
+               <Decode>
+                  <TranslatedText>Weight (kg)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="5" OrderNumber="5">
+               <Decode>
+                  <TranslatedText>Height (cm)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+            <CodeListItem CodedValue="6" OrderNumber="6">
+               <Decode>
+                  <TranslatedText>Temperature (C)</TranslatedText>
+               </Decode>
+            </CodeListItem>
+         </CodeList>
+         <CodeList OID="CL.YN" Name="No Yes Response" DataType="text"
+                   def:StandardOID="STD.SDTM 2020-12-18">
+            <CodeListItem CodedValue="N" OrderNumber="1">
+               <Decode>
+                  <TranslatedText>No</TranslatedText>
+               </Decode>
+               <Alias Name="C49487" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <CodeListItem CodedValue="Y" OrderNumber="2">
+               <Decode>
+                  <TranslatedText>Yes</TranslatedText>
+               </Decode>
+               <Alias Name="C49488" Context="nci:ExtCodeID"/>
+            </CodeListItem>
+            <Alias Name="C66742" Context="nci:ExtCodeID"/>
+         </CodeList>
+         <MethodDef OID="MT.ADSL.SAFFL" Name="Algorithm to derive ADSL.SAFFL" Type="Computation">
+            <Description>
+               <TranslatedText>Y if ITTFL='Y' and TRTSDT ne missing. N otherwise</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01A" Name="Algorithm to derive ADSL.TRT01A" Type="Computation">
+            <Description>
+               <TranslatedText>TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADSL.TRT01AN" Name="Algorithm to derive ADSL.TRT01AN"
+                    Type="Computation">
+            <Description>
+               <TranslatedText>Numeric code for TRT01A which corresponds to the randomized dose</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADVS.AVISIT" Name="Algorithm to derive ADVS.AVISIT" Type="Computation">
+            <Description>
+               <TranslatedText>Derived from VS.VISIT for values to be included in a per visit analysis. AVISIT is missing for values from SDTM screening visits, unscheduled visits, and event related visits, e.g. "AMBUL ECG REMOVAL", which are not included in a per visit analysis.</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.ADVS.BASE" Name="Algorithm to derive ADVS.BASE" Type="Computation">
+            <Description>
+               <TranslatedText>VS.VSSTRESN where VSBLFL="Y"</TranslatedText>
+            </Description>
+         </MethodDef>
+         <MethodDef OID="MT.CHG" Name="Algorithm to derive CHG" Type="Computation">
+            <Description>
+               <TranslatedText>AVAL - BASE, for post baseline records.</TranslatedText>
+            </Description>
+         </MethodDef>
+         <def:CommentDef OID="COM.AVISITN">
+            <Description>
+               <TranslatedText>Numeric code for AVISIT</TranslatedText>
+            </Description>
+         </def:CommentDef>
+         <def:CommentDef OID="COM.PARAMN">
+            <Description>
+               <TranslatedText>Numeric code for Parameter</TranslatedText>
+            </Description>
+         </def:CommentDef>
+         <def:CommentDef OID="COM.VLM">
+            <Description>
+               <TranslatedText>See parameter level metadata</TranslatedText>
+            </Description>
+         </def:CommentDef>
+      </MetaDataVersion>
+   </Study>
+</ODM>

@@ -1,0 +1,834 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\deflang1033\deflangfe1033
+{\fonttbl
+{\f1\fmodern\fprq1\fcharset0 Courier New;}
+}{\colortbl;
+\red0\green0\blue0;
+\red0\green0\blue255;
+\red0\green255\blue255;
+\red0\green255\blue0;
+\red255\green0\blue255;
+\red255\green0\blue0;
+\red255\green255\blue0;
+\red255\green255\blue255;
+\red0\green0\blue128;
+\red0\green128\blue128;
+\red0\green128\blue0;
+\red128\green0\blue128;
+\red128\green0\blue0;
+\red128\green128\blue0;
+\red128\green128\blue128;
+\red192\green192\blue192;
+}{\stylesheet{\widctlpar\adjustright\fs20\cgrid\snext0 Normal;}{\*\cs10\additive Default Paragraph Font;}
+}{\info{\title Version 9.4 SAS System Output}{\author SAS Version 9.4}{\operator SAS Version 9.4}{\version1}{\creatim\yr2024\mo10\dy18\hr10\min11\sec24}}
+\widowctrl\ftnbj\aenddoc\formshade\viewkind1\viewscale100\pgbrdrhead\pgbrdrfoot\fet0\paperw15840\paperh12240\margl1440\margr1440\margt1872\margb1152
+\sectd\linex0\endnhere\pgwsxn15840\pghsxn12240\lndscpsxn\headery1872\footery1152\marglsxn1440\margrsxn1440\margtsxn1872\margbsxn1152
+{\header\pard\plain\qc{
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx4296
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx8652
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{CDISC Pilot - eTFL Library\cell}
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Generated using TFL Designer (Community, v1.0)\cell}
+\pard\plain\intbl\sb10\sa10\qr\f1\fs16\cf1{Page {\field{\*\fldinst { PAGE }}} of {\field{\*\fldinst { NUMPAGES }}}\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{FDA-DM-T02\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\keepn\sb10\sa10\qc\f1\fs16\cf1{Baseline Demographic and Clinical Characteristics\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Safety Population\cell}
+{\row}
+\pard{\par}}}
+{\footer\pard\plain\qc{
+{\par}\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\keepn\sb10\sa10\ql\f1\fs16\cf1{Source: ADSL; Program name: fda-dm-t02.sas\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{Abbreviations: N, number of patients in treatment arm; n, number of patients with given characteristic; SD, standard deviation.\cell}
+{\row}
+\pard}}{\*\bkmkstart IDX}{\*\bkmkend IDX}\trowd\trkeep\trhdr\trqc
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{Characteristics\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline Low Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline High Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Placebo{\line}
+(N=86){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Total Population{\line}
+(N=254){\line}
+n (%)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Sex, n (%)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Male\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  34 ( 40.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  44 ( 52.4)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  33 ( 38.4)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 111 ( 43.7)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Female\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  50 ( 59.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  40 ( 47.6)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  53 ( 61.6)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 143 ( 56.3)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Intersex\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Unknown\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Age, Years\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  n\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 254\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Mean (SD)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 75.7 (8.29)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 74.4 (7.89)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 75.2 (8.59)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 75.1 (8.25)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Median\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 77.5\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 76.0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 76.0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 77.0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Min, Max\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{51, 88\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{56, 88\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{52, 89\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{51, 89\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Age groups (years), n (%)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  <65\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   8 (  9.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  11 ( 13.1)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  14 ( 16.3)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  33 ( 13.0)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  65-80\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  47 ( 56.0)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  55 ( 65.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  42 ( 48.8)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 144 ( 56.7)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  >80\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  29 ( 34.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  18 ( 21.4)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  30 ( 34.9)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  77 ( 30.3)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Race, n (%)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  American Indian or Alaska Native\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   1 (  1.2)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   1 (  0.4)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Asian\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Black or African American\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   6 (  7.1)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   9 ( 10.7)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   8 (  9.3)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  23 (  9.1)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Native Hawaiian or Other Pacific Islander\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  White\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  78 ( 92.9)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  74 ( 88.1)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  78 ( 90.7)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 230 ( 90.6)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Not Reported\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{  Other\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Unknown\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\pard
+\sect\sectd\linex0\endnhere\pgwsxn15840\pghsxn12240\lndscpsxn\headery1872\footery1152\marglsxn1440\margrsxn1440\margtsxn1872\margbsxn1152
+{\header\pard\plain\qc{
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx4296
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx8652
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{CDISC Pilot - eTFL Library\cell}
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Generated using TFL Designer (Community, v1.0)\cell}
+\pard\plain\intbl\sb10\sa10\qr\f1\fs16\cf1{Page {\field{\*\fldinst { PAGE }}} of {\field{\*\fldinst { NUMPAGES }}}\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{FDA-DM-T02\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\keepn\sb10\sa10\qc\f1\fs16\cf1{Baseline Demographic and Clinical Characteristics\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Safety Population\cell}
+{\row}
+\pard{\par}}}
+{\footer\pard\plain\qc{
+{\par}\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\keepn\sb10\sa10\ql\f1\fs16\cf1{Source: ADSL; Program name: fda-dm-t02.sas\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{Abbreviations: N, number of patients in treatment arm; n, number of patients with given characteristic; SD, standard deviation.\cell}
+{\row}
+\pard}}{\*\bkmkstart IDX1}{\*\bkmkend IDX1}\trowd\trkeep\trhdr\trqc
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{Characteristics\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline Low Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline High Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Placebo{\line}
+(N=86){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Total Population{\line}
+(N=254){\line}
+n (%)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Ethnicity, n (%)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Hispanic or Latino\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   6 (  7.1)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   3 (  3.6)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   3 (  3.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  12 (  4.7)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Not Hispanic or Latino\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  78 ( 92.9)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  81 ( 96.4)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  83 ( 96.5)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 242 ( 95.3)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Not Reported\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Unknown\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{   0\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Country of participation, n (%)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  United States\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84 (100)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84 (100)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86 (100)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 254 (100)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Baseline Weight (kg)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  n\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  83\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 253\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Mean (SD)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 67.3 (14.12)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 70.0 (14.65)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 62.8 (12.77)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 66.6 (14.13)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Median\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 64.9\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 69.2\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 60.6\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 66.7\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Min, Max\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{45, 106\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{42, 108\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{34, 86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{34, 108\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Baseline Height (cm)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  n\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 254\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Mean (SD)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{163.4 (10.42)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{165.8 (10.13)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{162.6 (11.52)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{163.9 (10.76)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Median\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{162.6\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{165.1\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{162.6\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{162.9\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Min, Max\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{136, 196\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{146, 191\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{137, 185\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{136, 196\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Baseline BMI (kg/m^2)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  n\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  83\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 253\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Mean (SD)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 25.1 (4.27)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 25.3 (4.16)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 23.6 (3.67)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 24.7 (4.09)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{  Median\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 24.3\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 24.8\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 23.4\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 24.2\cell}
+{\row}
+\trowd\trkeep\trqc
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Min, Max\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{18, 40\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{14, 35\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{15, 33\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{14, 40\cell}
+{\row}
+\pard
+\sect\sectd\linex0\endnhere\pgwsxn15840\pghsxn12240\lndscpsxn\headery1872\footery1152\marglsxn1440\margrsxn1440\margtsxn1872\margbsxn1152
+{\header\pard\plain\qc{
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx4296
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx8652
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{CDISC Pilot - eTFL Library\cell}
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Generated using TFL Designer (Community, v1.0)\cell}
+\pard\plain\intbl\sb10\sa10\qr\f1\fs16\cf1{Page {\field{\*\fldinst { PAGE }}} of {\field{\*\fldinst { NUMPAGES }}}\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{FDA-DM-T02\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\keepn\sb10\sa10\qc\f1\fs16\cf1{Baseline Demographic and Clinical Characteristics\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12958
+\pard\plain\intbl\sb10\sa10\qc\f1\fs16\cf1{Safety Population\cell}
+{\row}
+\pard{\par}}}
+{\footer\pard\plain\qc{
+{\par}\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\keepn\sb10\sa10\ql\f1\fs16\cf1{Source: ADSL; Program name: fda-dm-t02.sas\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt10\clpadft3\clpadr10\clpadfr3\cellx12960
+\pard\plain\intbl\sb10\sa10\ql\f1\fs16\cf1{Abbreviations: N, number of patients in treatment arm; n, number of patients with given characteristic; SD, standard deviation.\cell}
+{\row}
+\pard}}{\*\bkmkstart IDX2}{\*\bkmkend IDX2}\trowd\trkeep\trhdr\trqc
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrt\brdrs\brdrw10\brdrcf1\clbrdrb\brdrs\brdrw10\brdrcf1\cltxlrtb\clvertalb\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{Characteristics\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline Low Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Xanomeline High Dose{\line}
+(N=84){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Placebo{\line}
+(N=86){\line}
+n (%)\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{Total Population{\line}
+(N=254){\line}
+n (%)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clcbpat8\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{Duration of Disease (Months)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  n\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  84\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{  86\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 254\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Mean (SD)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 48.7 (29.58)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 40.5 (24.69)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 42.6 (30.24)\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{ 43.9 (28.40)\cell}
+{\row}
+\trowd\trkeep\trqc
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\keepn\sb20\sa20\ql\f1\fs16\cf1{  Median\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 40.3\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 36.0\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 35.3\cell}
+\pard\plain\intbl\keepn\sb20\sa20\qc\f1\fs16\cf1{ 36.3\cell}
+{\row}
+\trowd\trkeep\trqc
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx4301
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx6461
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx8621
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx10781
+\clbrdrb\brdrs\brdrw10\brdrcf8\cltxlrtb\clvertalt\clpadt20\clpadft3\clpadr20\clpadfr3\cellx12941
+\pard\plain\intbl\sb20\sa20\ql\f1\fs16\cf1{  Min, Max\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{8, 131\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{2, 135\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{7, 183\cell}
+\pard\plain\intbl\sb20\sa20\qc\f1\fs16\cf1{2, 183\cell}
+{\row}
+\pard}

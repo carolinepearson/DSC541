@@ -1,0 +1,2013 @@
+{
+  "name": "Subjects With Adverse Events Leading to Treatment Discontinuation by System Organ Class and Preferred Term",
+  "id": "FDA-AE-T12",
+  "mainListOfContents": {
+    "name": "List of Planned Analyses",
+    "label": "LOPA",
+    "contentsList": {
+      "listItems": [
+        {
+          "name": "Subjects With Adverse Events Leading to Treatment Discontinuation by System Organ Class and Preferred Term",
+          "level": 1,
+          "order": 1,
+          "outputId": "Out_06",
+          "sublist": {
+            "listItems": [
+              {
+                "name": "    Summary of Subjects by Treatment",
+                "level": 2,
+                "order": 1,
+                "analysisId": "An_58"
+              },
+              {
+                "name": "    Subjects with at least one TEAE leading to discontinuation [4]",
+                "level": 2,
+                "order": 2,
+                "sublist": {
+                  "listItems": [
+                    {
+                      "name": "        Summary of subjects with at least one TEAE leading to discontinuation by Treatment",
+                      "level": 3,
+                      "order": 1,
+                      "analysisId": "An_59"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation, Xanomeline Low Dose vs Placebo",
+                      "level": 3,
+                      "order": 2,
+                      "analysisId": "An_60"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation, Xanomeline High Dose vs Placebo",
+                      "level": 3,
+                      "order": 3,
+                      "analysisId": "An_60_1"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "    SOC {alphabetical order}",
+                "level": 2,
+                "order": 3,
+                "sublist": {
+                  "listItems": [
+                    {
+                      "name": "        Summary of subjects with at least one TEAE leading to discontinuation by Treatment and SOC",
+                      "level": 3,
+                      "order": 1,
+                      "analysisId": "An_61"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation by SOC, Xanomeline Low Dose vs Placebo",
+                      "level": 3,
+                      "order": 2,
+                      "analysisId": "An_62"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation by SOC, Xanomeline High Dose vs Placebo",
+                      "level": 3,
+                      "order": 3,
+                      "analysisId": "An_62_1"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "    PT {alphabetical order}",
+                "level": 2,
+                "order": 4,
+                "sublist": {
+                  "listItems": [
+                    {
+                      "name": "        Summary of subjects with at least one TEAE leading to discontinuation by Treatment, SOC and PT",
+                      "level": 3,
+                      "order": 1,
+                      "analysisId": "An_63"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation by SOC and PT, Xanomeline Low Dose vs Placebo",
+                      "level": 3,
+                      "order": 2,
+                      "analysisId": "An_64"
+                    },
+                    {
+                      "name": "        Comparison of subjects with at least one TEAE leading to discontinuation by SOC and PT, Xanomeline High Dose vs Placebo",
+                      "level": 3,
+                      "order": 3,
+                      "analysisId": "An_64_1"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "version": 1,
+  "otherListsOfContents": [
+    {
+      "name": "List of Planned Outputs",
+      "label": "LOPO",
+      "contentsList": {
+        "listItems": [
+          {
+            "name": "Subjects With Adverse Events Leading to Treatment Discontinuation by System Organ Class and Preferred Term",
+            "level": 1,
+            "order": 1,
+            "outputId": "Out_06"
+          }
+        ]
+      }
+    }
+  ],
+  "terminologyExtensions": [
+    {
+      "id": "TermEx01",
+      "sponsorTerms": [
+        {
+          "id": "TermEx01_01",
+          "submissionValue": "POPULATION SUMMARY",
+          "description": "Summary statistics describing the study population(s)."
+        }
+      ],
+      "enumeration": "AnalysisPurposeEnum"
+    }
+  ],
+  "analysisOutputCategorizations": [
+    {
+      "id": "ANSET",
+      "categories": [
+        {
+          "id": "ANSET_01",
+          "label": "Safety",
+          "subCategorizations": [
+            {
+              "id": "ANSET_01_ANINT",
+              "categories": [
+                {
+                  "id": "ANSET_01_ANINT_05",
+                  "label": "Adverse Events"
+                }
+              ],
+              "label": "Safety Analysis Of Interest"
+            }
+          ]
+        }
+      ],
+      "label": "Analysis Sets"
+    }
+  ],
+  "analysisSets": [
+    {
+      "name": "Safety Population",
+      "description": "All patients randomized and known to have taken at least one dose of randomized drug.",
+      "id": "AnalysisSet_01",
+      "level": 1,
+      "order": 1,
+      "condition": {
+        "dataset": "ADSL",
+        "variable": "SAFFL",
+        "comparator": "EQ",
+        "value": [
+          "Y"
+        ]
+      }
+    }
+  ],
+  "dataSubsets": [
+    {
+      "name": "Subjects with at least one TEAE leading to discontinuation [4]",
+      "label": "Subjects with at least one TEAE leading to discontinuation [4]",
+      "id": "Dss_18",
+      "level": 1,
+      "order": 1,
+      "compoundExpression": {
+        "logicalOperator": "AND",
+        "whereClauses": [
+          {
+            "level": 2,
+            "order": 1,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "TRTEMFL",
+              "comparator": "EQ",
+              "value": [
+                "Y"
+              ]
+            }
+          },
+          {
+            "level": 2,
+            "order": 2,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "AEACN",
+              "comparator": "EQ",
+              "value": [
+                "DRUG WITHDRAWN"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Subjects with at least one TEAE leading to discontinuation, Xanomeline Low Dose or Placebo",
+      "label": "Subjects with at least one TEAE leading to discontinuation [4]",
+      "id": "Dss_79",
+      "level": 1,
+      "order": 1,
+      "compoundExpression": {
+        "logicalOperator": "AND",
+        "whereClauses": [
+          {
+            "level": 2,
+            "order": 1,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "TRTEMFL",
+              "comparator": "EQ",
+              "value": [
+                "Y"
+              ]
+            }
+          },
+          {
+            "level": 2,
+            "order": 2,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "AEACN",
+              "comparator": "EQ",
+              "value": [
+                "DRUG WITHDRAWN"
+              ]
+            }
+          },
+          {
+            "level": 2,
+            "order": 3,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "TRTAN",
+              "comparator": "IN",
+              "value": [
+                "1",
+                "3"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Subjects with at least one TEAE leading to discontinuation, Xanomeline High Dose or Placebo",
+      "label": "Subjects with at least one TEAE leading to discontinuation [4]",
+      "id": "Dss_80",
+      "level": 1,
+      "order": 1,
+      "compoundExpression": {
+        "logicalOperator": "AND",
+        "whereClauses": [
+          {
+            "level": 2,
+            "order": 1,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "TRTEMFL",
+              "comparator": "EQ",
+              "value": [
+                "Y"
+              ]
+            }
+          },
+          {
+            "level": 2,
+            "order": 2,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "AEACN",
+              "comparator": "EQ",
+              "value": [
+                "DRUG WITHDRAWN"
+              ]
+            }
+          },
+          {
+            "level": 2,
+            "order": 3,
+            "condition": {
+              "dataset": "ADAE",
+              "variable": "TRTAN",
+              "comparator": "IN",
+              "value": [
+                "2",
+                "3"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "analysisGroupings": [
+    {
+      "name": "Treatment",
+      "id": "AnlsGrouping_30_Trt01An",
+      "dataDriven": false,
+      "groupingDataset": "ADSL",
+      "groupingVariable": "TRT01AN",
+      "groups": [
+        {
+          "name": "Xanomeline Low Dose \n(N=XX)\nn (%)",
+          "id": "AnlsGrouping_30_Trt01An_01",
+          "level": 1,
+          "order": 1,
+          "condition": {
+            "dataset": "ADSL",
+            "variable": "TRT01AN",
+            "comparator": "EQ",
+            "value": [
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "Xanomeline High Dose \n(N=XX)\nn (%)",
+          "id": "AnlsGrouping_30_Trt01An_02",
+          "level": 1,
+          "order": 2,
+          "condition": {
+            "dataset": "ADSL",
+            "variable": "TRT01AN",
+            "comparator": "EQ",
+            "value": [
+              "2"
+            ]
+          }
+        },
+        {
+          "name": "Placebo \n(N=XX)\nn (%)",
+          "id": "AnlsGrouping_30_Trt01An_03",
+          "level": 1,
+          "order": 3,
+          "condition": {
+            "dataset": "ADSL",
+            "variable": "TRT01AN",
+            "comparator": "EQ",
+            "value": [
+              "3"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Body System or Organ Class",
+      "label": "SOC {alphabetical order}",
+      "id": "AnlsGrouping_32_Aebodsys",
+      "dataDriven": true,
+      "groupingDataset": "ADAE",
+      "groupingVariable": "AEBODSYS"
+    },
+    {
+      "name": "Dictionary-Derived Term",
+      "label": "PT {alphabetical order}",
+      "id": "AnlsGrouping_33_Aedecod",
+      "dataDriven": true,
+      "groupingDataset": "ADAE",
+      "groupingVariable": "AEDECOD"
+    }
+  ],
+  "methods": [
+    {
+      "name": "bigN",
+      "description": "Grouped summary of categorical variable",
+      "label": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence",
+      "id": "Mth_00_1",
+      "operations": [
+        {
+          "name": "n",
+          "label": "n",
+          "id": "Mth_00_1_01_n",
+          "order": 1,
+          "resultPattern": "(N=XX)"
+        }
+      ]
+    },
+    {
+      "name": "Summary by group of a categorical variable",
+      "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence",
+      "label": "Grouped summary of categorical variable",
+      "id": "Mth_03",
+      "operations": [
+        {
+          "name": "n",
+          "label": "n",
+          "id": "Mth_03_01_n",
+          "order": 1,
+          "resultPattern": "XX"
+        },
+        {
+          "name": "%",
+          "label": "%",
+          "id": "Mth_03_02_%",
+          "order": 2,
+          "referencedOperationRelationships": [
+            {
+              "id": "Mth_03_pct_NUM",
+              "referencedOperationRole": {
+                "controlledTerm": "NUMERATOR"
+              },
+              "operationId": "Mth_03_01_n",
+              "description": "The numerator for the calculation of the percentage."
+            },
+            {
+              "id": "Mth_03_pct_DEN",
+              "referencedOperationRole": {
+                "controlledTerm": "DENOMINATOR"
+              },
+              "operationId": "Mth_00_1_01_n",
+              "description": "The denominator for the calculation of the percentage."
+            }
+          ],
+          "resultPattern": "(XX.X)"
+        }
+      ]
+    },
+    {
+      "name": "Summary by group of a categorical variable",
+      "description": "Descriptive summary statistics across groups for a categorical variable, based on subject occurrence",
+      "label": "Grouped summary of categorical variable",
+      "id": "Mth_03_1",
+      "operations": [
+        {
+          "name": "Risk Difference %",
+          "label": "Risk Difference %",
+          "id": "Mth_03_1_01_Risk_Difference_%",
+          "order": 1,
+          "resultPattern": "XX.X"
+        },
+        {
+          "name": "95% CI Low",
+          "label": "95% CI Low",
+          "id": "Mth_03_1_02_95%_CI_Low",
+          "order": 2,
+          "resultPattern": "XX.X"
+        },
+        {
+          "name": "95% CI High",
+          "label": "95% CI High",
+          "id": "Mth_03_1_03_95%_CI_High",
+          "order": 3,
+          "resultPattern": "XX.X"
+        }
+      ]
+    }
+  ],
+  "analyses": [
+    {
+      "name": "Summary of Subjects by Treatment",
+      "id": "An_58",
+      "reason": {
+        "controlledTerm": "SPECIFIED IN SAP"
+      },
+      "purpose": {
+        "sponsorTermId": "TermEx01_01"
+      },
+      "methodId": "Mth_00_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": true
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_00_1_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            }
+          ],
+          "rawValue": "84",
+          "formattedValue": "(N=84)"
+        },
+        {
+          "operationId": "Mth_00_1_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            }
+          ],
+          "rawValue": "84",
+          "formattedValue": "(N=84)"
+        },
+        {
+          "operationId": "Mth_00_1_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            }
+          ],
+          "rawValue": "86",
+          "formattedValue": "(N=86)"
+        }
+      ]
+    },
+    {
+      "name": "Summary of subjects with at least one TEAE leading to discontinuation by Treatment",
+      "id": "An_59",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_18",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": true
+        }
+      ],
+      "referencedAnalysisOperations": [
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_NUM",
+          "analysisId": "An_59"
+        },
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_DEN",
+          "analysisId": "An_58"
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            }
+          ],
+          "rawValue": "2",
+          "formattedValue": "2"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            }
+          ],
+          "rawValue": "1.1904761905",
+          "formattedValue": "(1.2)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            }
+          ],
+          "rawValue": "2.3255813953",
+          "formattedValue": "(2.3)"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation, Xanomeline Low Dose vs Placebo",
+      "id": "An_60",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_79",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            }
+          ],
+          "rawValue": "2.8052448872",
+          "formattedValue": "2.8"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            }
+          ],
+          "rawValue": "-1.135105205",
+          "formattedValue": "-1.1"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            }
+          ],
+          "rawValue": "-5.075455297",
+          "formattedValue": "-5.1"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation, Xanomeline High Dose vs Placebo",
+      "id": "An_60_1",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_80",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        }
+      ]
+    },
+    {
+      "name": "Summary of subjects with at least one TEAE leading to discontinuation by Treatment and SOC",
+      "id": "An_61",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_18",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": true
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        }
+      ],
+      "referencedAnalysisOperations": [
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_NUM",
+          "analysisId": "An_61"
+        },
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_DEN",
+          "analysisId": "An_58"
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "1.1904761905",
+          "formattedValue": "(1.2)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "1.1627906977",
+          "formattedValue": "(1.2)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "1.1627906977",
+          "formattedValue": "(1.2)"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation by SOC, Xanomeline Low Dose vs Placebo",
+      "id": "An_62",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_79",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "1.1029899199",
+          "formattedValue": "1.1"
+        },
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "3.509879051",
+          "formattedValue": "3.5"
+        },
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "1.1029899199",
+          "formattedValue": "1.1"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "-1.162790698",
+          "formattedValue": "-1.2"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "1.1904761905",
+          "formattedValue": "1.2"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "-1.162790698",
+          "formattedValue": "-1.2"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            }
+          ],
+          "rawValue": "-3.428571315",
+          "formattedValue": "-3.4"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            }
+          ],
+          "rawValue": "-1.12892667",
+          "formattedValue": "-1.1"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            }
+          ],
+          "rawValue": "-3.428571315",
+          "formattedValue": "-3.4"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation by SOC, Xanomeline High Dose vs Placebo",
+      "id": "An_62_1",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_80",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        }
+      ]
+    },
+    {
+      "name": "Summary of subjects with at least one TEAE leading to discontinuation by Treatment, SOC and PT",
+      "id": "An_63",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_18",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": true
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        },
+        {
+          "order": 3,
+          "groupingId": "AnlsGrouping_33_Aedecod",
+          "resultsByGroup": true
+        }
+      ],
+      "referencedAnalysisOperations": [
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_NUM",
+          "analysisId": "An_63"
+        },
+        {
+          "referencedOperationRelationshipId": "Mth_03_pct_DEN",
+          "analysisId": "An_58"
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "0"
+        },
+        {
+          "operationId": "Mth_03_01_n",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "1",
+          "formattedValue": "1"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "1.1904761905",
+          "formattedValue": "(1.2)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_01"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_02"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "1.1627906977",
+          "formattedValue": "(1.2)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "0",
+          "formattedValue": "(0.0)"
+        },
+        {
+          "operationId": "Mth_03_02_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An",
+              "groupId": "AnlsGrouping_30_Trt01An_03"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "1.1627906977",
+          "formattedValue": "(1.2)"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation by SOC and PT, Xanomeline Low Dose vs Placebo",
+      "id": "An_64",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_79",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        },
+        {
+          "order": 3,
+          "groupingId": "AnlsGrouping_33_Aedecod",
+          "resultsByGroup": true
+        }
+      ],
+      "results": [
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "1.1029899199",
+          "formattedValue": "1.1"
+        },
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "3.509879051",
+          "formattedValue": "3.5"
+        },
+        {
+          "operationId": "Mth_03_1_03_95%_CI_High",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "1.1029899199",
+          "formattedValue": "1.1"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "-1.162790698",
+          "formattedValue": "-1.2"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "1.1904761905",
+          "formattedValue": "1.2"
+        },
+        {
+          "operationId": "Mth_03_1_01_Risk_Difference_%",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "-1.162790698",
+          "formattedValue": "-1.2"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "CARDIAC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "MYOCARDIAL INFARCTION"
+            }
+          ],
+          "rawValue": "-3.428571315",
+          "formattedValue": "-3.4"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "SUDDEN DEATH"
+            }
+          ],
+          "rawValue": "-1.12892667",
+          "formattedValue": "-1.1"
+        },
+        {
+          "operationId": "Mth_03_1_02_95%_CI_Low",
+          "resultGroups": [
+            {
+              "groupingId": "AnlsGrouping_30_Trt01An"
+            },
+            {
+              "groupingId": "AnlsGrouping_32_Aebodsys",
+              "groupValue": "PSYCHIATRIC DISORDERS"
+            },
+            {
+              "groupingId": "AnlsGrouping_33_Aedecod",
+              "groupValue": "COMPLETED SUICIDE"
+            }
+          ],
+          "rawValue": "-3.428571315",
+          "formattedValue": "-3.4"
+        }
+      ]
+    },
+    {
+      "name": "Comparison of subjects with at least one TEAE leading to discontinuation by SOC and PT, Xanomeline High Dose vs Placebo",
+      "id": "An_64_1",
+      "reason": {
+        "controlledTerm": "DATA DRIVEN"
+      },
+      "purpose": {
+        "controlledTerm": "SECONDARY OUTCOME MEASURE"
+      },
+      "methodId": "Mth_03_1",
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ],
+      "dataset": "ADAE",
+      "variable": "USUBJID",
+      "analysisSetId": "AnalysisSet_01",
+      "dataSubsetId": "Dss_80",
+      "orderedGroupings": [
+        {
+          "order": 1,
+          "groupingId": "AnlsGrouping_30_Trt01An",
+          "resultsByGroup": false
+        },
+        {
+          "order": 2,
+          "groupingId": "AnlsGrouping_32_Aebodsys",
+          "resultsByGroup": true
+        },
+        {
+          "order": 3,
+          "groupingId": "AnlsGrouping_33_Aedecod",
+          "resultsByGroup": true
+        }
+      ]
+    }
+  ],
+  "globalDisplaySections": [
+    {
+      "sectionType": "Header",
+      "subSections": [
+        {
+          "id": "GlobalDisp_Header_01",
+          "text": "CDISC - eTFL Portal"
+        },
+        {
+          "id": "GlobalDisp_Header_02",
+          "text": "Generated using TFL Designer (Community, v1.0)"
+        },
+        {
+          "id": "GlobalDisp_Header_03",
+          "text": "Page x of y"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Subjects With Adverse Events Leading to Treatment Discontinuation by System Organ Class and Preferred Term",
+      "id": "Out_06",
+      "displays": [
+        {
+          "order": 1,
+          "display": {
+            "name": "=B3",
+            "id": "Disp_06",
+            "version": 1,
+            "displayTitle": "=F3",
+            "displaySections": [
+              {
+                "sectionType": "Header",
+                "orderedSubSections": [
+                  {
+                    "order": 1,
+                    "subSectionId": "GlobalDisp_Header_01"
+                  },
+                  {
+                    "order": 2,
+                    "subSectionId": "GlobalDisp_Header_02"
+                  },
+                  {
+                    "order": 3,
+                    "subSectionId": "GlobalDisp_Header_03"
+                  }
+                ]
+              },
+              {
+                "sectionType": "Title",
+                "orderedSubSections": [
+                  {
+                    "order": 1,
+                    "subSection": {
+                      "id": "Disp_06_Title_01",
+                      "text": "FDA-AE-T12"
+                    }
+                  },
+                  {
+                    "order": 2,
+                    "subSection": {
+                      "id": "Disp_06_Title_02",
+                      "text": "Subjects With Adverse Events Leading to Treatment Discontinuation by System Organ Class and Preferred Term"
+                    }
+                  },
+                  {
+                    "order": 3,
+                    "subSection": {
+                      "id": "Disp_06_Title_03",
+                      "text": "Safety Population"
+                    }
+                  }
+                ]
+              },
+              {
+                "sectionType": "Footnote",
+                "orderedSubSections": [
+                  {
+                    "order": 1,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_01",
+                      "text": "Source: ADAE; Program name: fda-ae-t12.sas;"
+                    }
+                  },
+                  {
+                    "order": 2,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_02",
+                      "text": "Abbreviations: CI, confidence interval; MedDRA, Medical Dictionary for Regulatory Activities; N, number of subjects in treatment arm; n, number of subjects with at least one event; TEAE, Treatment-Emergent Adverse Events; SOC, System Organ Class; PT, Preferred Term."
+                    }
+                  },
+                  {
+                    "order": 3,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_03",
+                      "text": "Note: Subjects are counted once within each system organ class and preferred term."
+                    }
+                  },
+                  {
+                    "order": 4,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_04",
+                      "text": "[1] All adverse events were coded using MedDRA version xx.x."
+                    }
+                  },
+                  {
+                    "order": 5,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_05",
+                      "text": "[2] Difference is shown between Xanomeline Low Dose vs. Placebo."
+                    }
+                  },
+                  {
+                    "order": 6,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_06",
+                      "text": "[3] Difference is shown between Xanomeline High Dose vs. Placebo."
+                    }
+                  },
+                  {
+                    "order": 7,
+                    "subSection": {
+                      "id": "Disp_06_Footnote_07",
+                      "text": "[4] Treatment-emergent adverse event is defined as AE with onset after the first dose of study drug."
+                    }
+                  }
+                ]
+              },
+              {
+                "sectionType": "Rowlabel Header",
+                "orderedSubSections": [
+                  {
+                    "order": 1,
+                    "subSection": {
+                      "id": "Disp_06_RowlabelHeader_01",
+                      "text": "System Organ Class\n   Preferred Term [1]"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "version": 1,
+      "categoryIds": [
+        "ANSET_01",
+        "ANSET_01_ANINT_05"
+      ]
+    }
+  ],
+  "@type": "ReportingEvent"
+}
