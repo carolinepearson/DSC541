@@ -1,78 +1,87 @@
 # Project Folder Inventory
 
-This repository folder contains the main project artifacts for the DSC541 AI-assisted SAS TFL programming workflow. The `project/` folder is organized into reference material, compliance guidance, poster materials, prompt examples, generated SAS artifacts, and imported TFL design metadata.
+This repository contains the project assets for the DSC541 AI-assisted SAS TFL programming workflow. The `project/` directory combines reference standards, example study metadata, prompt definitions, generated outputs, and study data used to support TFL generation and validation work.
 
 ## Top-Level Structure
 
-The project directory contains the following major folders:
+The project folder currently includes:
 
-- `cdisc/` — CDISC reference documents and standards resources.
-- `fda/` — FDA safety and standard safety table guidance PDFs.
-- `poster/` — Poster and presentation materials, including the project proposal, generated report, abstract, and supporting reference papers.
-- `prompts/` — Input prompts used to drive the TFL generation workflow.
-- `s0000000/` — Generated study data and SAS programming artifacts.
-- `tfl_designer_imports/` — Import metadata for TFL design and analysis metadata.
+- `cdisc/` — core CDISC reference documents and standards PDFs.
+- `cdisc_etfl/` — example ADaM and define.xml-based TFL metadata packages used for CDISC-style case studies.
+- `fda/` — FDA safety and standard safety table reference materials.
+- `poster/` — project proposal, report, and supporting reference papers.
+- `prompts/` — workflow prompt templates.
+- `s0000000/` — generated study artifacts and output directory.
+- `tfl_designer_imports/` — imported TFL design metadata and XML definitions.
 
 ## Folder Inventory
 
 ### `cdisc/`
 
-Reference and standards materials from CDISC:
+Reference materials from CDISC:
 
 - `ADaM Oncology Examples v1.0_Provisional.pdf`
 - `ADaMIG_v1.3.pdf`
-- `adam_examples_final.pdf`
 - `ADaM_OCCDS_Implementation_Guide v1.1.pdf`
+- `adam_examples_final.pdf`
 - `adam_tte_final_v1.pdf`
+
+### `cdisc_etfl/`
+
+Example analysis and TFL datasets representing CDISC-style study packages and metadata bundles.
+
+- `adamdata/` — ADaM datasets and metadata files, including:
+  - `adae.*`, `adlbc.*`, `adlbh.*`, `adlbhy.*`, `adqsadas.*`, `adqscibc.*`, `adqsnpix.*`, `adsl.*`, `adtte.*`, `advs.*`
+  - `define.xml`, `define.html`, and `define-v1-updated-html.xsl`
+- `ars-lb-t01_20241022/` — liver safety example package with `adlb.xpt`, `adsl.xpt`, `ars-lb-t01-ard.json`, `ars-lb-t01-ars.json`, `define.xml`, and documentation.
+- `ars-lb-t02_20241022/` — second liver safety example package with `adlb.xpt`, `adsl.xpt`, JSON reports, and `define.xml`.
+- `ars-vs-t01_20241022/` — vital signs example package with `adsl.xpt`, `advs.xpt`, JSON outputs, and `define.xml`.
+- `fda-ae-t06_20241022/` — AE example package with `adae.xpt`, `adsl.xpt`, JSON outputs, and `define.xml`.
+- `fda-ae-t07_20241022/` — AE example package with `adsl.xpt`, JSON outputs, and `define.xml`.
+- `fda-ae-t09_20241022/` — AE example package with `adae.xpt`, `adsl.xpt`, JSON outputs, and `define.xml`.
+- `fda-ae-t12_20241022/` — additional AE package directory.
+- `fda-ae-t13_20241022/` — additional AE package directory.
+- `fda-ae-t36_20241022/` — additional AE package directory.
+- `fda-dm-t02_20241022/` — demographic example directory.
+- `fda-ds-t04_20241022/` — disposition example directory.
+- `fda-ex-t05_20241022/` — exposure example directory.
 
 ### `fda/`
 
-FDA and related safety guidance materials:
+FDA-related safety and methodology guidance materials.
 
 - `sbia-stf-508-slides-beasley-20260623_0.pdf`
-- `Standard Safety Tables and Figures Muscle Injury Targeted Analysis Guide - 2025.pdf`
 - `standard_safety_tables_and_figures_integrated_guide_2025.pdf`
+- `Standard Safety Tables and Figures Muscle Injury Targeted Analysis Guide - 2025.pdf`
 - `standard_safety_tables_and_figures_kidney_injury_targeted_analysis_guide_-_2025.pdf`
 
 ### `poster/`
 
-Poster and project writing deliverables:
+Project proposal and presentation materials:
 
 - `AI_Assisted_SAS_TFL_Programming_Report.txt`
-- `AI_Assisted_TFL_Automation_Summary.docx`
-- `DSC541 Practicum in Data Science I - Graduate Student Project Proposal.docx`
-- `DSS Poster Abstract.docx`
 - `Graduate_Student_Project_Proposal_AI_TFL_Agent.md`
-- `reference papers/` — supporting literature PDFs for the poster and project narrative.
+- `reference papers/` — supporting literature referenced in the project.
 
 ### `prompts/`
 
-Prompt template files for the workflow:
+Workflow prompt files used to drive SAS TFL generation:
 
 - `initial_prompt.txt`
 - `sas_tfl_program_creation_prompt.txt`
 
 ### `s0000000/`
 
-Generated study and run artifacts created under a sample study id `s0000000`.
+Generated sample study directory used for demonstration outputs.
 
-- `final/`
-  - `draft1/`
-    - `adamdata/` — ADaM data sets (`adae.sas7bdat`, `adpc.sas7bdat`, `adsl.sas7bdat`, `adtte.sas7bdat`)
-    - `adamprog/` — generated ADaM SAS programs (`adae.sas`, `adpc.sas`, `adsl.sas`, `adtte.sas`)
-    - `docs/` — shell and metadata documentation files (`DSS TFL Shells_Tables.json`, `DSS TFL Shells_Tables.xml`, `DSS TFL Shells.json`, `m_safety.xlsx`, `tnf.xlsx`, `TOC.xlsx`, `s0000000_final_project_summary.docx`)
-    - `prog/` — TFL SAS outputs and logs (`t-aebrief.sas`, `t-demog.sas`, `t-disp.sas`, `t-os.sas`, `t-pkpc.sas`, `t-s-aebrief.sas`, `t-s-demog.sas`, `t-s-disp.sas`, and corresponding `.log`, `.out`, `.pdf` outputs)
-    - `tools/` — support macros and data conversion utilities (`formats.sas7bcat`, `init.inc`, `m_safety.sas7bdat`, `metadata.txt`, `mk-safety.sas`, `std-safetyfmt.sas`, `taskfmt.sas`, `tnf.inc`, `tnfconvert.sas`, `toc.txt`, `val_report.sas`, `val_report.sas7bdat`)
-    - `validation/` — validation SAS file (`v-mk-safety.sas`)
-    - `vdata/` — validation and comparison data sets (`t_pkpc_orig.sas7bdat`, `t_pkpc.sas7bdat`, `t_s_aebrief.sas7bdat`, `t_s_demog.sas7bdat`, `t_s_disp.sas7bdat`, `v_t_aebrief.sas7bdat`, `v_t_demog.sas7bdat`, `v_t_disp.sas7bdat`, `v_t_os.sas7bdat`)
+- `final/` — final project outputs and generated artifacts.
 
 ### `tfl_designer_imports/`
 
-Imported design and metadata templates:
+Imported design metadata and XML configuration files:
 
 - `all-sdtm-spec-define.xml`
-- `gilead_adam_metadata_onc.xlsx`
 
 ## Notes
 
-This folder is intended as a project-documentation and artifact collection area for the generated demonstration study. The artifact set combines source references, model prompts, output generation specs, and SAS programming outputs in one workspace.
+This folder is intended to capture the study references, generated SAS outputs, and example metadata used in the AI-assisted TFL programming workflow. The project brings together standards documents, example define.xml packages, prompt templates, and output artifacts in a single workspace.
